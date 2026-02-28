@@ -2,14 +2,7 @@
 // Copia exactament el bloc 'firebaseConfig' que tens al teu webRepte.js
 // 1. CONFIGURACIÓ
     const firebaseConfig = {
-      apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
-      authDomain: "pirates-d1292.firebaseapp.com",
-      databaseURL: "https://pirates-d1292-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "pirates-d1292",
-      storageBucket: "pirates-d1292.firebasestorage.app",
-      messagingSenderId: "965399900397",
-      appId: "1:965399900397:web:4ff10a857e782be410dce4",
-      measurementId: "G-F9RVP1FMT4"
+      // ...
     };
 
 // Inicialitzem Firebase abans de qualsevol crida
@@ -223,4 +216,5 @@ window.carregarRepteExistent = function() {
         console.error("Error al carregar:", err);
         Swal.fire('Error', 'No s\'ha pogut connectar amb la base de dades', 'error');
     });
+
 };  
