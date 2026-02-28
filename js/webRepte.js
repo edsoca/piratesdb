@@ -23,14 +23,7 @@ window.tancarSessioJoc = function() {
 // =========================================
 // ASSEGURA'T QUE AQUESTA KEY ÉS LA DEL TEU PROJECTE NOU
 const firebaseConfig = {
-  apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
-  authDomain: "pirates-d1292.firebaseapp.com",
-  databaseURL: "https://pirates-d1292-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "pirates-d1292",
-  storageBucket: "pirates-d1292.firebasestorage.app",
-  messagingSenderId: "965399900397",
-  appId: "1:965399900397:web:4ff10a857e782be410dce4",
-  measurementId: "G-F9RVP1FMT4"
+  // ...
 };
 
 if (!firebase.apps.length) {
@@ -642,3 +635,4 @@ function dibuixarMapaAmbGrid() {
         }
     }
 }
+
