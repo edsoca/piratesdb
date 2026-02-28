@@ -1,0 +1,41 @@
+{
+  "titol_repte": "El Diari de Sang del Navegant Cec",
+  "tempsFinal": 1800,
+  "levels": {
+    "level1": {
+      "titol": "L'INICI DEL RASTRE",
+      "contingut": "El vent bufa fort i la taverna fa pudor de rom ranci. Sobre la taula, sota l'espelma, trobes un diari antic amb les pàgines tacades de sang. Pertanyia a un navegant cec. A la primera pàgina hi diu: <i>'El meu viatge de bogeria va començar servint al vaixell més poderós i terrorífic dels set mars. Un monstre de fusta imbatible.'</i><br><br><b>Missió:</b> Troba el nom del vaixell (<b>ships</b>) que té el <b>màxim nombre de canons (numberOfCanons)</b>. Com es diu aquest vaixell?",
+      "solucio": "LeChucks Demon Ship"
+    },
+    "level2": {
+      "titol": "EL MOTÍ SANGNANT",
+      "contingut": "El diari continua amb gargots histèrics: <i>'El capità va embogir. Vam atracar en una illa maleïda de la qual no vull recordar el nom, però recordo que la massacre va ser brutal. Vam saquejar tots els seus racons, acumulant desenes de monedes d'or fins a esgotar-les.'</i><br><br><b>Missió:</b> Volem saber quant d'or van robar d'aquella illa en concret (<b>Isla de Muerta</b>). Quin és el botí total d'or?",
+      "solucio": "15000" 
+    },
+    "level3": {
+      "titol": "BUSCANT EL REFUGI",
+      "contingut": "Molt bé. Tenim la quantitat d'or, però... on van anar a amagar-lo? El navegant cec va escriure: <i>'Vam fugir amb la bodega plena. Ens vam refugiar a l'illa menys habitada dels nostres mars, un lloc on gairebé no hi ha ningú.'</i><br><br><b>Missió:</b> Troba el nom de l'illa (<b>islands</b>) que té la <b>població (population) MÉS BAIXA</b> de tota la base de dades.<br><br>⚠️ <b>ATENCIÓ:</b> Un cop sàpigues el nom de l'illa, <b>escriu com a resposta la seva COORDENADA (Lletra-Número, ex: A-1)</b>.",
+      "solucio": "F-5"
+    },
+    "level4": {
+      "titol": "DESXIFRANT EL RUMB",
+      "contingut": "Efectivament, la coordenada és correcta! Allà s'hi van amagar. El diari, però, té una pàgina arrencada i només hi podem llegir un destí posterior xifrat: <i>'Després d'amagar una part del tresor, els supervivents vam salpar cap a la coordenada <b>B-4</b>. Allà ens esperava el destí final.'</i><br><br><b>Missió:</b> Un cop tinguis el nom de l'illa, esbrina quantes platges (<b>numberOfBeaches</b>) té. Escriu només el número.",
+      "solucio": "2"
+    },
+    "level5": {
+      "titol": "EL PIRATA TRAÏDOR",
+      "contingut": "Ets a Monkey Island. Aquí el navegant cec va ser traït. Llegeixes amb dificultat l'última entrada del diari: <i>'L'home que em va treure els ulls i em va abandonar aquí va dibuixar un mapa de tot el que havíem fet. I sé que va amagar l'original.'</i><br><br><b>Missió:</b> Necessitem saber qui és l'autor del mapa. Busca el nom del pirata (<b>name</b>) que ha copiat (<b>copyMaps</b>) un mapa on l'escala de l'original (<b>scale</b> d'<b>originalMaps</b>) sigui exactament '1:10000'. Qui és el traïdor?",
+      "solucio": "Guybrush Threepwood"
+    },
+    "level6": {
+      "titol": "EL TRESOR MALEÏT",
+      "contingut": "El traïdor està desemmascarat. L'alè final del diari deixa una reflexió esfereïdora abans de morir: <i>'L'or ens va tornar bojos, però la gran mentida és que allò que vam amagar a les entranyes de Monkey Island no eren simples monedes... era una cosa molt més fosca.'</i><br><br><b>Missió:</b> Descobreix quin és el <b>nom del tresor</b> amagat a l'illa 'Monkey Island'. Com es diu el tresor maleït?",
+      "solucio": "Big Whoop"
+    },
+    "level7": {
+      "titol": "EL COFRE FINAL",
+      "contingut": "Has trobat la ubicació del Big Whoop! Davant teu tens el cofre enterrat, però el pany està oxidat i requereix que introdueixis la quantitat de temps que el vaixell del vostre botxí va estar atracat allà per obrir-se.<br><br><b>Missió:</b> Quants dies (<b>days</b>) va estar atracat el vaixell 'LeChucks Demon Ship' a l'illa 'Monkey Island'? Introdueix el número exacte per obrir el pany i guanyar el joc!",
+      "solucio": "15"
+    }
+  }
+}

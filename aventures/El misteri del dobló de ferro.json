@@ -1,0 +1,36 @@
+{
+  "titol_repte": "El Misteri del Dobló de Ferro",
+  "tempsFinal": 2400,
+  "levels": {
+    "level1": {
+      "titol": "EL DESCOBRIMENT A LES GOLFES",
+      "contingut": "Plou a bots i barrals. Us heu refugiat a les golfes de casa i, remenant baguls antics, trobeu un mapa polsegós amb un estrany doblaó de ferro. El diari adjunt diu que el mapa va ser traçat pel pirata més pacífic de la història, l'únic que es dedicava a la cartografia i refusava la violència.<br><br><b>Missió:</b> Necessitem saber qui és l'autor del mapa. Fes una consulta per trobar el nom del pirata (<b>name</b>) que ha copiat algun mapa (taula `copyMaps`) però que <b>MAI</b> ha participat en cap combat (taula `fights`, ni com a pirate1 ni com a pirate2).",
+      "solucio": "Nico Robin"
+    },
+    "level2": {
+      "titol": "EL DOBLÓ FORADAT (REPTE DOBLE)",
+      "contingut": "Darrere del mapa hi ha una endevinalla escrita per Nico Robin: <i>'El doblaó té dos forats. Si el poses sobre el mapa de la paret, assenyalarà l'illa on comença l'aventura, però primer necessites la latitud i la longitud.'</i><br><br><b>Missió: Aquest enigma requereix 2 passos i obrir el MAPA GROC.</b><br>1️⃣ <b>La Lletra:</b> Fes una consulta per trobar el pirata que pesa EXACTAMENT 100.0 kg. La <b>primera lletra</b> del seu nom és la fila del mapa.<br>2️⃣ <b>El Número:</b> Fes una altra consulta per COMPTAR quants pirates tenen MÉS de 400 anys. El <b>resultat (el recompte)</b> és la columna.<br><br>Ara junta la lletra i el número (ex: A-8), obre el teu mapa groc, i escriu <b>el nom exacte de l'illa</b> que s'hi amaga com a resposta.",
+      "solucio": "Illa del Far Antic"
+    },
+    "level3": {
+      "titol": "ELS TÚNELS SOTA EL FAR",
+      "contingut": "Heu anat amb les bicicletes fins a l'Illa del Far Antic, de nit i d'amagat. Sota els fonaments del far heu descobert una entrada secreta a uns túnels subterranis de pedra! Una gran porta bloqueja el pas i un mecanisme exigeix un codi numèric per obrir-se. A la paret hi diu: <i>'El pes d'allò que s'amaga aquí obrirà el camí'</i>.<br><br><b>Missió:</b> Fes una consulta relacionant `treasures` i `islands` per descobrir el pes (<b>weight</b>) del tresor que hi ha amagat a l'<b>Illa del Far Antic</b>. Escriu el número exacte.",
+      "solucio": "40.5"
+    },
+    "level4": {
+      "titol": "LA TRAMPA DE LES BALANCES",
+      "contingut": "La porta de pedra cedeix! Però de sobte, un mecanisme s'activa. Teniu 5 minuts abans que el sostre caigui! Hi ha una balança gegant i necessiteu posar-hi el nombre exacte de monedes d'or per aturar la trampa. Una inscripció diu: <i>'Només la suma de l'or de les terres més petites et salvarà. Suma l'or d'aquelles illes que només tenen 1 platja.'</i><br><br><b>Missió:</b> Fes un JOIN entre illes i tresors. Calcula la suma total (<b>SUM</b>) de monedes d'or (<b>goldCoins</b>) d'aquells tresors que estan en illes que tenen <b>exactament 1 platja (numberOfBeaches = 1)</b>.",
+      "solucio": "1587"
+    },
+    "level5": {
+      "titol": "LA GRUTA DEL LLEGENDARI VAIXELL",
+      "contingut": "Cau l'última moneda, el sostre s'atura en sec. Us deixeu caure per un tobogan d'aigua subterrani fins a aterrar en una immensa gruta amagada dins la terra. Allà, il·luminat per l'aigua fosforescent, descansa el vaixell pirata més antic i viatger de tots. El vaixell que ha passat més temps atracat.<br><br><b>Missió:</b> Fes un JOIN entre `ships` i `ships_islands`. Agrupa per vaixell i calcula quin vaixell té la SUMA més gran de dies (<b>days</b>) atracat, sumant els dies de totes les illes on ha estat. Quin és el nom d'aquest vaixell?",
+      "solucio": "The Sea Monkey"
+    },
+    "level6": {
+      "titol": "FUGINT DELS PERSEGUIDORS",
+      "contingut": "Pugeu al The Sea Monkey! La bodega és plena d'or! Però de sobte, sentiu veus familiars: són una banda de lladres locals que us han seguit! Per espantar-los i poder fugir pel túnel marí del vaixell, heu de disfressar un de vosaltres com el pirata més temible del vaixell <i>'Queen Anne's Revenge'</i> i cridar el seu nom.<br><br><b>Missió:</b> Fes un JOIN entre `pirates` i `ships`. Busca quin pirata pertany al vaixell <b>Queen Anne's Revenge</b> i té el nombre més gran de cicatrius (<b>numberOfScars</b>). Quin és el seu nom?",
+      "solucio": "Blackbeard"
+    }
+  }
+}

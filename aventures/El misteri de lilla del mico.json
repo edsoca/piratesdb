@@ -1,0 +1,36 @@
+"illa-del-mico": {
+  "tempsFinal": 1500,
+  "titol_repte": "El Misteri de l'Illa del Mico",
+  "levels": {
+    "level1": {
+      "titol": "Sector 1: El Gran Lladre",
+      "contingut": "<h2>Sector 1: El Gran Lladre</h2><p>Sóc en Guybrush Threepwood, un temible pirata! Per comprar un vaixell de segona mà necessito saber l'or que podria aconseguir.</p><p>Quantes monedes d'or (<b>goldCoins</b>) té el tresor anomenat <b>'Big Whoop'</b> a la taula <b>treasures</b>?</p>",
+      "solucio": "10000"
+    },
+    "level2": {
+      "titol": "Sector 2: El Lladre de Mapes",
+      "contingut": "<h2>Sector 2: El Lladre de Mapes</h2><p>Algú ha robat una còpia del nostre mapa! Sabem que va ser un pirata molt excèntric.</p><p>Busca a la taula <b>copyMaps</b> (creuant-la amb <b>pirates</b>) la data exacta (<b>date</b>) en què el pirata <b>'Jack Sparrow'</b> va fer una còpia d'un mapa. Format (YYYY-MM-DD).</p>",
+      "solucio": "1720-05-10"
+    },
+    "level3": {
+      "titol": "Sector 3: Dies a la Deriva",
+      "contingut": "<h2>Sector 3: Dies a la Deriva</h2><p>Per arribar a l'Illa del Mico, hem de llogar el vaixell adequat: el 'The Sea Monkey'.</p><p>Necessitem saber quants dies (<b>days</b> de la taula <b>ships_islands</b>) ha estat atracat el vaixell <b>'The Sea Monkey'</b> a l'illa <b>'Monkey Island'</b>. Et caldrà creuar <b>ships_islands</b>, <b>islands</b> i <b>ships</b>.</p>",
+      "solucio": "3650"
+    },
+    "level4": {
+      "titol": "Sector 4: Baralles de Taverna",
+      "contingut": "<h2>Sector 4: Baralles de Taverna</h2><p>El temible pirata fantasma LeChuck ens busca. Hem de mesurar la seva força.</p><p>Quants combats en total (fent servir <code>COUNT</code> a la taula <b>fights</b>) ha tingut el pirata el nom del qual és <b>'Zombie LeChuck'</b>? <i>(Pista: has de mirar tant si és idPirate1 com si és idPirate2, creuant amb la taula pirates)</i>.</p>",
+      "solucio": "2"
+    },
+    "level5": {
+      "titol": "Sector 5: El Codi de la Sacerdotessa",
+      "contingut": "<h2>Sector 5: El Codi de la Sacerdotessa</h2><p>La Sacerdotessa del vudú ens demana una contrasenya de pas.</p><p>Busca el nom de l'illa que té exactament <b>0 platges</b> (<b>numberOfBeaches</b>) però que té més de 0 habitants (<b>population</b>). Un cop la trobis, la resposta és el seu nom escrit en <b>MAJÚSCULES</b>, substituint totes les lletres <b>'A'</b> per <b>'O'</b>. <br><i>(Fes servir <code>UPPER()</code> i <code>REPLACE()</code>)</i>.</p>",
+      "solucio": "SCOBB ISLOND"
+    },
+    "level6": {
+      "titol": "Sector 6: La Gran X",
+      "contingut": "<h2>Sector 6: La Gran X</h2><p>Ja hi som! Per obrir la porta del tresor i guanyar, hem de posar al mecanisme la suma total de l'or de la nostra ruta.</p><p>Calcula la suma d'or (<code>SUM(goldCoins)</code>) d'aquells tresors (<b>treasures</b>) que es troben a les illes visitades (<b>ships_islands</b>) pel vaixell on està assignat el pirata <b>'Guybrush Threepwood'</b> (taula <b>pirates</b>). <i>(Creua treasures -> islands -> ships_islands -> pirates utilitzant els JOINs corresponents!)</i>.</p>",
+      "solucio": "10000"
+    }
+  }
+}

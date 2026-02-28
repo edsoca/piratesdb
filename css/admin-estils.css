@@ -1,0 +1,220 @@
+:root {
+    --gold: #ffcc00;
+    --dark-bg: #0c0800;
+    --paper: #f4e4bc; /* Color pergamí per als detalls */
+}
+
+/* Regla universal per evitar que els elements surtin del pare */
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--dark-bg);
+    /* Fons amb degradat radial per donar profunditat */
+    background-image: radial-gradient(circle at center, rgba(40, 30, 10, 0.9) 0%, rgba(0,0,0,1) 100%);
+    color: #e0d0b0;
+    font-family: 'Special Elite', system-ui; /* Font per defecte */
+    padding: 20px;
+}
+
+.admin-container {
+    max-width: 1000px;
+    margin: auto;
+    border: 3px double var(--gold);
+    padding: 30px;
+    background: rgba(20, 15, 5, 0.95);
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+h1 {
+    color: var(--gold);
+    text-align: center;
+    font-family: 'Pirata One', serif; /* Font Pirata */
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Línia combinada per Nom i Temps */
+.header-fields {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.field-group { flex: 1; }
+.field-group.short { flex: 0 0 160px; }
+
+label {
+    display: block;
+    color: var(--gold);
+    font-family: 'Eagle Lake', serif; /* Font cal·ligràfica */
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+
+/* O específicament per als camps del formulari */
+input, textarea {
+    width: 100%; /* Ara sí que serà el 100% real del contenidor */
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #5d4037;
+    color: #f4e4bc;
+    padding: 12px;
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    border-radius: 4px;
+    display: block; /* Assegura que ocupin la seva línia */
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: rgba(40, 30, 10, 0.8);
+    /* Resplendor daurada */
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Estil Acordió */
+.pregunta-card {
+    background: rgba(44, 30, 20, 0.3);
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    margin-bottom: 12px;
+}
+
+.missio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: rgba(255, 204, 0, 0.05);
+}
+
+.missio-header strong {
+    font-family: 'Pirata One', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.btn-delete {
+    background: #5a0000;
+    color: #ffaaaa;
+    border: 1px solid #ff4444;
+    padding: 6px 15px;
+    font-family: 'Special Elite', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #8b0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    color: white;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 204, 0, 0.1);
+    border: 2px dashed var(--gold);
+    color: var(--gold);
+    font-family: 'Eagle Lake', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Amaguem el cos de la missió per defecte */
+.missio-body {
+    display: none; 
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* Només el mostrem quan la card està activa */
+.pregunta-card.activa .missio-body {
+    display: block;
+}
+
+/* Estil per a la fletxa que indica si està obert/tancat */
+.fletxa {
+    transition: transform 0.3s;
+    display: inline-block;
+    color: var(--gold);
+}
+
+.pregunta-card.activa .fletxa {
+    transform: rotate(180deg); /* La fletxa gira quan s'obre */
+}
+
+/* Contenidor d'accions al final */
+/* Contenidor fix a la cantonada inferior dreta */
+/* 3. Botó de guardar més petit i elegant */
+.actions {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.btn-save {
+    background: linear-gradient(145deg, #bf953f, #aa771c);
+    color: #1a1005;
+    border: 2px solid #5a4010;
+    padding: 12px 25px; /* Mida més continguda */
+    font-family: 'Pirata One', serif;
+    font-size: 1.3rem; /* Font una mica més petita */
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: pulse-gold 2s infinite;
+}
+
+.btn-save::before {
+    content: "⚓";
+    font-size: 1.4rem;
+}
+
+.btn-save:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Animació de polsació suau per recordar que s'ha de guardar */
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+}
+
+.btn-save {
+    animation: pulse-gold 2s infinite;
+}
+
+/* Botó Buscar al costat de l'ID */
+button[onclick="carregarRepteExistent()"] {
+    background: rgba(255, 204, 0, 0.1) !important;
+    border: 1px solid var(--gold) !important;
+    color: var(--gold) !important;
+    font-family: 'Special Elite', serif !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+button[onclick="carregarRepteExistent()"]:hover {
+    background: var(--gold) !important;
+    color: black !important;
+}

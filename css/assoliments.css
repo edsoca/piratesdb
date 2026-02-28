@@ -1,0 +1,180 @@
+/* =========================================
+   DISSENY GENERAL DE L'ÀLBUM
+   ========================================= */
+.album-assoliments {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 2px solid #555;
+    border-radius: 12px;
+    color: white;
+    font-family: 'IM Fell English', serif; 
+    font-size: 1.1rem; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.album-assoliments h2 {
+    font-family: 'Pirata One', cursive;
+    font-size: 4.5rem; 
+    color: #ffd700; 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* BARRA DE PROGRÉS */
+.progress-bar-container { 
+    width: 100%; 
+    background: #222; 
+    border-radius: 10px; 
+    height: 22px; 
+    margin-top: 15px; 
+    overflow: hidden;
+    border: 1px solid #444;
+}
+.progress-bar { 
+    height: 100%; 
+    background: linear-gradient(90deg, #ff8c00, #ffd700); 
+    width: 0%; 
+    transition: width 1.5s ease-in-out; 
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+.text-progres { 
+    text-align: center; 
+    font-size: 1.2rem; 
+    color: #bbb; 
+    margin-top: 8px; 
+}
+
+/* LA GRAELLA D'ENGANXINES */
+.graella-assoliments { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+    margin-top: 35px; 
+}
+
+.enganxina {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid transparent;  
+    position: relative; 
+    overflow: hidden;   
+    min-height: 250px; /* Opcional: per assegurar que totes les caixes fan el mateix alt */
+}
+
+.enganxina img { 
+    width: 100px; 
+    height: 100px; 
+    object-fit: contain; 
+    margin-bottom: 12px;
+    transition: all 0.4s ease; 
+}
+
+.enganxina h3 { 
+    font-size: 1.5rem; 
+    margin: 5px 0; 
+    letter-spacing: 1px;
+    color: #eee;
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+    overflow: hidden;
+}
+
+.enganxina p { 
+    font-size: 1rem; 
+    margin: 0; 
+    color: #aaa; 
+    font-style: italic;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    overflow: hidden;
+}
+
+.enganxina h3, .enganxina p {
+    transition: all 0.4s ease;
+    overflow: hidden;
+    max-height: 100px; /* Alçada suficient perquè es vegi normalment */
+}
+
+/* =========================================
+   ESTAT NORMAL I HOVER (Desbloquejades)
+   ========================================= */
+
+.enganxina.desbloquejada {
+    border: none;
+    background-color: transparent;
+}
+
+/* 1. ESTAT NORMAL (Sense ratolí): Medalla gegant i text amagat */
+.enganxina.desbloquejada img {
+    transform: scale(2.3); /* Medalla en gran per defecte */
+    margin-bottom: 0;      
+    filter: drop-shadow(0 0 1px rgba(255, 215, 0, 0.6));
+}
+
+.enganxina.desbloquejada h3,
+.enganxina.desbloquejada p {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 2. EFECTE HOVER: La medalla s'encongeix i mostra el text */
+.enganxina.desbloquejada:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.4);
+}
+
+.enganxina.desbloquejada:hover img {
+    transform: scale(1); /* Torna a la mida original petita */
+    margin-bottom: 12px; /* Deixa espai a sota per al text */
+    filter: none;        /* Treiem la brillantor extrema al fer-se petita */
+}
+
+/* El text torna a aparèixer */
+.enganxina.desbloquejada:hover h3 {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.enganxina.desbloquejada:hover p {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* 2. ENGANXINES BLOQUEJADES */
+.enganxina.bloquejada {
+    opacity: 0.7; 
+}
+.enganxina.bloquejada img {
+    /* Màgia: Imatge en blanc i negre i opaca fins que la guanyin! */
+    filter: grayscale(100%) opacity(0.4); 
+}
+.enganxina.bloquejada:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.9); 
+    border: 2px solid #555; 
+    opacity: 1;
+}
+.enganxina.bloquejada:hover img {
+    opacity: 0.6; 
+    transform: scale(1.05);
+}

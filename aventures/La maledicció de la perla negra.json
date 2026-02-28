@@ -1,0 +1,36 @@
+"malediccio-perla-negra": {
+  "tempsFinal": 1200,
+  "titol_repte": "La Maledicció de la Perla Negra",
+  "levels": {
+    "level1": {
+      "titol": "Sector 1: L'Atracament",
+      "contingut": "<h2>Sector 1: L'Atracament</h2><p>Grumet! El malvat Capità Barbossa ens ha robat la nau. Abans de perseguir-lo, necessitem recordar la potència de foc del nostre estimat vaixell.</p><p>Quants canons (<b>numberOfCanons</b>) té el vaixell anomenat <b>'Black Pearl'</b> a la taula <b>ships</b>?</p>",
+      "solucio": "32"
+    },
+    "level2": {
+      "titol": "Sector 2: El Motí",
+      "contingut": "<h2>Sector 2: El Motí</h2><p>Per posar preu al seu cap, necessitem analitzar el seu historial al registre de la Marina.</p><p>Cerca a la taula <b>pirates</b> quantes cicatrius (<b>numberOfScars</b>) té el pirata el nom del qual (<b>name</b>) comença exactament per <b>'Hector'</b> (Pista: Fes servir <code>LIKE</code>).</p>",
+      "solucio": "5"
+    },
+    "level3": {
+      "titol": "Sector 3: El Rastre de la Llegendària",
+      "contingut": "<h2>Sector 3: El Rastre de la Llegendària</h2><p>Ens han dit que Barbossa busca el cofre maleït per trencar la seva maledicció.</p><p>En quina illa es troba amagat el tresor anomenat <b>'Davy Jones Chest'</b>? Necessito el nom de l'illa (<b>islands.name</b>), hauràs de fer un <code>JOIN</code> entre <b>islands</b> i <b>treasures</b>!</p>",
+      "solucio": "Skull Island"
+    },
+    "level4": {
+      "titol": "Sector 4: Parada a Tortuga",
+      "contingut": "<h2>Sector 4: Parada a Tortuga</h2><p>Abans d'anar-hi, farem parada a Tortuga. Necessitem saber si hi haurà molta guàrdia.</p><p>Calcula la densitat de població (divideix <b>population</b> entre <b>surface</b> de la taula <b>islands</b>) de l'illa de <b>'Tortuga'</b>. Arrodoneix el resultat a <b>2 decimals</b> usant la funció <code>ROUND()</code>.</p>",
+      "solucio": "20.75"
+    },
+    "level5": {
+      "titol": "Sector 5: Espiant l'Enemic",
+      "contingut": "<h2>Sector 5: Espiant l'Enemic</h2><p>Necessitem saber a quants homes ens enfrontarem si abordem el vaixell de Barbossa.</p><p>Fent un <code>JOIN</code> entre les taules <b>pirates</b> i <b>ships</b>, digues-me quants pirates en total (<code>COUNT</code>) tenen assignat el vaixell anomenat <b>'Queen Anne\\'s Revenge'</b>.</p>",
+      "solucio": "2"
+    },
+    "level6": {
+      "titol": "Sector 6: El Rei dels Pirates",
+      "contingut": "<h2>Sector 6: El Rei dels Pirates</h2><p>Hem d'escollir el nostre primer objectiu a abatre durant l'abordatge: el més perillós del seu vaixell.</p><p>Busca el nom (<b>name</b>) del pirata a la taula <b>pirates</b> que té el major nombre de cicatrius (<b>numberOfScars</b>), però <i>només</i> d'aquells que naveguen al vaixell <b>'Queen Anne\\'s Revenge'</b>. Fes servir <code>ORDER BY</code> i <code>LIMIT</code>!</p>",
+      "solucio": "Blackbeard"
+    }
+  }
+}

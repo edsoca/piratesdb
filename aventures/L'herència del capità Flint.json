@@ -1,0 +1,43 @@
+{
+  "reptes": {
+    "repte_hispaniola": {
+      "titol_repte": "L'Herència del Capità Flint",
+      "tempsFinal": 1800,
+      "levels": {
+        "level_1": {
+          "titol": "El Mapa de l'Almirall Benbow",
+          "contingut": "Has trobat un mapa al bagul del vell mariner. Fes un JOIN entre 'originalMaps' i 'islands' per esbrinar quina és l'escala ('scale') del mapa que pertany a l'illa anomenada 'Illa del Tresor Callat'.",
+          "solucio": "1:550"
+        },
+        "level_2": {
+          "titol": "El Cuiner d'Una Cama",
+          "contingut": "Necessitem reclutar un mariner experimentat per a l'expedició. Fes un JOIN entre 'pirates' i 'ships' per trobar el nom del pirata que té exactament 15 cicatrius ('numberOfScars') i que navega al vaixell anomenat 'La Rosa del Vent'.",
+          "solucio": "Drac Antic"
+        },
+        "level_3": {
+          "titol": "Llevant Àncores",
+          "contingut": "Ja tenim la tripulació, ara necessitem la nau. Unint les taules 'ships', 'ships_islands' i 'islands', troba el nom del vaixell ('name' de ships) que ha passat exactament 6 dies ('days') ancorat a la 'Illa del Tresor Callat'.",
+          "solucio": "El Sol Negre"
+        },
+        "level_4": {
+          "titol": "El Motí",
+          "contingut": "Traïció! Un dels mariners ha fet una còpia d'amagat del nostre mapa. Fent un JOIN entre 'pirates' i 'copyMaps', descobreix el nom del pirata que va copiar un mapa exactament en la data '2024-02-27'.",
+          "solucio": "Ull Tèrbol"
+        },
+        "level_5": {
+          "titol": "La Marca Negra i l'Or",
+          "contingut": "Hem arribat on la X marca el lloc. Fent un JOIN entre 'treasures' i 'islands', busca els tresors amagats en illes on la població sigui 0. Ordena'ls per la quantitat de monedes d'or ('goldCoins') de més a menys i queda't només amb el nom del primer de la llista (LIMIT 1).",
+          "solucio": "Ombres Daurades"
+        }
+      }
+    }
+  },
+  "cataleg_assoliments": {
+    "repte_hispaniola": {
+      "nom": "L'Herència de Flint",
+      "descripcio": "Has dominat l'art dels JOINs per trobar el botí més cobejat de tots els mars.",
+      "imatge": "img/logro_hispaniola.png",
+      "ordre": 7
+    }
+  }
+}

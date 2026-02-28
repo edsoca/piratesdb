@@ -1,0 +1,1053 @@
+/* =========================================
+   VARIABLES I CONFIGURACIÓ PIRATA
+   ========================================= */
+:root {
+    --gold: #ffcc00;
+    --wood-dark: #1a0f00;
+    --parchment: rgba(255, 230, 180, 0.1);
+    --alert-red: #ff4444;
+    --font-titol: 'Pirata One', system-ui;   /* Font de títol pirata */
+    --font-mapa: 'Eagle Lake', cursive;      /* Font de pergamí/manuscrit */
+    --font-terminal: 'Special Elite', serif; /* Font de màquina vella */
+    --gold: #ffcc00;
+}
+
+* { box-sizing: border-box; }
+.ocult { display: none !important; }
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0c0800;
+    color: #e0d0b0;
+    font-family: var(--font-terminal);
+    color: #e0d0b0;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../img/mapa-pirata.jpg');
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* PANTALLA DE LOGIN */
+/* Pantalla de Login */
+/* Ajust de la bandera al Login */
+
+/* Si la bandera és un emoji o icona de text dins d'un div */
+.logo-ritme {
+    font-size: 80px !important;
+    margin-bottom: 20px;
+    display: block;
+}
+/* Botó de descàrrega i altres botons d'acció */
+.btn-download, .btn-action, #btnLogin, .btn-eject {
+    font-family: 'Pirata One', cursive !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#pantalla-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, #2c1e14 0%, #000000 100%);
+    font-family: 'Pirata One', cursive; /* Font pirata per defecte al login */
+}
+/* Títol principal del Login */
+#pantalla-login h1 {
+    font-family: 'Pirata One', cursive !important;
+    font-size: 4.5rem !important; /* Fem-lo ben gran */
+    color: var(--gold) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 5px !important;
+    text-shadow: 3px 3px 0px #000, 0 0 20px rgba(255, 204, 0, 0.5) !important;
+    margin-top: 10px !important;
+    margin-bottom: 30px !important;
+}
+
+/* El subtítol si en tens (h2) */
+#pantalla-login h2 {
+    font-family: 'Pirata One', cursive !important;
+    color: #e0d0b0 !important;
+    font-size: 4.5rem !important;
+    letter-spacing: 2px !important;
+}
+
+.login-box h2 {
+    font-family: 'Pirata One', cursive;
+    font-size: 4.5rem; /* Més imponent */
+    color: var(--gold);
+    text-shadow: 2px 2px 0px #000, 0 0 20px rgba(255, 204, 0, 0.6);
+    margin-bottom: 10px;
+}
+
+.login-subtitle{
+    font-size: 1.5rem;
+}
+
+.alert-icon, .alert-icon p{
+    font-size: 1.3rem;
+}
+
+/* L'input on posen el codi del repte */
+#id-repte {
+    font-family: 'Special Elite', serif; /* Font de màquina d'escriure per al codi */
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 4px;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+/* El botó de Login */
+#btnLogin {
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    background: var(--gold);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+
+#btnLogin:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--gold);
+}
+
+.full-screen-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(circle, #3e2723 0%, #0c0800 100%);
+}
+
+.login-box {
+    background: rgba(20, 15, 5, 0.95);
+    padding: 40px;
+    border: 2px solid var(--gold);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+}
+
+.login-box h2 {
+    color: var(--gold);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* INTERFÍCIE DE JOC */
+/* Forçar la disposició en dues columnes */
+
+/* Títols de les caixes i Header */
+h1, h2, h3, .mission-name, .terminal-title {
+    font-family: var(--font-titol);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* L'enunciat de l'enigma (el panell esquerre) */
+#descripcio-nivell {
+    font-family: var(--font-mapa);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #d4b483; /* Color de tinta antiga */
+    overflow-x: hidden;
+}
+
+/* Cronòmetre i xifres */
+.timer, .vides {
+    font-family: var(--font-terminal);
+    font-weight: bold;
+}
+
+/* Botons i Inputs */
+.btn-action, .btn-download, input {
+    font-family: var(--font-titol);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* El botó OBRIR COFRE per fer-lo més imponent */
+.btn-action {
+    font-family: 'Pirata One', cursive !important;
+    background: var(--gold) !important;
+    color: #000 !important;
+    border: 2px solid #b8860b !important;
+    padding: 10px 25px !important;
+    font-size: 1.3rem !important;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.game-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Esquerra flexible, dreta fixa */
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 80px);
+    align-items: stretch;
+    margin-top: 20px; /* Separació de la capçalera */
+    height: calc(100vh - 120px); /* Ajusta segons l'alçada del header */
+}
+
+/* Panell de l'esquerra (Enunciats) */
+/* El contenidor principal que ocupa tota l'alçada */
+.code-area {
+    background: repeating-linear-gradient(
+      to right,
+      #2c1e14,
+      #2c1e14 40px,
+      #36251a 40px,
+      #36251a 80px
+    );
+    border: 3px solid var(--gold);
+    border-radius: 8px;
+    height: calc(100vh - 180px); /* Ajusta l'alçada fins a baix de tot de la finestra */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 50px rgba(0,0,0,0.4);
+    margin-bottom: 20px;
+}
+
+/* La barra superior on posa "CARREGANT ENIGMA..." */
+.terminal-header {
+    background: rgba(0, 0, 0, 0.4); /* Un punt més fosc que la resta */
+    padding: 12px 20px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.terminal-title {
+    font-family: 'Pirata One', cursive !important;
+    color: var(--gold);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* El contingut on va el text de l'enigma */
+.terminal-content {
+    background: transparent !important; /* CLAU: Transparent per no tallar el fons */
+    flex-grow: 1; /* Estira el contingut fins a baix de la capsa */
+    padding: 30px;
+    overflow-y: auto; /* Scroll només si el text és molt llarg */
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) transparent;
+}
+
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.terminal-content::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+}
+.terminal-content::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+/* El paràgraf del text */
+#descripcio-nivell {
+    font-family: 'Eagle Lake', cursive !important;
+    color: #f4e4bc !important; /* Color pergamí clar per llegir sobre fosc */
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Panell de la dreta (Botons i Input) */
+.action-area {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.card {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(40, 30, 10, 0.7); /* Marró pergamí fosc */
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.2);
+    padding: 20px;
+}
+
+/* Cronòmetre al Header */
+.timer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold);
+    margin-bottom: 5px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between; /* Esquerra, Centre, Dreta */
+    align-items: center;           /* CENTRAT VERTICAL REAL */
+    padding: 15px 30px;            /* Espai per respirar */
+    background: rgba(20, 15, 10, 0.95);
+    border-bottom: 2px solid var(--gold);
+    min-height: 80px;              /* Alçada mínima, però pot créixer si cal */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+}
+
+/* El títol de l'esquerra (TRESORET) */
+.header-left {
+    flex: 1; /* Ocupa espai per ajudar a centrar el mig */
+    display: flex;
+    align-items: center;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.8rem;
+    color: var(--gold);
+}
+
+/* EL CRONÒMETRE (CENTRE) */
+#cronometre {
+    font-family: 'Special Elite', serif; /* Font digital/màquina */
+    font-size: 2.5rem !important;        /* Gran però sense tallar-se */
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+    margin: 0;
+    line-height: 1;                     /* Evita que l'alçada de línia el talli */
+    text-align: center;
+    flex: 1;
+}
+
+/* LA PART DRETA (VIDES I BOTÓ) */
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.heart-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    border: 1px solid var(--gold);
+    padding: 5px 15px;
+    color: var(--gold);
+    font-size: 1.5em;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+    transition: width 0.4s ease;
+}
+
+/* BOTONS */
+.btn-download {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-download:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* Contenidor del botó del mapa */
+#obrirModal {
+    display: flex;
+    align-items: center;
+    background: rgba(40, 30, 10, 0.7); /* Marró pergamí fosc */
+    border: 2px solid #ffcc00;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.2);
+    text-align: center;
+}
+
+/* Efecte Hover: el mapa brilla */
+#obrirModal:hover {
+    background: rgba(60, 45, 15, 0.9);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5), inset 0 0 20px rgba(255, 204, 0, 0.3);
+    transform: scale(1.02);
+}
+
+/* Estil de la icona del mapa */
+.map-icon {
+    font-size: 2.5rem; /* Molt més gran */
+    margin-right: 20px;
+    filter: drop-shadow(0 0 5px #ffcc00);
+    transition: transform 0.4s ease;
+}
+
+#obrirModal:hover .map-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* El fons de la modal (ocult per defecte) */
+.modal-pirata {
+    display: none; 
+    position: fixed;
+    z-index: 9999; /* Per sobre de tot */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fons negre transparent */
+    backdrop-filter: blur(5px);
+}
+
+/* La caixa blanca/pergamí del centre */
+/* Ajustem el contenidor perquè no creixi infinitament */
+.modal-contingut {
+    background: #2c1e14;
+    margin: 2vh auto; /* Reduïm el marge superior */
+    padding: 20px;
+    border: 3px solid var(--gold);
+    width: 90%;      /* Ocupa el 90% de l'amplada */
+    max-height: 90vh; /* Ocupa com a màxim el 90% de l'alçada de la pantalla */
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Posem el títol a dalt i el cos a sota */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/* El cos on va la imatge tindrà scroll si la imatge és molt gran */
+.modal-body {
+    overflow: auto; /* Si el mapa és gegant, permet fer scroll DINS la modal */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #fff; /* Fons blanc per contrastar amb el diagrama */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* La imatge s'ha d'ajustar però permetre detall */
+#img-diagrama {
+    max-width: 100%; /* No surt per l'amplada */
+    height: auto;    /* Manté la proporció */
+    display: block;
+}
+
+/* La X per tancar */
+.tancar-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: var(--gold);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tancar-modal:hover {
+    color: #ff4444;
+    transform: scale(1.2);
+}
+
+/* Imatge del diagrama dins la modal */
+#img-diagrama {
+    width: 100%;
+    height: auto;
+    border: 1px solid #5d4037;
+    background: #fff; /* Perquè el diagrama se sol veure millor sobre blanc */
+}
+
+/* Text del botó */
+.map-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-title {
+    font-family: 'Pirata One', cursive !important;
+    font-size: 1.5rem !important;
+    color: #ffcc00;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.map-subtitle {
+    font-family: 'Special Elite', serif !important;
+    font-size: 0.8rem;
+    color: #d4b483;
+    opacity: 0.8;
+}
+
+.box-hall-fame {
+    margin-top: 20px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+#tabla-hall-fame {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+#tabla-hall-fame th {
+    text-align: left;
+    border-bottom: 1px solid var(--gold);
+    padding: 5px;
+}
+
+/* Contenidor específic de les dades del rànquing */
+#millorsPirates {
+    color: #2c1e14 !important; /* Marró fosc/negre (com tinta seca) */
+    font-family: 'Special Elite', serif !important; /* Font de màquina/segell */
+    font-size: 1.2rem !important; /* Més gran per llegir bé els noms */
+    line-height: 1.6;
+}
+
+/* Si fas servir una taula per al rànquing, ajustem les capçaleres */
+#millorsPirates table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#millorsPirates th {
+    font-family: 'Pirata One', cursive !important;
+    font-size: 1.6rem;
+    color: #5d4037; /* Marró fusta per als títols de columna */
+    border-bottom: 2px solid #5d4037;
+    padding-bottom: 10px;
+}
+
+/* =========================================
+   HALL OF FAME: LLEGENDA DELS CAPITANS
+   ========================================= */
+
+/* Cada fila de la taula ara és una "franja" elegant */
+#hall-fame-body tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    margin-bottom: 12px;
+    background: rgba(93, 64, 55, 0.08); /* Marró pergamí fosc molt suau */
+    border-radius: 8px;
+    border: 1px solid rgba(93, 64, 55, 0.15);
+    transition: all 0.3s ease;
+}
+
+#hall-fame-body tr:hover {
+    background: rgba(93, 64, 55, 0.15);
+    transform: translateX(10px); /* Efecte de desplaçament en passar el ratolí */
+    border-color: var(--gold);
+}
+
+/* EL NOM DEL GUANYADOR (Gran i Pirata) */
+#hall-fame-body td:first-child {
+    font-family: 'Pirata One', cursive !important;
+    font-size: 2.2rem !important; /* Mida molt més gran */
+    color: #3d2b1f; /* Marró fusta fosc */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* EL TEMPS (Estil segell de cera / Vermell) */
+#hall-fame-body td:last-child {
+    font-family: 'Special Elite', serif !important;
+    font-size: 1.8rem !important;
+    color: #8b0000; /* Vermell fosc */
+    font-weight: bold;
+    background: rgba(139, 0, 0, 0.05);
+    padding: 8px 20px;
+    border: 2px solid rgba(139, 0, 0, 0.2);
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Icona de la calavera o medalla (opcional si la poses pel JS) */
+.icona-posicio {
+    font-size: 2.5rem;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+}
+
+.top-pirate { color: #fff; text-shadow: 0 0 5px var(--gold); }
+
+/* BOTÓ ABANDONAR - ESTIL 'LANÇA'T A L'AIGUA' */
+.btn-eject {
+    background: rgba(60, 0, 0, 0.6); /* Vermell sang fosc */
+    color: #ff4444; /* Vermell d'alerta */
+    border: 2px solid #8b0000;
+    padding: 8px 15px;
+    font-family: 'Pirata One', cursive; /* La font pirata que hem posat abans */
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+    height: auto; /* Deixa que el padding marqui l'alçada */
+}
+
+.btn-eject:hover {
+    background: #8b0000; /* Es torna vermell intens */
+    color: #ffffff;
+    border-color: #ff4444;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+    transform: translateY(-2px); /* Lleuger aixecament */
+}
+
+.btn-eject:active {
+    transform: translateY(1px); /* Efecte de prémer */
+}
+
+/* L'input de text dins del cofre */
+#resultat {
+    background-color: #f4e4bc !important; /* Color pergamí claret */
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Textura de paper */
+    border: 2px solid #5d4037 !important; /* Vora de fusta/cuir */
+    color: #2c1e14 !important; /* Text marró molt fosc, no negre */
+    font-family: 'Special Elite', serif !important; /* Font de màquina vella */
+    font-weight: bold;
+    padding: 10px 15px !important;
+    border-radius: 3px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3);
+    outline: none;
+    transition: all 0.3s;
+    width: 100%; /* Que ocupi l'espai necessari */
+    max-width: 250px;
+    text-align: center;
+}
+
+/* Efecte quan l'usuari clica per escriure */
+#resultat:focus {
+    border-color: var(--gold) !important;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), 0 0 10px rgba(255, 204, 0, 0.4);
+    background-color: #fcf3cf !important;
+}
+
+/* Estil per al text d'ajuda (placeholder) */
+#resultat::placeholder {
+    color: rgba(44, 30, 20, 0.5);
+    font-style: italic;
+}
+
+.btn-ranking {
+    background: rgba(40, 30, 10, 0.7); /* Marró pergamí fosc */
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.2);
+    color: var(--gold);
+    font-family: 'Pirata One', cursive;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5em;
+}
+
+.btn-ranking:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.pergami-swal {
+    border-radius: 2px;
+    /* Fa que les cantonades no siguin perfectes */
+    clip-path: polygon(
+        0% 2%, 2% 0%, 98% 0%, 100% 2%, 
+        100% 98%, 98% 100%, 2% 100%, 0% 98%
+    );
+}
+
+.pergami-swal, .hall-fame-container, .modal-contingut {
+    /* Color de base de paper vell */
+    background-color: #f4e4bc;
+    
+    /* Degradat per simular taques i desgast */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 80%),
+        repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px),
+        repeating-linear-gradient(-45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px);
+    
+    /* Vora cremada típica de mapa */
+    border: 15px solid #5d4037;
+    border-image: repeating-linear-gradient(45deg, #5d4037, #3d2b1f 10px) 20;
+    
+    box-shadow: inset 0 0 50px rgba(139, 69, 19, 0.3), 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecte de gra/fibra opcional usant un pseudo-element */
+.pergami-swal::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.05;
+    pointer-events: none;
+    /* Això simula petits punts de fibra */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.titol-modal {
+    color: #5d4037 !important; /* El títol de la modal en marró fosc sobre el pergamí */
+    font-size: 2.5rem !important;
+    text-shadow: none !important; /* Treiem la brillantor groga aquí */
+    margin-bottom: 20px;
+}
+
+.modal-body-ranking {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Progrés de l'usuari */
+/* Contenidor enganxat a la part inferior del header */
+.ocea-progres-header {
+    position: absolute;
+    bottom: -15px; /* La meitat de la icona sobresurt per sota */
+    left: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 10;
+    padding: 0 40px; /* Marges laterals perquè no toqui les vores de la pantalla */
+    box-sizing: border-box;
+    pointer-events: none; /* Perquè no interfereixi si algú vol clicar sota el vaixell */
+}
+
+
+
+/* Efecte de brillantor a l'aigua */
+/* L'oceà amb moviment i brillantor */
+.linia-navegacio {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    right: 40px;
+    height: 12px; /* Una mica més gruixuda per l'efecte */
+    background: linear-gradient(90deg, #0077be, #00a8d6, #0077be);
+    background-size: 200% 100%;
+    border-radius: 20px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 0 15px rgba(0, 168, 214, 0.5);
+    z-index: 1;
+    animation: fluirAigua 3s linear infinite;
+}
+
+@keyframes fluirAigua {
+    0% { background-position: 200% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Estil de les bombolles que crearem per JS */
+.bombolla {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 4px white;
+    animation: efecteRonsa 0.8s ease-out forwards;
+}
+
+@keyframes efecteRonsa {
+    0% { 
+        transform: translate(0, 0) scale(0.5); 
+        opacity: 0.8; 
+    }
+    100% { 
+        /* Es desplacen una mica a l'esquerra (-20px) mentre pugen (-15px) */
+        transform: translate(-20px, -15px) scale(1.3); 
+        opacity: 0; 
+    }
+}
+
+/* Millorem el vaixell perquè sembli que sura millor */
+.vaixell {
+    position: absolute;
+    top: -12px; /* Ajustat perquè la base de l'emoji (l'aigua) quedi sobre la línia */
+    font-size: 2rem;
+    z-index: 2;
+    transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+    animation: navegant 3s ease-in-out infinite;
+    width: 5px;       /* Ajusta aquest valor segons t'agradi */
+    height: auto;      /* Manté la proporció perquè no es deformi */
+    display: block;
+}
+
+#vaixell-progres img {
+    width: 45px !important;   /* Ajusta aquest número al teu gust (45-50px sol anar bé) */
+    height: auto !important;  /* Manté la proporció */
+    display: block;
+    margin: 0 auto;           /* Centra la imatge dins del seu div */
+    bottom: 5px !important; /* Canvia aquest número per pujar-lo o baixar-lo */
+}
+
+.illa-tresor {
+    position: absolute;
+    right: 25px;
+    top: -12px;
+    font-size: 2rem;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes navegant {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-3px); }
+}
+
+.boto-desactivat {
+    background: #555 !important;
+    border-color: #333 !important;
+    cursor: not-allowed !important;
+    filter: grayscale(1);
+}
+
+#resultat:disabled {
+    background-color: #d1c4a9 !important; /* Un pergamí més fosc/apagat */
+    color: #5d4037 !important;
+    cursor: default;
+}
+
+/* Efecte visual quan es perd */
+.joc-perdut {
+    filter: grayscale(0.5) sepia(0.5) hue-rotate(-50deg); /* To vermellós/trist */
+    transition: filter 2s ease-in-out;
+}
+
+.joc-perdut .linia-navegacio {
+    background: linear-gradient(90deg, #440000, #880000, #440000); /* Aigua de sang/foc */
+    animation: fluirAigua 1s linear infinite; /* Aigua més moguda */
+}
+
+.joc-perdut #titol-nivell {
+    color: #ff4444 !important;
+    text-shadow: 2px 2px 5px black;
+}
+
+.boto-desactivat {
+    background: #444 !important;
+    color: #888 !important;
+    cursor: not-allowed;
+    border-color: #666 !important;
+}
+
+/* =========================================
+   ESTATS DE VICTÒRIA (.joc-guanyat)
+   ========================================= */
+
+/* 1. Canvi d'ambientació general */
+body.joc-guanyat {
+    /* Un lleuger tint daurat al mapa de fons per celebrar la victòria */
+    background-image: linear-gradient(rgba(255, 204, 0, 0.1), rgba(0,0,0,0.8)), url('../img/mapa-pirata.jpg');
+}
+
+/* 2. Icona dinàmica al títol (substitueix la calavera per la bossa de monedes) */
+.joc-guanyat #titol-nivell .emoji-icon {
+    content: ""; /* Si el posaves per CSS */
+}
+/* Si el canvies per JS, aquest estil assegura que es vegi bé */
+.joc-guanyat #titol-nivell {
+    color: var(--gold) !important;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+    animation: títolVictòria 2s infinite alternate;
+}
+
+@keyframes títolVictòria {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* 3. Estil per a la icona gran de Tresor al text de l'enigma */
+.joc-guanyat #descripcio-nivell .emoji-icon-gran {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif !important;
+    font-size: 5rem;
+    display: block;
+    text-align: center;
+    filter: drop-shadow(0 0 10px var(--gold));
+    animation: brillarTresor 1.5s infinite alternate;
+}
+
+@keyframes brillarTresor {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px var(--gold)); }
+    100% { transform: scale(1.2); filter: drop-shadow(0 0 25px var(--gold)); }
+}
+
+/* 4. Bloqueig visual de la secció de resposta */
+.joc-guanyat .resposta-seccio {
+    border-color: #00ff00; /* Vora verda de "completat" */
+    opacity: 0.9;
+}
+
+.joc-guanyat #resultat {
+    background-color: rgba(0, 50, 0, 0.3) !important;
+    color: #00ff00 !important;
+    cursor: not-allowed;
+}
+
+.joc-guanyat #btnEnviar {
+    background: #444 !important;
+    color: #888 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* 5. L'oceà es torna més calmat o daurat */
+.joc-guanyat .linia-navegacio {
+    background: linear-gradient(90deg, #ffd700, #ffcc00, #ffd700);
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+}
+
+/* =========================================
+   EL MAPA DE COORDENADES (GRID)
+   ========================================= */
+
+/* 1. El contenidor blanc on va el mapa */
+.modal-body {
+    overflow: auto;      /* Activa l'scroll si el mapa és gran */
+    max-height: 70vh;    /* Alçada màxima */
+    background: #f4e4bc; /* Color pergamí de fons */
+    padding: 20px;
+    display: block;      /* Important per a l'scroll */
+    border-radius: 5px;
+    border: 2px solid #5d4037;
+}
+
+/* 2. La zona que envolta el grid */
+.zona-mapa {
+    position: relative;
+    width: fit-content;  /* S'ajusta a la mida del grid */
+    margin: 0 auto;      /* Centra el mapa si sobra espai */
+    background-image: url('https://img.myloview.com.br/fotomurais/abstract-old-nautical-vintage-map-background-700-175677631.jpg'); /* Posa aquí la teva ruta correcta */
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 3. La graella (Grid) */
+.mapa-grid {
+    display: grid;
+    /* Columna capçalera (40px) + 8 columnes de 80px */
+    grid-template-columns: 40px repeat(8, 80px); 
+    /* Fila capçalera (40px) + 8 files de 80px */
+    grid-template-rows: 40px repeat(8, 80px);
+    border: 2px solid #5d4037;
+}
+
+/* 4. Les capçaleres (Lletres i Números) */
+.grid-header {
+    background-color: rgba(26, 15, 0, 0.9) !important;
+    color: #ffcc00 !important;
+    font-weight: bold;
+    font-family: var(--font-terminal);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(139, 69, 19, 0.6);
+    z-index: 2; /* Perquè estiguin sobre el fons */
+}
+
+/* 5. Les cel·les de l'oceà */
+.grid-cell {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    background-color: rgba(0, 50, 100, 0.05); /* Blau molt suau */
+}
+
+.illa-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ocupa tota la cel·la */
+    text-align: center;
+    padding: 5px;
+}
+
+.illa-nom {
+    font-family: var(--font-mapa);
+    /* Fem la lletra una mica més petita perquè no deformi la cel·la */
+    font-size: 0.55rem; 
+    font-weight: bold;
+    color: #3d2b1f;
+    padding: 1px 4px;
+    border-radius: 3px;
+    text-align: center;
+    /* Si el nom és molt llarg, que faci el salt de línia automàtic */
+    white-space: normal; 
+    max-width: 90px; 
+    word-wrap: break-word;
+}
+
+
+
+.grid-cell.playable:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+}
+
+
+/* La icona de l'illa */
+.illa-icona {
+    filter: drop-shadow(0 4px 2px rgba(0,0,0,0.5));
+    margin-bottom: 5px;
+    font-size: 2.5rem; /* Una mica més gran ja que hi ha espai */
+}
+
+
+/* Animació de moviment suau a l'aigua */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.grid-cell.playable {
+    /* Un color blau marí molt transparent per deixar veure el fons del mapa */
+    background-color: rgba(0, 50, 100, 0.05); 
+}

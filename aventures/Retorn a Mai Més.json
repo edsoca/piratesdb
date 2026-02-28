@@ -1,0 +1,43 @@
+{
+  "reptes": {
+    "repte_peterpan": {
+      "titol_repte": "Retorn a Mai Més",
+      "tempsFinal": 1500,
+      "levels": {
+        "level_1": {
+          "titol": "El Fidel Contramestre",
+          "contingut": "En Peter Pan està espiant la tripulació. Cerca a la taula 'pirates' el nom ('name') del pirata que té exactament 45 anys ('age') AND té 0 cicatrius ('numberOfScars').",
+          "solucio": "Mr. Smee"
+        },
+        "level_2": {
+          "titol": "L'Amenaça del Capità",
+          "contingut": "Campaneta necessita localitzar el vaixell d'en Garfi. A la taula 'ships', busca el nom ('name') del vaixell que té un nombre de canons ('numberOfCanons') BETWEEN 10 AND 15, AND un pes ('weight') d'exactament 100 tones.",
+          "solucio": "The Jolly Roger"
+        },
+        "level_3": {
+          "titol": "La Dieta del Cocodril",
+          "contingut": "El Cocodril busca un pirata molt específic. Cerca a la taula 'pirates' el nom ('name') del pirata que té exactament 15 cicatrius AND que compleixi una d'aquestes dues condicions: o bé pesa més de 105 quilos ('weight') OR bé té més de 55 anys ('age'). Recorda usar parèntesis per agrupar l'OR!",
+          "solucio": "Blackbeard"
+        },
+        "level_4": {
+          "titol": "Amagatall Secret",
+          "contingut": "Els Nens Perduts busquen una illa poc poblada. Cerca a la taula 'islands' el nom ('name') de l'illa on la població ('population') estigui IN (50, 5, 8) AND la seva superfície ('surface') sigui major de 200.",
+          "solucio": "Skull Island"
+        },
+        "level_5": {
+          "titol": "Pols de Fada",
+          "contingut": "Hem de robar un tresor lleuger perquè pugui volar amb pols de fada. A 'treasures', busca el nom ('name') del tresor que pesi ('weight') BETWEEN 5 AND 25 AND que tingui unes monedes ('goldCoins') de 450 OR 300. Ordena'l pel pes de menys a més (ASC) i queda't amb el primer (LIMIT 1). Compte amb els parèntesis a l'OR!",
+          "solucio": "Davy Jones Chest"
+        }
+      }
+    }
+  },
+  "cataleg_assoliments": {
+    "repte_peterpan": {
+      "nom": "Pols de Fada",
+      "descripcio": "Has enganyat el Capità Garfi dominant els parèntesis, els BETWEEN i els IN.",
+      "imatge": "img/logro_peterpan.png",
+      "ordre": 8
+    }
+  }
+}
