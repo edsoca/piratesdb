@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>BITÀCOLA ADMIN - Creació de Tresors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Eagle+Lake&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-estils.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>GESTIÓ DE RUTES PIRATES</h1>
+        
+        <div class="card">
+            <label>ID DEL REPTE (Ex: illa-tortuga-1)</label>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" id="admin-id-repte" placeholder="ID per a la base de dades...">
+                <button onclick="carregarRepteExistent()" style="cursor:pointer; background: #1a1a1a; color: var(--gold); border: 1px solid var(--gold); padding: 0 20px; font-family: 'Special Elite';">CARREGAR EXISTENT</button>
+            </div>
+            
+            <div class="header-fields">
+                <div class="field-group">
+                    <label>NOM DEL TRESOR</label>
+                    <input type="text" id="admin-nom-repte" placeholder="Ex: El tresor de Barbanegra">
+                </div>
+                <div class="field-group short">
+                    <label>TEMPS (MIN)</label>
+                    <input type="number" id="temps-repte" value="15" min="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="border-color: #ffd700; margin-top: 20px; box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);">
+            <h2 style="color: #ffd700; font-family: 'Pirata One', serif; margin-top: 0; font-size: 1.8rem;">🏆 ASSOLIMENT ASSOCIAT (Opcional)</h2>
+            <div class="header-fields">
+                <div class="field-group" style="flex: 2;">
+                    <label>NOM DE L'ENGANXINA</label>
+                    <input type="text" id="admin-asso-nom" placeholder="Ex: Capità de la Perla Negra">
+                </div>
+                <div class="field-group short" style="display:none;">
+                    <label>ORDRE</label>
+                    <input type="number" id="admin-asso-ordre" value="1" min="1" title="L'ordre en què apareixerà a l'àlbum">
+                </div>
+            </div>
+            <div class="header-fields" style="margin-top: 15px;">
+                <div class="field-group" style="flex: 2;">
+                    <label>DESCRIPCIÓ DE L'ASSOLIMENT</label>
+                    <input type="text" id="admin-asso-desc" placeholder="Ex: Has recuperat el vaixell més ràpid de tots els mars...">
+                </div>
+                <div class="field-group" style="flex: 1;">
+                    <label>RUTA DE LA IMATGE</label>
+                    <input type="text" id="admin-asso-img" value="img/logro_nou.png" placeholder="Ex: img/logro_perla.png">
+                </div>
+            </div>
+        </div>
+
+        <div id="llista-preguntes">
+            </div>
+
+        <button class="btn-add" onclick="afegirPreguntaHTML()">+ AFEGIR NOU ENIGMA</button>
+        
+        <div class="actions">
+            <button class="btn-save" onclick="guardarRepte()">ENTERRA EL TRESOR (GUARDAR)</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>

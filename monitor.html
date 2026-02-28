@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>DIARI DE BORD: Estat de la Tripulació</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Eagle+Lake&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES DEL TEU ESTILS.CSS --- */
+        :root {
+            --gold: #ffcc00;
+            --wood-dark: #1a0f00;
+            --wood-light: #3e2723;
+            --parchment: #f0e6d2;
+            --parchment-trans: rgba(240, 230, 210, 0.1);
+            --alert-red: #ff4444;
+            --sea-dark: #001122;
+        }
+
+        body {
+            /* Fons fosc tipus mar profund o fusta */
+            background-color: var(--sea-dark);
+            color: var(--parchment);
+            font-family: 'Eagle Lake', cursive;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at center, #0c1c2e 0%, #000000 100%);
+        }
+
+        /* --- TÍTOLS --- */
+        h1 {
+            font-family: 'Pirata One', cursive;
+            text-align: center;
+            font-size: 3.5rem;
+            color: var(--gold);
+            text-shadow: 2px 2px 0px #000, 0 0 15px rgba(255, 204, 0, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-family: 'Special Elite', cursive;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto; 
+            margin-right: auto;
+        }
+
+        /* --- PANTALLA DE CONFIGURACIÓ (INPUT MAPA) --- */
+        #setup-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .chest-box {
+            background: var(--wood-dark);
+            border: 4px solid var(--wood-light);
+            outline: 2px solid var(--gold);
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            max-width: 500px;
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        .chest-box h2 { 
+            font-family: 'Pirata One', cursive; 
+            color: var(--gold); 
+            font-size: 2.5rem; 
+            margin-top: 0;
+        }
+
+        .input-map {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed var(--gold);
+            color: var(--gold);
+            font-family: 'Special Elite', cursive;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .input-map::placeholder { color: rgba(255, 204, 0, 0.3); }
+
+        .btn-start {
+            background: var(--gold);
+            color: #000;
+            border: 2px solid #5c4033;
+            padding: 15px 40px;
+            font-family: 'Pirata One', cursive;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #b38f00;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #b38f00;
+            background: #ffe066;
+        }
+
+        .btn-start:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #b38f00;
+        }
+
+        /* --- GRAELLA DE TRIPULACIÓ --- */
+        .grid-crew {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 10px;
+        }
+
+        /* Targeta de Pirata */
+        .crew-card {
+            background: var(--parchment-trans);
+            border: 2px solid var(--wood-light);
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            /* Efecte de pergamí antic */
+            background-image: repeating-linear-gradient(
+                0deg, transparent, transparent 19px, rgba(0,0,0,0.1) 20px
+            );
+        }
+
+        /* Pirata que ha acabat */
+        .crew-card.legend {
+            border-color: var(--gold);
+            background: rgba(255, 204, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .crew-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid rgba(0,0,0,0.3);
+            padding-bottom: 5px;
+        }
+
+        .crew-name { 
+            font-family: 'Pirata One', cursive; 
+            font-size: 1.6rem;
+            color: var(--parchment);
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .legend .crew-name { color: var(--gold); }
+
+        .crew-status {
+            font-family: 'Special Elite', cursive;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* --- BARRA DE PROGRÉS ESTIL TIMÓ --- */
+        .progress-container {
+            background: rgba(0, 0, 0, 0.6);
+            height: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--wood-light);
+            margin: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--gold),
+                var(--gold) 10px,
+                #cc9900 10px,
+                #cc9900 20px
+            );
+            width: 0%;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .crew-stats {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Special Elite', cursive;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Emoji personalitzats */
+        .icon-skull { color: var(--alert-red); }
+        .icon-time { color: var(--gold); }
+
+        /* Missatge d'error */
+        #msg-error { color: var(--alert-red); font-family: 'Special Elite', cursive; }
+
+    </style>
+</head>
+<body>
+
+    <h1>☠️ DIARI DE BORD ☠️</h1>
+    
+    <div id="setup-screen">
+        <div class="chest-box">
+            <h2>🗺️ QUIN MAPA SEGUIM?</h2>
+            
+            <input type="text" id="input-id-repte" class="input-map" placeholder="CODI DEL MAPA">
+            
+            <p style="font-family:'Special Elite'; color:#ccc; margin-top: 20px; font-size: 1.1rem;">
+                ⏳ Mostrar tripulació activa a partir de les:
+            </p>
+            <input type="time" id="input-hora-inici" class="input-map" style="margin-top: 5px;">
+
+            <button id="btn-iniciar" class="btn-start" onclick="iniciarMonitorManual()" style="margin-top: 25px;">Navegar!</button>
+            <p id="msg-error" style="display:none; margin-top:15px; color: var(--alert-red);"></p>
+        </div>
+    </div>
+
+    <div id="monitor-content" style="display:none;">
+        <div id="subtitol-monitor" class="subtitle">ESCANEJANT L'HORITZÓ...</div>
+        <div id="grid-crew" class="grid-crew">
+            </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <script>
+        // --- 1. CONFIGURACIÓ FIREBASE ---
+        // COPIA AQUÍ LA TEVA CONFIGURACIÓ EXACTA DEL FITXER webRepte.js
+        const firebaseConfig = {
+          apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
+          authDomain: "pirates-d1292.firebaseapp.com",
+          databaseURL: "https://pirates-d1292-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "pirates-d1292",
+          storageBucket: "pirates-d1292.firebasestorage.app",
+          messagingSenderId: "965399900397",
+          appId: "1:965399900397:web:4ff10a857e782be410dce4",
+          measurementId: "G-F9RVP1FMT4"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const db = firebase.database();
+        
+        // VARIABLES GLOBALS
+        let totalNivells = 0; 
+        let idRepteActiu = null;
+        let timestampLimit = 0; 
+
+        // --- 2. INICIALITZACIÓ ---
+        const params = new URLSearchParams(window.location.search);
+        const repteUrl = params.get('repte');
+
+        if (repteUrl) {
+            iniciarMonitor(repteUrl);
+        } else {
+            // Per facilitar proves, deixem un valor per defecte si vols
+            // document.getElementById('input-id-repte').value = "monkey-island";
+        }
+
+        // --- 3. FUNCIONS PRINCIPALS ---
+
+        function iniciarMonitorManual() {
+            const inputVal = document.getElementById('input-id-repte').value.trim();
+            const horaVal = document.getElementById('input-hora-inici').value; // Agafem l'hora (Format "HH:mm")
+
+            if (horaVal) {
+                // Creem una data amb el dia d'avui i l'hora seleccionada
+                const dataAvui = new Date();
+                const partsHora = horaVal.split(':');
+                dataAvui.setHours(parseInt(partsHora[0]), parseInt(partsHora[1]), 0, 0);
+                
+                timestampLimit = dataAvui.getTime(); // Guardem el límit en mil·lisegons
+            } else {
+                timestampLimit = 0; // Si ho deixes en blanc, es mostraran tots
+            }
+
+            if (inputVal) {
+                iniciarMonitor(inputVal);
+            }
+        }
+
+        function iniciarMonitor(idRepte) {
+            idRepteActiu = idRepte;
+            const btn = document.getElementById('btn-iniciar');
+            if(btn) btn.innerText = "BUSCANT MAPA...";
+
+            // 1. Busquem el repte per comptar els nivells
+            db.ref(`reptes/${idRepteActiu}`).once('value', (snapshot) => {
+                const dadesRepte = snapshot.val();
+                
+                if (dadesRepte && dadesRepte.levels) {
+                    // Comptem nivells
+                    totalNivells = Object.keys(dadesRepte.levels).length;
+                    
+                    // Mostrem la interfície
+                    document.getElementById('setup-screen').style.display = 'none';
+                    document.getElementById('monitor-content').style.display = 'block';
+                    document.getElementById('subtitol-monitor').innerHTML = 
+                        `MAPA: <span style="color:var(--gold)">${idRepteActiu.toUpperCase()}</span> | ETAPES: ${totalNivells}`;
+
+                    // 2. Activem el listener en temps real
+                    activarListenerTripulacio();
+                } else {
+                    mostrarError("ARGH! No trobem aquest mapa als arxius!");
+                    if(btn) btn.innerText = "Navegar!";
+                }
+            });
+        }
+
+        function activarListenerTripulacio() {
+            db.ref('usuaris').on('value', (snapshot) => {
+                const grid = document.getElementById('grid-crew');
+                const dadesUsuaris = snapshot.val();
+                
+                grid.innerHTML = "";
+                let piratesTrobats = 0;
+                let llistaPirates = [];
+
+                if (!dadesUsuaris) return;
+
+                // Filtrar i preparar dades
+                for (let uid in dadesUsuaris) {
+                    const usuari = dadesUsuaris[uid];
+                    if (usuari.reptes_actius && usuari.reptes_actius[idRepteActiu]) {
+                        const dadesPirata = usuari.reptes_actius[idRepteActiu];
+                        
+                        // --- FILTRE D'HORA ---
+                        const ultimaVez = dadesPirata.ultima_connexio || 0;
+                        
+                        // Si l'última connexió és MÉS GRAN o igual a l'hora límit, l'afegim
+                        if (ultimaVez >= timestampLimit) {
+                            llistaPirates.push(dadesPirata);
+                        }
+                    }
+                }
+
+                // Ordenar: Primer els que tenen més nivell
+                llistaPirates.sort((a, b) => (b.level || 0) - (a.level || 0));
+
+                if (llistaPirates.length === 0) {
+                     grid.innerHTML = `<p style="text-align:center; width:100%; font-family:'Special Elite'">
+                        No s'albiren vaixells a l'horitzó...
+                    </p>`;
+                    return;
+                }
+
+                // Dibuixar les targetes
+                llistaPirates.forEach(dades => {
+                    piratesTrobats++;
+                    const nick = dades.nick || "Grumet Anònim";
+                    const nivell = dades.level || 1;
+                    const temps = dades.temps_segons || 0;
+                    const vides = (typeof dades.vides !== 'undefined') ? dades.vides : 3;
+
+                    // Comprovació de victòria
+                    const haAcabat = (nivell > totalNivells) || (dades.completat === true);
+                    
+                    // Percentatge de la barra
+                    let percentatge = 0;
+                    if (haAcabat) percentatge = 100;
+                    else percentatge = Math.min(((nivell - 1) / totalNivells) * 100, 100);
+
+                    const card = document.createElement('div');
+                    card.className = `crew-card ${haAcabat ? 'legend' : ''}`;
+                    
+                    // Icona de vides (Calaveres)
+                    let iconaVida = '❤️'; 
+                    // Si vols que siguin calaveres quan en queden poques:
+                    if(vides < 2) iconaVida = '💀';
+
+                    card.innerHTML = `
+                        <div class="crew-header">
+                            <span class="crew-name">${nick}</span>
+                            <span class="crew-status">
+                                ${haAcabat ? '🏆 LLEGENDA' : 'Etapa ' + nivell}
+                            </span>
+                        </div>
+                        
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: ${percentatge}%"></div>
+                        </div>
+                        
+                        <div class="crew-stats">
+                            <span>${iconaVida} Vides: ${vides}</span>
+                            <span><span class="icon-time">⏳</span> ${formatarTemps(temps)}</span>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            });
+        }
+
+        function mostrarError(msg) {
+            const el = document.getElementById('msg-error');
+            el.innerText = msg;
+            el.style.display = 'block';
+        }
+
+        function formatarTemps(segons) {
+            if(!segons && segons !== 0) return "--:--";
+            const m = Math.floor(segons / 60);
+            const s = segons % 60;
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+    </script>
+</body>
+</html>

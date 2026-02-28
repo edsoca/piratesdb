@@ -1,0 +1,43 @@
+{
+  "reptes": {
+    "repte_onepiece": {
+      "titol_repte": "Rumb al Grand Line",
+      "tempsFinal": 1500,
+      "levels": {
+        "level1": {
+          "titol": "El Noi de Goma",
+          "contingut": "Necessitem actualitzar el cartell de recompensa del nostre capità. Fes una sentència simple per trobar l'edat ('age') del pirata que es diu exactament 'Monkey D. Luffy'.",
+          "solucio": "19"
+        },
+        "level2": {
+          "titol": "El Vaixell d'en Franky",
+          "contingut": "El nou vaixell dels Barret de Palla és una meravella tecnològica però totalment pacífic. Troba quin pes ('weight') té el vaixell de la taula 'ships' anomenat 'Thousand Sunny'. Per assegurar-te de no confondre'l amb un enemic, filtra també amb un AND que el seu nombre de canons sigui igual a 0.",
+          "solucio": "320"
+        },
+        "level3": {
+          "titol": "El Més Pesat del Mar Pacífic",
+          "contingut": "D'entre tots els vaixells que no tenen canons (0 canons), quin és el més pesat? Fes una consulta a 'ships' que busqui els vaixells sense canons, ordena'ls pel seu pes ('weight') de gran a petit, i queda't només amb el nom del primer de la llista.",
+          "solucio": "Thousand Sunny"
+        },
+        "level4": {
+          "titol": "El Primer Vaixell",
+          "contingut": "La primera tripulació dels Barret de Palla era molt jove. Agrupa tots els pirates per l'ID del seu vaixell ('idShip'). Quin és l'ID del vaixell on la mitjana d'edat ('AVG(age)') de la seva tripulació és exactament 21 anys?",
+          "solucio": "8"
+        },
+        "level5": {
+          "titol": "Marques de Guerra",
+          "contingut": "Al Nou Món, les cicatrius són medalles d'honor. Agrupa els pirates a la taula 'pirates' segons el seu nombre de cicatrius ('numberOfScars'). Quin és el número exacte de cicatrius que tenen en comú JUSTAMENT 3 pirates? (Pista: Usa HAVING COUNT(idPirate) = 3).",
+          "solucio": "5"
+        }
+      }
+    }
+  },
+  "cataleg_assoliments": {
+      "repte_onepiece": {
+        "nom": "Rei dels Pirates",
+        "descripcio": "Has demostrat la teva validesa llegint els Poneglyphs i superant el Grand Line de dades.",
+        "imatge": "img/logro_onepiece.png",
+        "ordre": 6
+      }
+  }
+}
