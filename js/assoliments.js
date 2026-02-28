@@ -2,14 +2,7 @@
 // CONFIGURACIÓ DE FIREBASE (PROJECTE PIRATES)
 // =========================================
 const firebaseConfig = {
-  apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
-  authDomain: "pirates-d1292.firebaseapp.com",
-  databaseURL: "https://pirates-d1292-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "pirates-d1292",
-  storageBucket: "pirates-d1292.firebasestorage.app",
-  messagingSenderId: "965399900397",
-  appId: "1:965399900397:web:4ff10a857e782be410dce4",
-  measurementId: "G-F9RVP1FMT4"
+ // ...
 };
 
 // Evitem inicialitzar dues vegades si s'usa dins d'una altra pàgina
@@ -121,4 +114,5 @@ function dibuixarAlbum(cataleg, assolimentsUsuari) {
     }, 100);
     
     document.getElementById('text-progres').innerText = `${aconseguits}/${total} Assoliments desbloquejats`;
+
 }
