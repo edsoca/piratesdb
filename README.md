@@ -1,4 +1,3 @@
-[Joc Consultes BD Pirata 3196105cff08802ab48ef0af2f938fc5.md](https://github.com/user-attachments/files/25798410/Joc.Consultes.BD.Pirata.3196105cff08802ab48ef0af2f938fc5.md)
 # Joc Consultes BD Pirata
 
 # 🏴‍☠️ MANUAL DEL MESTRE PIRATA: Guia Docent de la Plataforma SQL
