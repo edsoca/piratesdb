@@ -5,6 +5,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 30px;
+    position: relative;
     background: rgba(20, 20, 20, 0.95);
     border: 2px solid #555;
     border-radius: 12px;
@@ -408,4 +409,84 @@
 
 .btn-action:active {
     transform: scale(0.95);
+}
+
+/* =========================================
+   ESTILS DEL RANG ACTUAL
+   ========================================= */
+.contenidor-rang {
+    text-align: center;
+    margin: 0 auto 25px auto; /* Centra la placa horitzontalment */
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #553a1f; /* Vora fosca tipus fusta */
+    width: max-content; /* S'ajusta a la mida del text */
+    max-width: 100%;
+}
+
+/* El text "Rang Actual:" */
+.etiqueta-rang {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.2rem;
+    color: #ccc; 
+    margin-right: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* El nom del rang (Ex: Grumet d'Aigua Dolça...) */
+.valor-rang {
+    font-family: 'Pirata One', cursive;
+    font-size: 2.2rem;
+    color: #ffd700; /* Daurat brillant */
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* =========================================
+   FOTOGRAFIA DEL PASSAPORT (Perfil Google)
+   ========================================= */
+.foto-passaport {
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    
+    /* Vora pirata de fusta i or */
+    border: 3px solid #ffd700; 
+    box-shadow: 0 0 0 4px #2a1a10, 2px 6px 12px rgba(0,0,0,0.9);
+    z-index: 10;
+    
+    /* --- MÀGIA DE LES TEXTURES --- */
+    background-color: #d4c3a3; /* Color de pergamí de base */
+    background-size: cover, auto, cover;
+    background-position: center;
+    
+    /* CAPA 1: Degradat fosc a les vores (cremat/brutícia)
+       CAPA 2: Textura SVG de soroll/gra antic
+       CAPA 3: La foto de l'usuari (variable que ve del JS) */
+    background-image: 
+        radial-gradient(circle, rgba(0,0,0,0) 45%, rgba(60, 30, 0, 0.7) 100%), 
+        url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" opacity="0.3" filter="url(%23noise)"/></svg>'), 
+        var(--foto-url);
+        
+    /* Multipliquem les capes perquè la textura s'imprimeixi sobre la cara */
+    background-blend-mode: multiply, multiply, normal;
+    
+    /* Rematem amb el filtre sèpia clàssic */
+    filter: sepia(0.6) contrast(1.1) brightness(0.9); 
+}
+
+/* Adaptació per a tauletes i mòbils */
+@media (max-width: 768px) {
+    .foto-passaport {
+        position: static; 
+        display: block;
+        margin: 0 auto 15px auto; 
+        width: 100px;
+        height: 100px;
+    }
 }

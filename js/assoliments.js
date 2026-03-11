@@ -98,12 +98,16 @@ async function dibuixarPassaport(user) {
         if (aconseguits >= 9) titolPirata = "Capità Llegendari 🏴‍☠️";
         if (aconseguits === total) titolPirata = "El Rei dels Pirates! 👑";
 
+        const fotoHTML = user.photoURL ? `<div class="foto-passaport" style="--foto-url: url('${user.photoURL}');" title="Retrat del Pirata"></div>` : '';
+
         // Estructura HTML Base (Barra progrés + Graella)
         const htmlBase = `
+            ${fotoHTML}
             <h2>PASSAPORT PIRATA</h2>
-            <h3 style="text-align: center; color: #ffd700; font-family: 'IM Fell English', serif; font-style: italic; margin-top: -10px; margin-bottom: 25px;">
-                Rang actual: ${titolPirata}
-            </h3>
+            <div class="contenidor-rang">
+                <span class="etiqueta-rang">Rang Actual:</span> 
+                <span class="valor-rang">${titolPirata}</span>
+            </div>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="barra-progres-assoliments" style="width: 0%;"></div>
             </div>
