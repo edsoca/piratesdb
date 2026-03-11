@@ -16,6 +16,15 @@
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
+firebase.auth().signInWithEmailAndPassword("capita@pirates.com", "TresorAmagat123")
+    .then(() => {
+        console.log("⚓ Sessió de Capità iniciada correctament a Firebase.");
+    })
+    .catch((error) => {
+        console.error("Error d'autenticació:", error);
+        alert("Atenció: No s'ha pogut iniciar sessió a Firebase. Comprova el correu i la contrasenya a admin.js");
+    });
+
 let contadorPreguntes = 0;
 
 // 2. FUNCIÓ PER AFEGIR MISSIÓ
@@ -219,12 +228,13 @@ window.carregarRepteExistent = function() {
         Object.keys(dataRepte.levels).forEach((key, index) => {
             const level = dataRepte.levels[key];
             afegirPreguntaHTML(); // Creem la card
-            
-            // Omplim la última card creada
+            const display = document.getElementById(`titol-display-${index+1}`);
+            // Omplim l'última card creada
             const card = llista.lastElementChild;
             card.querySelector('.p-titol').value = level.titol;
             card.querySelector('.p-desc').value = level.contingut;
             card.querySelector('.p-sol').value = level.solucio;
+            display.textContent="ENIGMA "+(index+1)+": " + level.titol;
         });
     }).catch(err => {
         Swal.close();

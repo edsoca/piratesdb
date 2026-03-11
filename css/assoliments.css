@@ -12,6 +12,7 @@
     font-family: 'IM Fell English', serif; 
     font-size: 1.1rem; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    background-image: url('../img/dark-wood.png');
 }
 
 .album-assoliments h2 {
@@ -34,11 +35,16 @@
     margin-top: 15px; 
     overflow: hidden;
     border: 1px solid #444;
+    position: relative;
+    border-radius: 50px;
+    overflow: visible !important; /* Molt important perquè les icones i tooltips puguin sortir de la barra */
+    margin-bottom: 40px; /* Donem una mica de marge a sota per si de cas */
 }
 .progress-bar-fill { 
     height: 100%; 
     background: linear-gradient(90deg, #ff8c00, #ffd700); 
     width: 0%; 
+    border-radius: 50px;
     transition: width 1.5s ease-in-out; 
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
@@ -49,134 +55,285 @@
     margin-top: 8px; 
 }
 
+/* =========================================
+   FITES DE RECOMPENSA (Sobre la barra)
+   ========================================= */
+#contenidor-fites {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Deixem que els clics passin a través... */
+}
+
+/* =========================================
+   MARCADORS DE LA BARRA DE PROGRÉS (FITES)
+   ========================================= */
+
+/* Posició del contenidor de la fita */
+.marcador-fita {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Aspecte de la "Moneda Fosca" per defecte (Pendent) */
+.icona-fita {
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle, #2a1a10 0%, #0d0805 100%); /* Fusta/cuir molt fosc */
+    border: 2px solid #553a1f; /* Vora marró apagada */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b7355; /* Número apagat */
+    font-family: 'Pirata One', cursive;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.8), inset 0 2px 4px rgba(0,0,0,0.9);
+    transition: all 0.4s ease;
+    cursor: help;
+}
+
+/* Quan la fita està ASSOLIDA (Canvi a vermell i or) */
+.marcador-fita.assolida .icona-fita {
+    background: radial-gradient(circle, #4a0d0d 0%, #1a0000 100%); /* Vermell sang fosc */
+    border-color: #ffd700; /* Vora d'or */
+    color: #ffd700; /* Número daurat */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Efecte al passar el ratolí */
+.marcador-fita:hover .icona-fita {
+    transform: scale(1.15);
+}
+
+/* =========================================
+   EL PERGAMÍ INFORMATIU (Tooltip al fer hover)
+   ========================================= */
+.tooltip-fita {
+    position: absolute;
+    bottom: 45px; /* Apareix just a sobre de la icona */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 15, 5, 0.95);
+    color: #e0d5b8;
+    padding: 10px 15px;
+    border: 2px solid #8b6508;
+    border-radius: 8px;
+    white-space: nowrap; /* Evita que el text salti de línia */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    font-family: 'IM Fell English', serif;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.9);
+    z-index: 100;
+}
+
+.tooltip-fita strong {
+    font-family: 'Pirata One', cursive;
+    color: #ffd700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+/* El piquito del globus de text */
+.tooltip-fita::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #8b6508 transparent transparent transparent;
+}
+
+/* Efecte al passar el ratolí */
+.marcador-fita:hover .tooltip-fita {
+    opacity: 1;
+    visibility: visible;
+    bottom: 55px; /* Puja una miqueta donant un efecte suau */
+}
+
 /* LA GRAELLA D'ENGANXINES */
 .graella-assoliments { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 20px; 
-    margin-top: 35px; 
+}
+/* =========================================
+   NOU EFECTE FLIP 3D PER A LES ENGANXINES
+   ========================================= */
+
+/* Contenidor principal (la mida original que tenies més o menys) */
+.enganxina-flip {
+    width: 230px;  /* MÉS GRAN (Abans era 180px) */
+    height: 230px; /* MÉS GRAN */
+    background: transparent !important; /* Forcem que no hi hagi cap fons */
+    border: none !important;            /* Forcem que no hi hagi vora */
+    box-shadow: none !important;        /* Forcem que no hi hagi ombra al quadrat */
+    perspective: 1000px;
+    margin: 20px;
+    position: relative;
+    display: inline-block;
 }
 
-.enganxina {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
+/* El contenidor que realment gira */
+.enganxina-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    transition: all 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1); /* Gir suau */
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+/* Quan passem el ratolí, GIRA! */
+.enganxina-flip:not(.bloquejada):hover .enganxina-inner {
+    transform: rotateY(180deg);
+}
+
+/* Estils comuns per davant i darrere */
+.enganxina-front, .enganxina-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    border: 2px solid transparent;  
-    position: relative; 
-    overflow: hidden;   
-    min-height: 250px; /* Opcional: per assegurar que totes les caixes fan el mateix alt */
-}
-
-.enganxina img { 
-    width: 100px; 
-    height: 100px; 
-    object-fit: contain; 
-    margin-bottom: 12px;
-    transition: all 0.4s ease; 
-}
-
-.enganxina h3 { 
-    font-size: 1.5rem; 
-    margin: 5px 0; 
-    letter-spacing: 1px;
-    color: #eee;
-    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
-    overflow: hidden;
-}
-
-.enganxina p { 
-    font-size: 1rem; 
-    margin: 0; 
-    color: #aaa; 
-    font-style: italic;
-    overflow: hidden;
-    transition: opacity 0.4s ease, max-height 0.4s ease;
-    overflow: hidden;
-}
-
-.enganxina h3, .enganxina p {
-    transition: all 0.4s ease;
-    overflow: hidden;
-    max-height: 100px; /* Alçada suficient perquè es vegi normalment */
+    align-items: center;
 }
 
 /* =========================================
-   ESTAT NORMAL I HOVER (Desbloquejades)
+   LA PART DEL DAVANT (El teu disseny original adaptat)
+   ========================================= */
+.enganxina-front {
+    background: transparent !important; 
+    border: none !important;            
+    box-shadow: none !important;        
+    padding: 0; 
+    border-radius: 0 !important;   /* Evitem que talli la imatge en forma de cercle */
+    overflow: visible !important;  /* Deixem que la imatge i l'ombra sobresurtin si cal */
+}
+
+.enganxina-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    background: transparent !important; /* Ens assegurem que no hi hagi cap color fosc de fons antic */
+    
+    /* Ombra màgica */
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.8));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecte en passar el ratolí abans de girar */
+.enganxina-flip:hover .enganxina-front img {
+    transform: scale(1.05);
+}
+
+/* =========================================
+   LA PART DEL DARRERE (Silueta fosca amb text)
+   ========================================= */
+.enganxina-back {
+    /* Eliminem el fons rodó, el color i les vores de la moneda */
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0;
+    overflow: visible !important;
+    transform: rotateY(180deg);
+    
+    /* Preparem el contenidor perquè text i imatge se superposin */
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La imatge que fa de fons al darrere (la silueta) */
+.enganxina-back .back-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* La fem molt fosca perquè faci de fons i hi donem ombra */
+    filter: brightness(0.15) drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+    z-index: 1;
+}
+
+/* El text per sobre de la silueta */
+.enganxina-back .back-content {
+    position: relative;
+    z-index: 2; /* L'elevem per sobre de la imatge fosca */
+    text-align: center;
+    padding: 10px;
+    width: 85%; /* Evitem que el text surti massa cap a les vores de la forma */
+}
+
+.enganxina-back h3 {
+    font-family: 'Pirata One', cursive;
+    color: #ffd700;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+    /* Ombra forta perquè es llegeixi perfectament */
+    text-shadow: 2px 2px 4px #000;
+}
+
+.enganxina-back p {
+    font-family: 'IM Fell English', serif;
+    font-size: 0.95rem; /* Una mica més petit per cabre millor a qualsevol forma */
+    color: #fff;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* =========================================
+   ESTATS (Bloquejat i Desbloquejat) - PART POSTERIOR
    ========================================= */
 
-.enganxina.desbloquejada {
-    border: none;
-    background-color: transparent;
+/* Estil de la part del darrere quan està bloquejat */
+.enganxina-flip.bloquejada .enganxina-back .back-img {
+    filter: brightness(0.1) opacity(0.5); /* Encara més fosc i tènue */
 }
 
-/* 1. ESTAT NORMAL (Sense ratolí): Medalla gegant i text amagat */
-.enganxina.desbloquejada img {
-    transform: scale(2.3); /* Medalla en gran per defecte */
-    margin-bottom: 0;      
-    filter: drop-shadow(0 0 1px rgba(255, 215, 0, 0.6));
+.enganxina-flip.bloquejada .enganxina-front img {
+    /* Aquí controlem la foscor de l'enganxina per defecte */
+    filter: grayscale(100%) brightness(0.4) opacity(0.6) drop-shadow(0 5px 8px rgba(0, 0, 0, 0.5));
+}   
+
+.enganxina-flip.bloquejada .enganxina-back h3 {
+    color: #999;
 }
 
-.enganxina.desbloquejada h3,
-.enganxina.desbloquejada p {
-    opacity: 0;
-    max-height: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+.enganxina-flip.bloquejada .enganxina-back p {
+    color: #ccc;
 }
 
-/* 2. EFECTE HOVER: La medalla s'encongeix i mostra el text */
-.enganxina.desbloquejada:hover {
-    border-color: #ffd700;
-    box-shadow: 0 0 35px rgba(255, 215, 0, 0.4);
+.enganxina-flip.bloquejada .enganxina-back {
+    transform: rotateY(0deg); /* Evitem que estigui del revés */
+    opacity: 0; /* Invisible per defecte */
+    z-index: 10; /* Ens assegurem que quedi per sobre de la imatge frontal */
+    background: rgba(10, 5, 0, 0.85); /* Un fons fosc pirata perquè es llegeixi perfectament el text */
+    transition: opacity 0.4s ease; /* Efecte d'aparició suau */
 }
 
-.enganxina.desbloquejada:hover img {
-    transform: scale(1); /* Torna a la mida original petita */
-    margin-bottom: 12px; /* Deixa espai a sota per al text */
-    filter: none;        /* Treiem la brillantor extrema al fer-se petita */
-}
-
-/* El text torna a aparèixer */
-.enganxina.desbloquejada:hover h3 {
+/* 3. Al passar el ratolí, fem que el text aparegui per art de màgia! */
+.enganxina-flip.bloquejada:hover .enganxina-back {
     opacity: 1;
-    max-height: 100px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.enganxina.desbloquejada:hover p {
-    opacity: 1;
-    max-height: 100px;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/* 2. ENGANXINES BLOQUEJADES */
-.enganxina.bloquejada {
-    opacity: 0.7; 
-}
-.enganxina.bloquejada img {
-    /* Màgia: Imatge en blanc i negre i opaca fins que la guanyin! */
-    filter: grayscale(100%) opacity(0.4); 
-}
-.enganxina.bloquejada:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.9); 
-    border: 2px solid #555; 
-    opacity: 1;
-}
-.enganxina.bloquejada:hover img {
-    opacity: 0.6; 
-    transform: scale(1.05);
 }
 
 /* =========================================

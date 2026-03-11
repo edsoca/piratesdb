@@ -95,7 +95,7 @@ $(document).ready(function() {
     $('#obrirModal').on('click', function() {
         $('.modal-pirata').hide(); 
         soPaper.play();
-        $('#modalEsquema img').attr('src', 'img/PiratesER.png'); 
+        $('#modalEsquema img').attr('src', 'img/piratesER.png'); 
         $('#modalEsquema').fadeIn(300);
     });
 

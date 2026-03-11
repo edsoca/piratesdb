@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <title>Imprimir Recompenses Pirates</title>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Pirata+One&display=swap" rel="stylesheet">
+    <style>
+        /* Estils generals de la pàgina */
+        body {
+            background-color: #fff;
+            font-family: 'IM Fell English', serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Contenidor per fer una graella de cartes */
+        .graella-cartes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cartes per fila */
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Disseny individual de la carta */
+        .carta-recompensa {
+            border: 3px dashed #8b6508; /* Línia de retall */
+            padding: 5px;
+            background-color: #fff;
+        }
+
+        .carta-interior {
+            background: #fdf5e6; /* Color pergamí suau per estalviar tinta, però temàtic */
+            border: 2px solid #3c2d0a;
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px 10px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .icona {
+            font-size: 4rem;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-family: 'Pirata One', cursive;
+            color: #8b0000;
+            font-size: 2rem;
+            margin: 0;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .firma {
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Regles Especials per a la Impressora */
+        @media print {
+            body { padding: 0; }
+            /* Això assegura que s'imprimeixin els colors de fons i les vores */
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            /* Evita que una carta quedi tallada per la meitat entre dues pàgines */
+            .carta-recompensa { page-break-inside: avoid; break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="graella-cartes">
+        
+        <div class="carta-recompensa">
+            <div class="carta-interior">
+                <h2>Pista del Lloro</h2>
+                <div class="icona">🦜</div>
+                <p>Aquest val et dóna dret a demanar una pista directa i clara durant l'examen.</p>
+                <div class="firma">Vàlid per a un sol ús. Firmat: El Capità</div>
+            </div>
+        </div>
+
+        <div class="carta-recompensa">
+            <div class="carta-interior">
+                <h2>Vent a Favor</h2>
+                <div class="icona">⛵</div>
+                <p>Els vents bufen al teu favor. Suma +0.5 punts a la nota final de la teva missió.</p>
+                <div class="firma">Vàlid per a un sol ús. Firmat: El Capità</div>
+            </div>
+        </div>
+
+        <div class="carta-recompensa">
+            <div class="carta-interior">
+                <h2>El Gran Tresor</h2>
+                <div class="icona">👑</div>
+                <p>La recompensa dels reis! Suma +1 punt sencer a la nota final de l'avaluació.</p>
+                <div class="firma">Vàlid per a un sol ús. Firmat: El Capità</div>
+            </div>
+        </div>
+
+        </div>
+
+</body>
+</html>

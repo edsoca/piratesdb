@@ -25,7 +25,7 @@ body {
     color: #e0d0b0;
     font-family: var(--font-terminal);
     color: #e0d0b0;
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../img/mapa-pirata.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../img/fons_mapa.png');
     background-size: cover;
     overflow: hidden;
 }
@@ -140,6 +140,7 @@ body {
     border: 2px solid var(--gold);
     text-align: center;
     box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+    background-image: url('../img/dark-wood.png');
 }
 
 .login-box h2 {
@@ -220,13 +221,14 @@ h1, h2, h3, .mission-name, .terminal-title {
 /* Panell de l'esquerra (Enunciats) */
 /* El contenidor principal que ocupa tota l'alçada */
 .code-area {
-    background: repeating-linear-gradient(
+    background-image: url('../img/dark-wood.png');
+    /*background: repeating-linear-gradient(
       to right,
       #2c1e14,
       #2c1e14 40px,
       #36251a 40px,
       #36251a 80px
-    );
+    );*/
     border: 3px solid var(--gold);
     border-radius: 8px;
     height: calc(100vh - 180px); /* Ajusta l'alçada fins a baix de tot de la finestra */
@@ -254,7 +256,7 @@ h1, h2, h3, .mission-name, .terminal-title {
 
 /* El contingut on va el text de l'enigma */
 .terminal-content {
-    background: transparent !important; /* CLAU: Transparent per no tallar el fons */
+    background: transparent !important; /* CLAU: Transparent per no tallar el fons */*/
     flex-grow: 1; /* Estira el contingut fins a baix de la capsa */
     padding: 30px;
     overflow-y: auto; /* Scroll només si el text és molt llarg */
@@ -398,7 +400,6 @@ h1, h2, h3, .mission-name, .terminal-title {
     align-items: center;
     background: rgba(40, 30, 10, 0.7); /* Marró pergamí fosc */
     border: 2px solid #ffcc00;
-    padding: 15px 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 5px;
@@ -653,7 +654,7 @@ h1, h2, h3, .mission-name, .terminal-title {
 /* L'input de text dins del cofre */
 #resultat {
     background-color: #f4e4bc !important; /* Color pergamí claret */
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Textura de paper */
+    background-image: url('../img/light-paper-fibers.png'); /* Textura de paper */
     border: 2px solid #5d4037 !important; /* Vora de fusta/cuir */
     color: #2c1e14 !important; /* Text marró molt fosc, no negre */
     font-family: 'Special Elite', serif !important; /* Font de màquina vella */
@@ -900,7 +901,7 @@ h1, h2, h3, .mission-name, .terminal-title {
 /* 1. Canvi d'ambientació general */
 body.joc-guanyat {
     /* Un lleuger tint daurat al mapa de fons per celebrar la victòria */
-    background-image: linear-gradient(rgba(255, 204, 0, 0.1), rgba(0,0,0,0.8)), url('../img/mapa-pirata.jpg');
+    background-image: linear-gradient(rgba(255, 204, 0, 0.1), rgba(0,0,0,0.8)), url('../img/fons_mapa.png');
 }
 
 /* 2. Icona dinàmica al títol (substitueix la calavera per la bossa de monedes) */
