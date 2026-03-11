@@ -37,12 +37,15 @@
     border: 1px solid #444;
     position: relative;
     border-radius: 50px;
+    border: 2px solid #ffd700; /* Un marc d'or per a tota la barra */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); /* Una resplendor daurada suau (opcional) */
     overflow: visible !important; /* Molt important perquè les icones i tooltips puguin sortir de la barra */
     margin-bottom: 40px; /* Donem una mica de marge a sota per si de cas */
 }
 .progress-bar-fill { 
     height: 100%; 
-    background: linear-gradient(90deg, #ff8c00, #ffd700); 
+    background: linear-gradient(90deg, #4a0000 0%, #a70000 50%, #ff1a1a 100%);
+    box-shadow: 0 0 10px rgba(255, 26, 26, 0.5);
     width: 0%; 
     border-radius: 50px;
     transition: width 1.5s ease-in-out; 
