@@ -1,0 +1,848 @@
+{
+  "cataleg_assoliments": {
+    "diari_sang": {
+      "descripcio": "Has desxifrat el diari del navegant cec i completat el jurament final.",
+      "imatge": "img/logro_sang.png",
+      "nom": "L'últim jurament de sang",
+      "ordre": 9
+    },
+    "goonies": {
+      "descripcio": "Mai has dit prou. Has trobat l'or d'en Willy l'Orbt.",
+      "imatge": "img/logro_doblao.png",
+      "nom": "Goonie Honorífic",
+      "ordre": 12
+    },
+    "illa-del-mico": {
+      "descripcio": "Has desxifrat els misteris de la llegendària illa i trobat el Big Whoop.",
+      "imatge": "img/logro_mico.png",
+      "nom": "Terror de Monkey Island",
+      "ordre": 1
+    },
+    "malediccio-perla-negra": {
+      "descripcio": "Has recuperat el vaixell més ràpid de tots els mars de la base de dades.",
+      "imatge": "img/logro_perla.png",
+      "nom": "Capità de la Perla Negra",
+      "ordre": 3
+    },
+    "repte_bikini": {
+      "descripcio": "Has dominat les funcions d'agregació i el GROUP BY per desxifrar els secrets financers del Senyor Cangur",
+      "imatge": "img/logro_bikini.png",
+      "nom": "Xef de Dades de Fons de Bikini",
+      "ordre": 5
+    },
+    "repte_hispaniola": {
+      "descripcio": "Has dominat l'art dels JOINs per trobar el botí més cobejat de tots els mars.",
+      "imatge": "img/logro_hispaniola.png",
+      "nom": "L'Herència de Flint",
+      "ordre": 7
+    },
+    "repte_illa_mico_2": {
+      "descripcio": "Has tancat el cercle de la venjança de LeChuck dominant les consultes més fosques de l'abisme. Ets una llegenda absoluta.",
+      "imatge": "img/logro_mico_2.png",
+      "nom": "The Grand Finale",
+      "ordre": 13
+    },
+    "repte_maricel": {
+      "descripcio": "Has demostrat dominar les corrents més complexes de l'SQL: Subconsultes, JOINs i agrupacions.",
+      "imatge": "img/logro_maricel.png",
+      "nom": "Mestre navegant",
+      "ordre": 10
+    },
+    "repte_onepiece": {
+      "descripcio": "Has demostrat la teva validesa llegint els Poneglyphs i superant el Grand Line de dades.",
+      "imatge": "img/logro_onepiece.png",
+      "nom": "Rei dels pirates",
+      "ordre": 4
+    },
+    "repte_onepiece_2": {
+      "descripcio": "Has sobreviscut a la Buster Call i desxifrat el Road Poneglyph demostrant un domini llegendari dels JOINs i les subconsultes.",
+      "imatge": "img/logro_onepiece_2.png",
+      "nom": "Navegant de Laugh Tale",
+      "ordre": 11
+    },
+    "repte_peterpan": {
+      "descripcio": "Has enganyat el Capità Garfi dominant els parèntesis, els BETWEEN i els IN.",
+      "imatge": "img/logro_peterpan.png",
+      "nom": "Pols de Fada",
+      "ordre": 2
+    },
+    "repte_princesa_promesa": {
+      "descripcio": "Has superat el Pantà de Foc i els Clifs of Insanity dominant els OUTER JOINs i les consultes multitaula",
+      "imatge": "img/logro_bride.png",
+      "nom": "L'Amor Vertader",
+      "ordre": 8
+    },
+    "repte_simbad": {
+      "descripcio": "Has superat els monstres d'Eris i has recuperat el Llibre de la Pau.",
+      "imatge": "img/logro_simbad.png",
+      "nom": "El Navegant de Siracusa",
+      "ordre": 6
+    }
+  },
+  "hallOfFame": {
+    "diari_sang": {
+      "-OmnLGAFqQlKE6Itw2zj": {
+        "data": 1772535485175,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1082
+      },
+      "-On1HvtDVigt0f_k_Z7w": {
+        "data": 1772786269813,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 106
+      }
+    },
+    "goonies": {
+      "-Om_XftnBdl_AqzKCQZE": {
+        "data": 1772303859355,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1055
+      },
+      "-OmmzpmicIQhlU4Sx8F2": {
+        "data": 1772529605845,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1937
+      },
+      "-On1GwAhmkO9dJirQb3m": {
+        "data": 1772786008850,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 852
+      }
+    },
+    "illa-del-mico": {
+      "-OlqQnZWtYmea4YWSMhl": {
+        "data": 1771513526604,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 825
+      },
+      "-Om_OHqBQSvNi7VZdtHL": {
+        "data": 1772301397426,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1178
+      },
+      "-OmnXgm9tyVO0lMnr5Gn": {
+        "data": 1772538743984,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 794
+      },
+      "-On18TKdMp_tV5IpJpUT": {
+        "data": 1772783789458,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 215
+      }
+    },
+    "malediccio-perla-negra": {
+      "-OlpsX3l-_oe9ytUtOj0": {
+        "data": 1771504279894,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 578
+      },
+      "-OmnQw45pZvGl_zLRikU": {
+        "data": 1772536971628,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 762
+      },
+      "-On192dJJoNJroiffMh4": {
+        "data": 1772783942267,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 111
+      }
+    },
+    "repte_bikini": {
+      "-On--nb153OqAIg59Iz-": {
+        "data": 1772747962857,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 235
+      },
+      "-On1Bhq4uBXC681eG0ff": {
+        "data": 1772784639404,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 382
+      }
+    },
+    "repte_hispaniola": {
+      "-Omn7GfoNEt8mxebzFp-": {
+        "data": 1772531817241,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1375
+      },
+      "-On1NpRudwxivBigYStQ": {
+        "data": 1772787816287,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1149
+      }
+    },
+    "repte_illa_mico_2": {
+      "-On-FFhcrrSnkDu5mGoo": {
+        "data": 1772752014223,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 57
+      },
+      "-On21oDEE7dB6xTiLOVN": {
+        "data": 1772798821303,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 510
+      }
+    },
+    "repte_maricel": {
+      "-Omnp-y01X1utpYlJFzM": {
+        "data": 1772543545257,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 427
+      },
+      "-On1yFzbu30kXIku2efr": {
+        "data": 1772797628509,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 501
+      }
+    },
+    "repte_onepiece": {
+      "-OmaN4SyPnOrZChmI3QZ": {
+        "data": 1772317857701,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 422
+      },
+      "-OmnimR5OZHSGY4kazCV": {
+        "data": 1772541912889,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 502
+      },
+      "-OmyiUsv1jfYqlLLb13k": {
+        "data": 1772726386276,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1199
+      },
+      "-Omyj3qQeIdKxbx_z4Dy": {
+        "data": 1772726537668,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 1202
+      },
+      "-On1CqZTIT8Q7b5nnJlw": {
+        "data": 1772784937285,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 233
+      }
+    },
+    "repte_onepiece_2": {
+      "-Omsw6bQAW1I__nlCtLR": {
+        "data": 1772629293569,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 100
+      },
+      "-On2-ZLNDsKEkCyy8-DH": {
+        "data": 1772798232065,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 429
+      }
+    },
+    "repte_peterpan": {
+      "-OmdCUJPPr-6Cu72qY9Y": {
+        "data": 1772365411650,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 751
+      },
+      "-OmnF3HfqVhQAbatKhsU": {
+        "data": 1772533859540,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 492
+      },
+      "-On1A0jaQyhOYbO-FNAz": {
+        "data": 1772784196621,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 143
+      }
+    },
+    "repte_princesa_promesa": {
+      "-OmzUvsl00xCBNAhXGDt": {
+        "data": 1772739346020,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 227
+      },
+      "-On1ydFUzKAN9D4rsCBd": {
+        "data": 1772797727871,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 56
+      }
+    },
+    "repte_simbad": {
+      "-Omun6aUf0Hhn6EVAM60": {
+        "data": 1772660488647,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 758
+      },
+      "-On1HLLvyVpTOYwkXBTH": {
+        "data": 1772786116071,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 37
+      }
+    }
+  },
+  "reptes": {
+    "diari_sang": {
+      "levels": {
+        "level1": {
+          "contingut": "El vent bufa fort i la taverna fa pudor de rom ranci. Sobre la taula, sota l'espelma, trobes un diari antic amb les pàgines tacades de sang. Pertanyia a un navegant cec. A la primera pàgina hi diu: <i>'El meu viatge de bogeria va començar servint al vaixell més poderós i terrorífic dels set mars, ja que era el que més canons tenia. Un monstre de fusta imbatible</i>. <br>Quin era aquest vaixell?",
+          "solucio": "37c364d998b05bef8420370db7f49683654e8f629c53de6b4d5d30afc90775f5",
+          "titol": "L'INICI DEL RASTRE"
+        },
+        "level2": {
+          "contingut": "El diari continua amb gargots histèrics: <i>'El capità va embogir. Vam atracar en una illa maleïda de la qual no vull recordar el nom, però sempre em ve la paraula <b><i>muerta</i></b> al cap sense voler, ja que la massacre va ser brutal. Vam saquejar tots els seus racons, acumulant desenes de monedes d'or fins a esgotar-les.'</i><br><br><b>Missió:</b> Quants diners vam treure del tresor d'aquella illa?",
+          "solucio": "1de4842b42fa3db35fc4cf058a02acb057a8df02d0d3cdc96e686551aee25a39",
+          "titol": "EL MOTÍ SANGNANT"
+        },
+        "level3": {
+          "contingut": "Molt bé. Tenim la quantitat d'or, però... on van anar a amagar-lo? El navegant cec va escriure: <i>'Vam fugir amb la bodega plena. Ens vam refugiar a una illa molt poc habitada, un lloc on gairebé es podien comptar 50 persones'</i><br><br><b>Missió:</b> Coordenades d'aquesta illa.",
+          "solucio": "7c1c97df17c066924822b0af09a65251554962c61e23329aed04cd19020dc3b8",
+          "titol": "BUSCANT EL REFUGI"
+        },
+        "level4": {
+          "contingut": "Efectivament, la coordenada és correcta! Allà s'hi van amagar. El diari, però, té una pàgina arrencada i només hi podem llegir un destí posterior xifrat: <i>'Després d'amagar una part del tresor, els supervivents vam salpar cap a la coordenada <b>B4</b>. Quantes platges tenia aquesta destinació?",
+          "solucio": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+          "titol": "DESXIFRANT EL RUMB"
+        },
+        "level5": {
+          "contingut": "Ets a Monkey Island. Aquí el navegant cec va ser traït. Llegeixes amb dificultat l'última entrada del diari: <i>'L'home que em va treure els ulls i em va abandonar aquí va copiar un mapa a escala 1:10000 de tot el que havíem fet. I sé que va amagar l'original.'</i><br><br><b>Missió:</b> Necessitem saber qui és l'autor d'aquesta còpia del mapa.",
+          "solucio": "8cd89f41235e8251a75ba3b7a5659c7125267ae806a20e896ec549a2a7457507",
+          "titol": "EL PIRATA TRAÏDOR"
+        },
+        "level6": {
+          "contingut": "El traïdor està desemmascarat. L'alè final del diari deixa una reflexió esfereïdora abans de morir: <i>'L'or ens va tornar bojos, però la gran mentida és que allò que vam amagar a les entranyes de Monkey Island no eren simples monedes... era una cosa molt més fosca.'</i><br><br><b>Missió:</b>  Com es diu el tresor maleït?",
+          "solucio": "efd78567953e07fe523eb65b73c1f638adf2f80d8efabb10e03f775f19e92426",
+          "titol": "EL TRESOR MALEÏT"
+        },
+        "level7": {
+          "contingut": "Has trobat la ubicació del Big Whoop! Davant teu tens el cofre enterrat, però el pany està oxidat i requereix que introdueixis la quantitat de temps que el vaixell del vostre botxí va estar atracat allà per obrir-se.<br><br><b>Missió:</b> Quants dies (<b>days</b>) va estar atracat el vaixell 'LeChucks Demon Ship' a l'illa 'Monkey Island'? Introdueix el número exacte per obrir el pany i guanyar el joc!",
+          "solucio": "1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb",
+          "titol": "EL COFRE FINAL"
+        }
+      },
+      "tempsFinal": 1800,
+      "titol_repte": "El Diari de Sang del Navegant Cec"
+    },
+    "goonies": {
+      "levels": {
+        "level1": {
+          "contingut": "Plou a bots i barrals. Us heu refugiat a les golfes de casa i, remenant baguls antics, trobeu un mapa polsegós amb un estrany dobló de ferro. El diari adjunt diu que el mapa va ser traçat pel pirata que més mapes havia cartografiat per a la seva curta edat.<br><br><b>Missió:</b> Necessitem saber qui és l'autor del mapa. Fes una consulta per trobar el nom del pirata (<b>name</b>).",
+          "solucio": "f53d35e5c8a71f01988279ac62741ed566963b66c6eb72d484dbfb59fab94cb7",
+          "titol": "EL DESCOBRIMENT A LES GOLFES"
+        },
+        "level2": {
+          "contingut": "Darrere del mapa hi ha una endevinalla escrita per Nico Robin: <i>'El dobló té dos forats. Si el poses sobre el mapa de la paret, assenyalarà l'illa on comença l'aventura, però primer necessites la latitud i la longitud.'</i><br><br><b>Missió:<br>1️⃣ <b>Longitud:</b> Fes una consulta per trobar el pirata que pesa EXACTAMENT 100.0 kg. \n<br>2️⃣ <b>Latitud:</b> Fes una altra consulta per COMPTAR quants pirates tenen MÉS de 400 anys.",
+          "solucio": "665041ac7378863a09c9435cc97016dc18b3286d6b6c3996b2235fc93bd0de48",
+          "titol": "EL DOBLÓ FORADAT (REPTE DOBLE)"
+        },
+        "level3": {
+          "contingut": "Heu anat amb les bicicletes fins a l'Illa del Far Antic, de nit i d'amagat. Sota els fonaments del far heu descobert una entrada secreta a uns túnels subterranis de pedra! Una gran porta bloqueja el pas i un mecanisme exigeix un codi numèric per obrir-se. A la paret hi diu: <i>'El pes d'allò que s'amaga aquí obrirà el camí'</i>.",
+          "solucio": "9aeff0dcfe8245e0ccb3008c5e498a84b795cea44dffba2e6753bc2d12d350d2",
+          "titol": "ELS TÚNELS SOTA EL FAR"
+        },
+        "level4": {
+          "contingut": "La porta de pedra cedeix! Però de sobte, un mecanisme s'activa. Teniu 5 minuts abans que el sostre caigui! Hi ha una balança gegant i necessiteu posar-hi el nombre exacte de monedes d'or per aturar la trampa. Una inscripció diu: <i>'Només la suma de l'or contingut a les illes amb només una platja et salvarà</i>.",
+          "solucio": "5a6e508b75971e0da70acff0036938beba95e59d030e1605d0397e7ca84129a2",
+          "titol": "LA TRAMPA DE LES BALANCES"
+        },
+        "level5": {
+          "contingut": "Cau l'última moneda, el sostre s'atura en sec. Us deixeu caure per un tobogan d'aigua subterrani fins a aterrar en una immensa gruta amagada dins la terra. Allà, il·luminat per l'aigua fosforescent, descansa el vaixell pirata més antic i viatger de tots. El vaixell que ha passat més temps atracat.s</b>). Quin és el nom d'aquest vaixell?",
+          "solucio": "fcf6ea00f282cba80f59ff41340c526f0905c7ace2d3b208a5ddcca3a808398f",
+          "titol": "LA GRUTA DEL LLEGENDARI VAIXELL"
+        },
+        "level6": {
+          "contingut": "Pugeu al The Sea Monkey! La bodega és plena d'or! Però de sobte, sentiu veus familiars: són una banda de lladres locals que us han seguit! Per espantar-los i poder fugir pel túnel marí del vaixell, heu de disfressar un de vosaltres com el pirata més temible (diuen que té el mateix nombre de cicatrius que el pirata anomenat <b><i>Drac Antic</i></b>) del vaixell <i>'Queen Anne's Revenge'</i> i cridar el seu nom.",
+          "solucio": "5a4afcdd4474d02aed8f58e1808b4e5da118a072741dc969e0fbc32785df0e58",
+          "titol": "FUGINT DELS PERSEGUIDORS"
+        }
+      },
+      "tempsFinal": 2400,
+      "titol_repte": "El Misteri del Dobló de Ferro"
+    },
+    "illa-del-mico": {
+      "levels": {
+        "level1": {
+          "contingut": "Guybrush Threepwood ha arribat a Mêlée Island amb un objectiu clar: ser pirata! Però abans, haurà de superar una sèrie de proves, estàs preparat/da? <br><br>\nPrimer de tot, en Guybrush ha de derrotar la Mestra d'Espasa, la Carla, per demostrar la seva vàlua. Però abans d'anar-hi, hem de saber quina experiència té en combat. Quantes cicatrius té la <b>'Carla The Sword Master'</b>?",
+          "solucio": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+          "titol": "La Prova de l'Espas"
+        },
+        "level2": {
+          "contingut": "L'Stan S. Stanman ens vol vendre un vaixell de segona mà: el <b>'The Sea Monkey'</b>. En Guybrush vol saber si la seva estructura aguantarà un abordatge. Busca el pes d'aquest vaixell.",
+          "solucio": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc",
+          "titol": "El vaixell del vell Stan"
+        },
+        "level3": {
+          "contingut": "Hem vist el vaixell fantasma de LeChuck a l'horitzó i ens hem quedat glaçats! Té tants canons que podria enfonsar una flota sencera. Quants canons té la temible nau <b>'LeChucks Demon Ship'</b>?",
+          "solucio": "ad57366865126e55649ecb23ae1d48887544976efea46a48eb5d85a6eeb4d306",
+          "titol": "La nau del Dimoni LeChuck"
+        },
+        "level4": {
+          "contingut": "Necessitem el tresor 'Rubber Chicken with Pulley' per poder abordar el vaixell de LeChuck des del nostre. Quin identificador té l'illa on podem trobar aquest tresor?",
+          "solucio": "76a50887d8f1c2e9301755428990ad81479ee21c25b43215cf524541e0503269",
+          "titol": "El trencaclosques del pollastre"
+        },
+        "level5": {
+          "contingut": "Ens hem trobat amb en Murray, la calavera diabòlica! Diu que dominarà el món, però de moment només domina un pal d'una tanca. Com que no té cos, deu pesar ben poc! Busca el pes (<b>weight</b>) del pirata anomenat <b>'Murray the Skull'</b> a la taula <b>pirates</b> (amb un decimal i usant un punt de separador).",
+          "solucio": "d84bdb34d4eeef4034d77e5403f850e35bc4a51b1143e3a83510e1aaad839748",
+          "titol": "El Pes de la Calavera Murray"
+        },
+        "level6": {
+          "contingut": "Ja gairebé hi som! Però aquest últim enigma és més complicat, ja que necessites per un costat la primera lletra del tresor que té exactament 10000 monedes d'or  i per un altre costat el número de platges de l'illa <b>'Tortuga'</b>. Amb aquestes dades, quina és l'illa que podem extreure?",
+          "solucio": "9e3022d8da2bea9b9d23e3c9d5cd12b01f3c249e0069e0ed8bead0e9b3fd3f03",
+          "titol": "La Gran X"
+        }
+      },
+      "tempsFinal": 1500,
+      "titol_repte": "El Misteri de l'Illa del Mico"
+    },
+    "malediccio-perla-negra": {
+      "levels": {
+        "level1": {
+          "contingut": "La nit és tancada a Port Royal. El Capità Barbossa ha bombardejat la ciutat, s'ha endut l'Elizabeth Swann i ha fugit amb la 'Perla Negra' cap a l'horitzó. En Jack Sparrow (perdó, el *Capità* Jack Sparrow) t'ha reclutat per a una missió temerària: hem de calcular el rumb exacte, reclutar una tripulació a Tortuga i interceptar el vaixell maleït abans que la lluna plena reveli el seu secret més fosc. Mira el mapa, grumet, el destí ens espera! <br><br>\nSi volem interceptar la 'Perla Negra', primer hem de saber a què ens enfrontem. En Jack diu que és el vaixell més ràpid del Carib, però té molta potència de foc. Consulta els registres de la marina i digues: Quants canons té el vaixell anomenat <b>'Black Pearl'</b>?",
+          "solucio": "e29c9c180c6279b0b02abd6a1801c7c04082cf486ec027aa13515e4f3884bb6b",
+          "titol": "El pes de la llegenda"
+        },
+        "level2": {
+          "contingut": "En Jack recorda que un pirata que tenia les lletres <b><i>ssa</i></b> al nom el va trair fa deu anys. Per posar preu al seu cap, hem de confirmar la seva identitat als arxius de pirates buscats. Cerca a la taula <b>pirates</b> quantes cicatrius té aquest pirata.",
+          "solucio": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+          "titol": "El Perfil de l'Amotinat"
+        },
+        "level3": {
+          "contingut": "Hem trobat unes coordenades al mapa que coincideixen amb un cofre llegendari! En Barbossa s'hi dirigeix per trencar la maledicció. En quina illa es troba amagat el tresor anomenat <b>'Davy Jones Chest'</b>? Necessito les coordenades d'aquesta illa.",
+          "solucio": "7c1c97df17c066924822b0af09a65251554962c61e23329aed04cd19020dc3b8",
+          "titol": "El Mapa de les Illes Perdudes"
+        },
+        "level4": {
+          "contingut": "A mig camí, parem a una illa que al mapa té les coordenades B7 per reclutar gent. Necessitem tripulació, però l'illa és petita i està plena a vessar! Per saber si trobarem prou voluntaris, calcula la densitat de pirates per metre quadrat de l'illa arrodonit a dos decimals (utilitza un punt per al decimal).",
+          "solucio": "5fbc2c33b9bb142b2ee1aa9baa85a5c3c882798e9b2fb191a730f97ec261fbda",
+          "titol": "Reclutament a Tortuga"
+        },
+        "level5": {
+          "contingut": "Després de reclutar la tripulació necessària, ens apropem a la 'Queen Anne's Revenge', un vaixell aliat d'en Barbossa que bloqueja el pas. S'escolten remors de cadenes a coberta... quants enemics ens esperen al vaixell?",
+          "solucio": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+          "titol": "Ombres sota la Lluna"
+        },
+        "level6": {
+          "contingut": "L'abordatge ha començat! Les espases xoquen sota la llum de la lluna. En Jack crida: 'Aneu a pel més perillós!'. Busca el nom del pirata que té el major nombre de cicatrius d'entre els que naveguen al vaixell <b>'Queen Anne\\\\'s Revenge'</b>.",
+          "solucio": "5a4afcdd4474d02aed8f58e1808b4e5da118a072741dc969e0fbc32785df0e58",
+          "titol": "Duel a l'Illa de la Mort"
+        }
+      },
+      "tempsFinal": 1200,
+      "titol_repte": "La Maledicció de la Perla Negra"
+    },
+    "repte_bikini": {
+      "levels": {
+        "level1": {
+          "contingut": "<p>El Senyor Cangur necessita saber exactament quants empleats (pirates) té treballant actualment al vaixell <b>'The Patty Wagon'</b> per poder preparar les racions exactes de <i>Krabby Patties</i> abans de salpar cap a l'illa del Crani Somrient. <br><b>Missió:</b> Realitza una consulta que retorni el número total de pirates que estan assignats a l'ID del vaixell anomenat 'The Patty Wagon'. Pots fer una primera consulta per trobar el seu identificador.</p>",
+          "solucio": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+          "titol": "Recompte a la Cuina"
+        },
+        "level2": {
+          "contingut": "<p>En Plankton ha escampat diversos cofres per les illes i el Senyor Cangur vol identificar quina és la suma total de monedes d'or de l'illa que en conté més per prioritzar el seu abordatge i recuperar la inversió. <br><b>Missió:</b> Calcula la suma total de monedes major</p> <hr>\n<i>Nota: Per a aquesta consulta hem suposat que una illa pot tenir més d'un tresor, encara que al digrama relacional, la relació entre islands i treasures és 1:1</i>",
+          "solucio": "4c5334f73dcef0a27ff765ffe7303b760c5e6eb1a08de94ba8b1f5d80829efc6",
+          "titol": "El Botí més Gran de l'Oceà"
+        },
+        "level3": {
+          "contingut": "<p>L'Holandès Errant vol maleir el vaixell que tingui la tripulació amb la mitjana d'edat més baixa de tota la base de dades de <b>pirates</b> per quedar-se amb les seves ànimes joves i enèrgiques. <br><b>Missió:</b> Calcula la mitjana d'edat (<code>AVG(age)</code>) dels pirates agrupats pel seu vaixell (<code>GROUP BY idShip</code>) i mostra únicament la mitjana més petita de la llista resultant utilitzant <code>ORDER BY ASC</code> i <code>LIMIT 1</code>.</p>\n<i> Nota: Utilitza el punt com a separador per als decimals  i posa una xifra decimal</i>",
+          "solucio": "dcccf7eb694b3990811d7b91e1928100be0ff27e7dc57b9d9ba10ff718fb76ac",
+          "titol": "La Tripulació més Jove"
+        },
+        "level4": {
+          "contingut": "<p>En Plankton vol identificar el pirata més prim per entrar pels conductes, però per seguretat només vol revisar els vaixells que tenen una tripulació de <b>més d'un membre</b> per assegurar-se que hi ha algú fora per ajudar. <br><b>Missió:</b> Troba el pes mínim (<code>MIN(weight)</code>) agrupant per vaixell (<code>idShip</code>), però només per a aquells grups que tinguin més d'un pirata (<code>HAVING COUNT(*) > 1</code>). Mostra el pes més baix d'aquests grups ordenant-los i aplicant <code>LIMIT 1</code>.</p>\n<i> Nota: Introduïu un punt com a separador decimal </i>",
+          "solucio": "d2cbad71ff333de67d07ec676e352ab7f38248eb69c942950157220607c55e84",
+          "titol": "Infiltració pel Conducte"
+        },
+        "level5": {
+          "contingut": "<p>La Sandy busca el record de cicatrius de guerra, però només li interessen els vaixells on la tripulació és jove (amb una mitjana d'edat <b>inferior a 30 anys</b>), ja que vol entrenar noves promeses. <br><b>Missió:</b> Busca el número màxim de cicatrius (<code>MAX(numberOfScars)</code>) agrupant els pirates pel seu vaixell, però filtra només aquells grups on la mitjana d'edat sigui menor a 30 (<code>HAVING AVG(age) < 30</code>). Mostra el valor més alt de cicatrius d'aquests grups usant <code>LIMIT 1</code>.</p>",
+          "solucio": "7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451",
+          "titol": "El Veterà de Mil Batalles"
+        },
+        "level6": {
+          "contingut": "<p>Necessitem les coordenades de la base de Plankton; per desbloquejar-les necessites una <b>Lletra</b> (la primera lletra del vaixell amb 48 canons i un pes de 400kg) i un <b>Número</b> (el total de pirates que tenen 2 cicatrius i una alçada menor de 2). <br><b>Missió:</b> Busca l'illa que hi ha a la coordenada resultant al <b>Mapa de Coordenades</b> visual de la teva pantalla i escriu el seu nom exacte per completar l'aventura.</p>",
+          "solucio": "e5a5c64e6683ae8ac21b2819f2fe527c7fcff112352321c10b67af1a00435d41",
+          "titol": "La Base Secreta de Plankton"
+        }
+      },
+      "tempsFinal": 2100,
+      "titol_repte": "L'Abordatge de Fondo de Bikini"
+    },
+    "repte_hispaniola": {
+      "levels": {
+        "level1": {
+          "contingut": "Jim Hawkins ha desplegat el mapa polsegós sobre la taula de la posada Almirall Benbow. És un document antic i el nom de l'illa és gairebé il·legible, però el Dr. Livesey identifica que una de les paraules del nom conté les lletres <b>'llat'</b>. Abans de salpar, el capità Smollett exigeix saber exactament a quina escala està dibuixat aquest mapa original per traçar el rumb.",
+          "solucio": "2ede5138b8df7b437d80cf77ba7eea2cc22998566495dbab440dc31c71922d80",
+          "titol": "El Mapa de l'Almirall Benbow"
+        },
+        "level2": {
+          "contingut": "L'expedició ja té vaixell, però falta la tripulació. A Bristol, un taberner anomenat Long John Silver s'ha guanyat la confiança d'en Trelawney i l'ajuda a reclutar mariners. Silver recomana un pirata experimentat que diu que va navegar al vaixell 'La Rosa del Vent'. Quin és el nom d'aquest pirata?",
+          "solucio": "80a77cc20628cc028ee0144ae44db3e0e244f549715045e9bfdf82c7cf98c72b",
+          "titol": "El Cuiner d'Una Cama"
+        },
+        "level3": {
+          "contingut": "L'Hispaniola ja navega cap a l'illa. Una nit, en Jim s'amaga dins d'un barril de pomes i sent una conspiració: Silver i els seus homes són els antics pirates d'en Flint! Parlen amb por d'un vaixell fantasmagòric que va ser l'únic que va gosar atracat a l'Illa del Tresor Callat abans que ells. Quin és el nom d'aquest vaixell?",
+          "solucio": "39d0be1dcfcefdae1b426f23d88539d746e3c12de7eb4d2ad942f19e3339b475",
+          "titol": "Llevant Àncores"
+        },
+        "level4": {
+          "contingut": "Traïció! En tocar terra, Silver i els amotinats desembarquen per buscar l'or. En Jim descobreix que algú s'ha avançat al capità Smollett: un mariner ha fet d'amagat una còpia del mapa de l'Illa del Tresor Callat i l'ha entregat als traïdors. Qui ha sigut?",
+          "solucio": "b4ce10f2d47b0ceaf4ec4de17f4823da2ba78b04a7c8dd608f3147eb371c39b4",
+          "titol": "El Motí"
+        },
+        "level5": {
+          "contingut": "Després d'una batalla al fortí, finalment arribeu a la cova on s'amaga el botí d'en Flint. Allà brilla l'or! En Jim ha de comptar ràpidament el botí abans que en Silver pugui tornar a atacar. Calcula el pes multiplicat pel número de monedes d'or del tresor trobat a l'Illa del Tresor Callat.",
+          "solucio": "dc45b4b70d44c1a5eb540383f0893315c9f3e4ddd4ab844f82faa2b90b967a11",
+          "titol": "La Marca Negra i l'Or"
+        }
+      },
+      "tempsFinal": 1800,
+      "titol_repte": "L'Herència del Capità Flint"
+    },
+    "repte_illa_mico_2": {
+      "levels": {
+        "level1": {
+          "contingut": "<p>En <b>Guybrush</b> ha arribat a <b>Scabb Island</b> buscant el Big Whoop, però en <b>Largo LaGrande</b> ha imposat un embargament. En Largo ha enviat un espia per recuperar el mapa d'una illa estratègica que té una superfície d'entre 600 i 610 unitats.<br><br><b>Missió:</b> Si volem aixecar l'embargament, hem d'interceptar el pirata que ha fet la còpia del mapa abans que l'entregui.</p>",
+          "solucio": "d02f21b37b356aaacc70f441e89322d6dabe84b11a5b50c5689dd8fc2d0226c1",
+          "titol": "El Mapa de l'Arxipèlag del Vent"
+        },
+        "level2": {
+          "contingut": "<p>Per trobar les peces del mapa, en <b>Guybrush</b> necessita navegants que no s'espantin davant l'exèrcit de no-morts d'en <b>LeChuck</b>. No ens serveixen grumets; busquem líders que destaquin per la seva experiència. <br><b>Missió:</b> Busca el nom (<code>name</code>) d'aquell pirata que té una edat (<code>age</code>) superior a la mitjana d'edat dels pirates del seu mateix vaixell (<code>idShip</code>) i que, d'aquest grup de veterans, és el que té el major nombre de cicatrius.</p>",
+          "solucio": "9857e117dd0722da68e8dbc1c35987456fc9cc0d9915a53984dda728c36bd1fe",
+          "titol": "Pirates per sobre de la Mitjana"
+        },
+        "level3": {
+          "contingut": "<p>Necessitem un vaixell per viatjar entre illes, però ningú gosa salpar. L'únic que ens pot ajudar és en <b>Captain Dread</b> i el seu vaixell <i>'Jolly Rant'</i>. <br><br>Ell té un registre secret de tots els atracaments; diu que el vaixell que més dies ha passat en total a port (<code>SUM(days)</code>) amaga les pistes per trobar la següent peça del mapa.</p>",
+          "solucio": "fcf6ea00f282cba80f59ff41340c526f0905c7ace2d3b208a5ddcca3a808398f",
+          "titol": "La Nau més Viatgera"
+        },
+        "level4": {
+          "contingut": "<p>Hem arribat a la botiga d'en <b>Wally B. Feed</b>, el cartògraf. En Wally ha trobat un fragment de mapa amb una escala de <code>1:10000</code> que sembla indicar on s'amaga el secret d'una de les peces.<br><br><b>Missió:</b> Hem de saber el nom de l'illa que apareix en aquest mapa original per dirigir-nos-hi immediatament.</p>",
+          "solucio": "1cb8e0d8a156280b08bfb7801c8fc36e4b52bc87d4a5a72e4165d75095d239d5",
+          "titol": "El Mapa de l'Illa de la Calavera"
+        },
+        "level5": {
+          "contingut": "<p>En <b>LeChuck</b> ha segrestat en Wally i té les peces del mapa! En <b>Guybrush</b> s'ha d'infiltrar a la fortalesa subterrània. <br><br>Segons els rumors, l'entrada està vigilada per un pirata que navega al vaixell amb més canons de tota la flota, però sabem que no és el propi capità zombi qui fa guàrdia. <i>\"Qui és aquest guardià?\"</i></p>",
+          "solucio": "e2e3967aa6f2e6cc0c6ebafca60375806db200d367a00f63721568df7815aea4",
+          "titol": "El Vigilant de l'Àcid"
+        },
+        "level6": {
+          "contingut": "<p>Dins dels túnels de la fortalesa, en <b>LeChuck</b> ens té acorralats! Per escapar i trobar el <b>Big Whoop</b>, hem de desxifrar un codi final: <br>1️⃣ La <b>Lletra</b> és la inicial del vaixell amb 32 canons que ha visitat exactament 2 illes. <br>2️⃣ El <b>Número</b> és el total d'illes amb una superfície menor al 30% de la de <b>Tortuga</b>.<br><br>Quina illa és?</p>",
+          "solucio": "9e3022d8da2bea9b9d23e3c9d5cd12b01f3c249e0069e0ed8bead0e9b3fd3f03",
+          "titol": "EL COFRE FINAL"
+        }
+      },
+      "tempsFinal": 2400,
+      "titol_repte": "L'Últim Alè de LeChuck"
+    },
+    "repte_maricel": {
+      "levels": {
+        "level1": {
+          "contingut": "Quin és el nom del pirata que viatja al vaixell anomenat 'Xabec Morisc' i que té més cicatrius?",
+          "solucio": "685dbda04d2f0782a303b8badcfc805e56f91c90708853d88ac6e72d77ab6037",
+          "titol": "El Veterà del Xabec"
+        },
+        "level2": {
+          "contingut": "Busca el nom d'aquell pirata que el seu vaixell tingui els mateixos canons que el vaixell anomenat <b>\"El Drac Salat\"</b>.",
+          "solucio": "a21f28a4ac0b1de2557da8b07f3541dd07db656ebafdd29514db831786a99e19",
+          "titol": "L'Estratègia de l'Armada"
+        },
+        "level3": {
+          "contingut": "Quina és la mitjana d'edat dels pirates que viatgen al vaixell més ple? Posa el resultat amb un decimal i usant un punt com a separador.",
+          "solucio": "cc179cc6804e03b317abe487bbfd0651951ccd6f562d6db1fa9296da87076e7e",
+          "titol": "Motí a la Bodega"
+        },
+        "level4": {
+          "contingut": "Tota història té la seva recompensa. Troba el nom exacte del tresor que està amagat a l'illa que té més superfície que l'illa anomenada <b>'Skull Island'</b> i té menys població que l'illa anomenada <b>'Rumrunner Isle'</b>.",
+          "solucio": "0b27666d72f08dd402f33f9fc296cc93c8a25942caf2b676ec89373f81fba97b",
+          "titol": "El Secret de la Mitja Lluna"
+        },
+        "level5": {
+          "contingut": "L'examen final! Quin és el pes total dels pirates d'aquell vaixell amb més de dos pirates i menys de 4 i que té una mitjana d'edat major a 35?",
+          "solucio": "37c20f19f3272b5ccc3a5d80587eb9deb3f4afcf568c4280fb195568da8eb1a2",
+          "titol": "La Flota Exacta"
+        }
+      },
+      "tempsFinal": 2400,
+      "titol_repte": "L'Abordatge Morisc"
+    },
+    "repte_onepiece": {
+      "levels": {
+        "level1": {
+          "contingut": "<h3>La tripulació del Barret de Palla ha arribat a l'arxipèlag Sabaody, però la Marina ha enviat un Almirall i els té acorralats! Necessiten la teva ajuda com a navegant i estrateg per revisar l'estat de la tripulació, comprovar les especificacions del vaixell i traçar una ruta d'escapada utilitzant el teu coneixement de dades i el mapa marítim. El Log Pose s'està carregant... prepara't per salpar!</h3>\n<hr>\nEls marines estan actualitzant els cartells de cerca i captura (Wanted) per posar un preu astronòmic al cap del nostre capità. Per hackejar el seu sistema i esborrar-lo, necessitem la seva edat exacta. La pots aconseguir?",
+          "solucio": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767",
+          "titol": "El Cartell de Recompensa"
+        },
+        "level2": {
+          "contingut": "Hem d'escapar pel fons del mar! El nostre nou vaixell és una meravella tecnològica construïda per en Franky amb fusta d'Adam. És molt resistent però aquest model registrat no consta com a vaixell de guerra. Troba quin pes (<b>weight</b>) té el vaixell a la taula <b>ships</b> que el seu nom comença per la lletra <b>'T'</b> i que té exactament <b>0 canons</b>.",
+          "solucio": "88820462180e5c893eff2ed73f4ec33e205d1cd5acc4d17fa7b2bca2495d3448",
+          "titol": "El Somni d'en Franky"
+        },
+        "level3": {
+          "contingut": "La Marina intenta bloquejar-nos amb immenses naus de transport de presoners. D'entre tots els vaixells del món que no tenen canons (0 canons), quin és el més massís? Fes una consulta a <b>ships</b> per buscar els vaixells sense canons, ordena'ls pel seu pes (<b>weight</b>) de gran a petit (descendent), i queda't només amb el nom (<b>name</b>) del primer de la llista usant <code>LIMIT</code>.",
+          "solucio": "3182086311158ffdb897bdacff6d89cc3772e3dd7806534b77b7e461ed73c03b",
+          "titol": "El Colós del Mar Pacífic"
+        },
+        "level4": {
+          "contingut": "En Rayleigh, el Rei Fosc, recorda que la joventut i la determinació són claus per conquerir el Grand Line. Està buscant la nau d'aquesta nova generació. Agrupa tots els pirates de la taula <b>pirates</b> segons l'ID del seu vaixell (<b>idShip</b>). Quin és l'ID del vaixell on la mitjana d'edat (<code>AVG(age)</code>) de la seva tripulació és exactament de 21 anys?",
+          "solucio": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+          "titol": "La Tripulació Promesa"
+        },
+        "level5": {
+          "contingut": "Al Nou Món, les cicatrius són medalles de supervivència. En Zoro vol mesurar el nivell dels enemics analitzant les marques de guerra de la base de dades. Agrupa els pirates a la taula <b>pirates</b> segons el seu nombre de cicatrius (<b>numberOfScars</b>). Quin és el nombre exacte de cicatrius que tenen en comú JUSTAMENT 5 pirates? (Pista: usa <code>HAVING COUNT(*) = 5</code>).",
+          "solucio": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+          "titol": "Marques de Batalla"
+        },
+        "level6": {
+          "contingut": "Ho hem aconseguit! Però en Sanji ha interceptat un missatge de la Marina xifrat: tenen presoner en Portgas D. Ace. No ens diu el nom de l'illa, però ens dona aquestes coordenades amagades per buscar a la taula <b>islands</b>:<br><br>Filtra les illes que tenen una superfície superior a 500 i una població de més de 5000 habitants (fes servir <code>WHERE</code> amb <code>AND</code>). Ordena-les pel seu nombre de platges de gran a petit (<code>ORDER BY numberOfBeaches DESC</code>) i queda't només amb el nom de la primera de la llista (fes servir <code>LIMIT 1</code>). <br><br> Quina és la coordenada exacta (Lletra i Número) d'aquesta illa per traçar el rumb de rescat?",
+          "solucio": "449777124b1466a8ed667d0dd4c0620993f59e20fb27b3fa8894e957f8762353",
+          "titol": "El Rumb del Log Pose"
+        }
+      },
+      "tempsFinal": 1500,
+      "titol_repte": "Rumb al Nou Món"
+    },
+    "repte_onepiece_2": {
+      "levels": {
+        "level1": {
+          "contingut": "<h4>La tripulació del Barret de Palla ha aconseguit un Road Poneglyph, però la Marina ha desplegat la \"Buster Call\" per atrapar-los.</h4> <br>\n<b>La Nami necessita trobar la millor illa per amagar el Thousand Sunny. Només hi ha una illa que sigui perfecta.</b>\n<br>\nMostra únicament el nom en de l'illa que tingui la densitat de població més alta (calculada com a població dividida per la superfície, arrodonida a dos decimals).\nCondicions de cerca: El nom de l'illa ha de contenir la lletra \"a\" i el seu nombre de platges (numberOfBeaches) ha d'estar entre 5 i 15 (ambdós inclosos).",
+          "solucio": "51e2a46721d104d9148d85b617833e7745fdbd6795cb0b502a5b6ea31d33378e",
+          "titol": "La Cartografia de la Nami"
+        },
+        "level2": {
+          "contingut": "<b>La Nico Robin vol identificar quin és el vaixell enemic més experimentat per evitar-lo a tota costa</b> <br>\nFes una consulta que mostri únicament el nom del vaixell que tingui el major número de pirates a bord amb una edat superior a 30 anys.",
+          "solucio": "16552853f9506d93252aa532361a78ddc4ae14bcd51716868ef4b7449c27ea9d",
+          "titol": "L'Avaluació de l'Enemic"
+        },
+        "level3": {
+          "contingut": "<b>En Zoro vol buscar un rival digne. Vol enfrontar-se al pirata més mortífer que pugui trobar, basant-se en les seves marques de batalla.</b><br>\nMostra nom del pirata que tingui un nombre de cicatrius (numberOfScars) major o igual al nombre de cicatrius que té el pirata anomenat 'Monkey D. Luffy'. Com que no pot lluitar contra el seu capità, exclou a 'Monkey D. Luffy' del resultat.",
+          "solucio": "6162d62409e5b5a73112a54b7168484e103ff679cab1d8aefc5cf8a495039132",
+          "titol": "La Set de Sang d'en Zoro"
+        },
+        "level4": {
+          "contingut": "<b>En Franky prepara el \"Coup de Burst\" cap a una illa segura. Busca una illa amb moviment marítim però que en el global no hagi retingut gaire temps els vaixells.</b><br>\nBusca les illes on hagin atracat més de 2 vaixells diferents. D'aquestes, mostra únicament el nom de la primera illa resultant després d'ordenar-les de la següent manera:\n<ul>\n<li>Per la suma total de dies que tots els vaixells hi han estat atracats (de menor a major)</li>\n<li>En cas d'empat, pel màxim nombre de canons d'aquests vaixells (de major a menor) </li>\n</ul>",
+          "solucio": "c7b591c239e0dd61f1bdec1fe84a2167a4258811c03366f8f7e215af054a05ff",
+          "titol": "El Bloqueig de la Marina"
+        }
+      },
+      "tempsFinal": 900,
+      "titol_repte": "La Ruta cap a Laugh Tale"
+    },
+    "repte_peterpan": {
+      "levels": {
+        "level1": {
+          "contingut": "L'ombra d'en Peter Pan ha estat capturada! El Capità Garfi ha lligat els Nens Perduts al pal major del Jolly Roger i amenaça amb fer-los caminar per la planxa al capvespre.<br>\nPer evitar-ho, Peter Pan s'ha colat a la coberta de popa. Entre els pirates que ronquen, n'hi ha un que té les claus de les cel·les. En Peter sap que aquest pirata, tot i la seva edat (45 anys), encara no té cap cicatriu. Com es diu?",
+          "solucio": "f86351b556954508fc98a35fce992ff2dfa934aa5b5e176e40c511bfdd9b9f76",
+          "titol": "El Fidel Contramestre"
+        },
+        "level2": {
+          "contingut": "Mentrestant, la Campaneta vola alt sobre la badia de Mai Més per identificar el vaixell insígnia de la flota, és a dir, aquell que té entre 10 i 15 canons i un pes de 100 tones exactes.",
+          "solucio": "fcf80f1a91eda4bb14915d6c9e66997664f28480322cf6ae9f4561e7e0c250f8",
+          "titol": "L'Albirament de la Campaneta"
+        },
+        "level3": {
+          "contingut": "El Peter Pan se n'adona mirant per la borda que un cocodril està nedant prop del casc del vaixell i té gana! En Peter vol llançar-li un dels pirates que més li poden agradar, ja que el cocodril busca algú 'experimentat'. Les seves exigències són que el pirata tingui exactament 5 cicatrius i que, o bé pesi més de 105 quilos, o bé tingui més de 50 anys. Quin pirata li llençarem?",
+          "solucio": "ec1cdbe6017c4594d7e2816a87da64dcc9823ea6c2744cca65957f40f3c654ea",
+          "titol": "La Dieta del Cocodril"
+        },
+        "level4": {
+          "contingut": "Heu aconseguit les claus, heu alliberat els Nens Perduts i heu escapat del vaixell! Ara cal portar els Nens Perduts a una illa on en Garfi no els trobi mai. Busqueu una illa no molt poblada, però amb una superfície gran. Cerca una illa on la població sigui 50, 5 o 8 i la seva superfície sigui major de 200.",
+          "solucio": "1cb8e0d8a156280b08bfb7801c8fc36e4b52bc87d4a5a72e4165d75095d239d5",
+          "titol": "L'Amagatall dels Nens Perduts"
+        },
+        "level5": {
+          "contingut": "Per poder volar cap a la \"segona estrella a la dreta\", necessiteu el cofre del tresor de Davy Jones, que conté pols de fada concentrada. Però compte: el cofre ha de ser lleuger per no caure al mar! A la taula 'treasures', busca el tresor que pesi entre 5 i 15 kg i que contingui exactament 450 o 300 monedes d'or.",
+          "solucio": "ec35d3d95b6963b957a708200e5e8355bd44aac51d9c6945e8a741b531823cc8",
+          "titol": "Pols de Fada"
+        }
+      },
+      "tempsFinal": 1500,
+      "titol_repte": "Retorn a Mai Més"
+    },
+    "repte_princesa_promesa": {
+      "levels": {
+        "level1": {
+          "contingut": "En Westley ha passat anys navegant sota la identitat del \"Temible Pirata Roberts\" al vaixell 'Revenge'. Per trobar el rumb cap a la seva estimada Buttercup, primer hem de saber on s'ha amagat durant més temps per evitar la marina de l'Humperdinck. <br><br><b>Missió:</b> Troba el nom de l'illa (name) on el pirata anomenat 'Westley' ha passat més dies (days).",
+          "solucio": "62d176f2946d23f5ff88a79c873d8aac918d04aa5192b0a204d992bf6d04a9ee",
+          "titol": "L'Illa del Temible Pirata"
+        },
+        "level2": {
+          "contingut": "\"Inconcebible!\" crida en Vizzini. En Westley i la Buttercup han fugit cap al Pantà de Foc. Per despistar els seus perseguidors, busquen illes que siguin tan perilloses o remotes que ni tan sols els pirates hi hagin amagat tresors encara. <br><br><b>Missió:</b> Mostra el nom de l'illes que NO té cap tresor associat, no hi viu ningú i la seva superfície estigui entre 100 i 200 m2.",
+          "solucio": "84e6e2455c3743737642ba43f05a59a0341084a4eae082528a499ef93e116caa",
+          "titol": "Refugis Sense Rastre"
+        },
+        "level3": {
+          "contingut": "\"Hola, em dic Iñigo Montoya. Tu vas matar el meu pare. Prepara't per morir\". <br>L'Iñigo ha descobert que l'assassí del seu pare, el Comte Rugen, va encarregar una còpia d'un mapa secret del regne per planejar l'assalt al castell. <br><br><b>Missió:</b> Troba el nom del pirata (name) que ha realitzat una còpia d'un mapa original de l'illa anomenada 'Florin'.",
+          "solucio": "a6e1352d68e2dda4fe689e6d6239664fb66d10cb0513fd6dbedefbd69295af36",
+          "titol": "La Venjança d'Iñigo Montoya"
+        },
+        "level4": {
+          "contingut": "En Westley i la Buttercup necessiten fugir de la guàrdia del Príncep Humperdinck. Busquen un amagatall \"inconcebible\": una illa on cap vaixell hagi atracat mai (per no deixar rastre) i que, d'aquestes illes verges, sigui la que té la població més baixa per evitar testimonis. <br><br><b>Missió:</b> Troba el nom (name) de l'illa que no té cap registre a la taula d'atracaments i que té la població (population) i la superfície més petita de totes.",
+          "solucio": "167ebee144f06ffc283eb7196b487d09527a3d7e4b1e1bf34d7bf4666e767a04",
+          "titol": "El Refugi de l'Amor Vertader"
+        }
+      },
+      "tempsFinal": 900,
+      "titol_repte": "La Recerca de Westley i el Secret de Florin"
+    },
+    "repte_simbad": {
+      "levels": {
+        "level1": {
+          "contingut": "<h4>La malvada deessa Eris ha robat el Llibre de la Pau i ha culpat al nostre heroi, Simbad! Tenim poc temps per viatjar fins a la fi del món, endinsar-nos a Tartarus i recuperar-lo, o el nostre amic Proteus serà executat. Fes servir els teus coneixements d'SQL per traçar el rumb.</h4><hr>\n<p>Simbad sap que no pot fer aquest viatge cap a la fi del món amb grumets inexperts. Necessitem reclutar els navegants més experimentats abans de salpar cap a l'inconegut per enfrontar-nos a la deessa.</p><p>Quin és el <b>nom</b> del pirata més gran (<b>age</b>) que navega al vaixell anomenat <b>'El Quimera'</b>?</p>",
+          "solucio": "9857e117dd0722da68e8dbc1c35987456fc9cc0d9915a53984dda728c36bd1fe",
+          "titol": "La Tripulació de Confiança"
+        },
+        "level2": {
+          "contingut": "<p>Amb el nostre veterà al timó, 'El Quimera' salpa. Necessitem aigua dolça i atraquem en una petita illa... però de cop i volta, l'illa es comença a moure i a submergir-se! És la primera trampa d'Eris per evitar que arribem al llibre!</p><p>Quants dies (<b>days</b>) hem passat atrapats a la <b>'Illa de la Balena'</b> abans de poder tallar les amarres i fugir?</p>",
+          "solucio": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+          "titol": "L'Illa Enganyosa"
+        },
+        "level3": {
+          "contingut": "<p>Hem sobreviscut a la balena, però el corrent ens ha arrossegat fins a una vall sinistra custodiada per l'Au Roc, un ocell monstruós d'Eris. Mentre ens amaguem, veiem un botí increïble al seu niu que ens servirà per finançar l'expedició.</p><p>Busca el nom de l'illa (<b>name</b>) que conté el tresor amb més monedes d'or (<b>goldCoins</b>) però que té un pes (<b>weight</b>) superior a 100 i inferior a 250.</p>",
+          "solucio": "c8cc733a7d2bab9851c817e6a025383fe16d48136f8871965d2ce704b0fb166c",
+          "titol": "La Vall dels Monstres Alats"
+        },
+        "level4": {
+          "contingut": "<p>Hem fugit de l'Au Roc amb les butxaques plenes, però ens hem perdut a la boira densa. Ens apropem al regne del caos. Per travessar les portes de Tartarus sense enfonsar-nos, necessitem consultar les cartes de navegació originals on apareix el nostre objectiu principal.</p><p>Troba l'escala (<b>scale</b>) del mapa original que pertany a l'illa on està amagat el tresor anomenat <b>'Llibre de la Pau'</b>.</p>",
+          "solucio": "3900ccb13d2c0b30e6ff7d0b15d53fcba4219d1a74712e928044851d3ce52c94",
+          "titol": "Rumb a la fi del Món"
+        },
+        "level5": {
+          "contingut": "<p>Hem travessat les portes de Tartarus! El Llibre de la Pau brilla a l'horitzó sobre l'imponent vaixell de la deessa del caos. Per recuperar-lo i salvar la vida d'en Proteus, en Simbad ha de desembeinar l'espasa i vèncer la maldat personificada.</p><p>Quin és el <b>nom del pirata</b> (la nostra enemiga) que té 0 cicatrius (<b>numberOfScars</b>) i que viatja al vaixell amb 30 canons (<b>numberOfCanons</b>)?</p>",
+          "solucio": "a21f28a4ac0b1de2557da8b07f3541dd07db656ebafdd29514db831786a99e19",
+          "titol": "El Cara a Cara Final"
+        }
+      },
+      "tempsFinal": 1200,
+      "titol_repte": "Simbad i el Llibre de la Pau"
+    }
+  },
+  "usuaris": {
+    "Gh9A6LIzxdZrjrtOFNpoL8SUdER2": {
+      "reptes_actius": {
+        "illa-del-mico": {
+          "level": 2,
+          "nick": "Didac Jimemez",
+          "temps_segons": 910,
+          "ultima_connexio": 1772553772283,
+          "vides": 6
+        }
+      }
+    },
+    "azferiO2uNXvsSgFs5RcXktlPo32": {
+      "reptes_actius": {
+        "goonies": {
+          "level": 1,
+          "nick": "Eduard Sorita Calatayud",
+          "temps_segons": 2350,
+          "ultima_connexio": 1772796713327,
+          "vides": 6
+        }
+      }
+    },
+    "hwOnio8mCjOYUzQCX3oEAuEEJXI2": {
+      "assoliments": {
+        "diari_sang": true,
+        "illa-del-mico": true,
+        "malediccio-perla-negra": true,
+        "repte_bikini": true,
+        "repte_hispaniola": true,
+        "repte_illa_mico_2": true,
+        "repte_maricel": true,
+        "repte_onepiece": true,
+        "repte_onepiece_2": true,
+        "repte_peterpan": true,
+        "repte_princesa_promesa": true,
+        "repte_simbad": true
+      },
+      "reptes_actius": {
+        "diari_sang": {
+          "level": 8,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1694,
+          "ultima_connexio": 1772786269812,
+          "vides": 6
+        },
+        "goonies": {
+          "level": 1,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 890,
+          "ultima_connexio": 1773126820256,
+          "vides": 7
+        },
+        "illa-del-mico": {
+          "level": 7,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1285,
+          "ultima_connexio": 1772783789457,
+          "vides": 6
+        },
+        "malediccio-perla-negra": {
+          "level": 7,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1089,
+          "ultima_connexio": 1772783942266,
+          "vides": 6
+        },
+        "repte_bikini": {
+          "level": 7,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1718,
+          "ultima_connexio": 1772784639403,
+          "vides": 2
+        },
+        "repte_hispaniola": {
+          "level": 6,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 651,
+          "ultima_connexio": 1772787816285,
+          "vides": 6
+        },
+        "repte_illa_mico_2": {
+          "level": 7,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 215490,
+          "ultima_connexio": 1772798821301,
+          "vides": 2
+        },
+        "repte_maricel": {
+          "level": 6,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1899,
+          "ultima_connexio": 1772797628508,
+          "vides": 2
+        },
+        "repte_onepiece": {
+          "level": 7,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1267,
+          "ultima_connexio": 1772784937283,
+          "vides": 4
+        },
+        "repte_onepiece_2": {
+          "level": 5,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 471,
+          "ultima_connexio": 1772798232064,
+          "vides": 3
+        },
+        "repte_peterpan": {
+          "level": 6,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1357,
+          "ultima_connexio": 1772784196619,
+          "vides": 6
+        },
+        "repte_princesa_promesa": {
+          "level": 5,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 844,
+          "ultima_connexio": 1772797727870,
+          "vides": 6
+        },
+        "repte_simbad": {
+          "level": 6,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1163,
+          "ultima_connexio": 1772786116070,
+          "vides": 7
+        }
+      }
+    }
+  }
+}

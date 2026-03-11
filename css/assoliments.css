@@ -113,37 +113,32 @@
 }
 
 /* =========================================
-   EL PERGAMÍ INFORMATIU (Tooltip al fer hover)
+   PERGAMÍ D'INFORMACIÓ (TOOLTIP DE LES FITES)
    ========================================= */
+
 .tooltip-fita {
     position: absolute;
-    bottom: 45px; /* Apareix just a sobre de la icona */
+    bottom: 100%; /* El situem per sobre de la moneda */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(20, 15, 5, 0.95);
-    color: #e0d5b8;
-    padding: 10px 15px;
-    border: 2px solid #8b6508;
+    background: radial-gradient(circle, #2a1a10 0%, #0d0805 100%); /* Fons fosc tipus fusta/cuir */
+    color: #e8dcc4; /* Lletra color pergamí antic */
+    padding: 12px 18px;
+    border: 2px solid #553a1f; /* Vora marró apagada */
     border-radius: 8px;
-    white-space: nowrap; /* Evita que el text salti de línia */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
     font-family: 'IM Fell English', serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden; /* Invisible per defecte */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animació de rebot suau */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.9);
+    z-index: 20;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.9);
-    z-index: 100;
+    pointer-events: none; /* Evita que el ratolí es quedi "atrapat" al tooltip */
 }
 
-.tooltip-fita strong {
-    font-family: 'Pirata One', cursive;
-    color: #ffd700;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-}
-
-/* El piquito del globus de text */
+/* El petit triangle cap avall (la cua del globus) */
 .tooltip-fita::after {
     content: '';
     position: absolute;
@@ -152,14 +147,40 @@
     transform: translateX(-50%);
     border-width: 8px;
     border-style: solid;
-    border-color: #8b6508 transparent transparent transparent;
+    border-color: #553a1f transparent transparent transparent;
 }
 
-/* Efecte al passar el ratolí */
+/* Títol dins del tooltip per defecte */
+.tooltip-fita strong {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Fem aparèixer el tooltip al passar el ratolí i el fem pujar una miqueta */
 .marcador-fita:hover .tooltip-fita {
     opacity: 1;
     visibility: visible;
-    bottom: 55px; /* Puja una miqueta donant un efecte suau */
+    bottom: 160%; 
+}
+
+/* =========================================
+   CANVIS QUAN LA FITA ESTÀ ASSOLIDA
+   ========================================= */
+.marcador-fita.assolida .tooltip-fita {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15), 0 8px 20px rgba(0,0,0,0.9);
+}
+
+.marcador-fita.assolida .tooltip-fita::after {
+    border-color: #ffd700 transparent transparent transparent;
+}
+
+.marcador-fita.assolida .tooltip-fita strong {
+    color: #ffd700;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 /* LA GRAELLA D'ENGANXINES */
