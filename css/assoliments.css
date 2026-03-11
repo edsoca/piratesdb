@@ -80,31 +80,53 @@
     pointer-events: auto;
 }
 
-/* Aspecte de la "Moneda Fosca" per defecte (Pendent) */
+/* =========================================
+   LES NOVES MONEDES PIRATES (FITES)
+   ========================================= */
+
+/* =========================================
+   LES NOVES MONEDES PIRATES (FITES)
+   ========================================= */
+
+/* Aspecte de la "Moneda" (Pendent) */
 .icona-fita {
-    width: 32px;
-    height: 32px;
-    background: radial-gradient(circle, #2a1a10 0%, #0d0805 100%); /* Fusta/cuir molt fosc */
-    border: 2px solid #553a1f; /* Vora marró apagada */
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/coin.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-color: transparent;
+    
+    border: none; /* FORA el cercle CSS! */
+    box-shadow: none; /* FORA l'ombra circular! */
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #8b7355; /* Número apagat */
+    
+    /* COM QUE LA MONEDA ÉS FOSCA, POSEM TEXT CLAR: */
+    color: #e8dcc4; /* Color pergamí antic */
+    text-shadow: 1px 1px 3px #000; /* Ombra negra perquè ressalti */
+    
     font-family: 'Pirata One', cursive;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.8), inset 0 2px 4px rgba(0,0,0,0.9);
+    font-size: 1.5rem;
     transition: all 0.4s ease;
     cursor: help;
+    pointer-events: auto; 
+    
+    /* Enfosquim la moneda i li donem una ombra bàsica al contorn de la imatge */
+    filter: brightness(0.5) sepia(60%) drop-shadow(0 2px 2px rgba(0,0,0,0.8)); 
 }
 
-/* Quan la fita està ASSOLIDA (Canvi a vermell i or) */
+/* Quan la fita està ASSOLIDA (S'il·lumina i es daura) */
 .marcador-fita.assolida .icona-fita {
-    background: radial-gradient(circle, #4a0d0d 0%, #1a0000 100%); /* Vermell sang fosc */
-    border-color: #ffd700; /* Vora d'or */
-    color: #ffd700; /* Número daurat */
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), inset 0 2px 4px rgba(0,0,0,0.8);
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    /* Eliminem la foscor i afegim el BRILLO DAURAT AL CONTORN de la imatge */
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.4));
+    
+    /* COM QUE LA MONEDA ARA ÉS GROGA, POSEM TEXT FOSC: */
+    color: #2b1400; /* Marró molt fosc, gairebé negre */
+    text-shadow: none; /* Traiem qualsevol ombra per llegir-ho clarament */
+    font-weight: bold;
 }
 
 /* Efecte al passar el ratolí */
