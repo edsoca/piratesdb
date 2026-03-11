@@ -184,13 +184,21 @@ h1, h2, h3, .mission-name, .terminal-title {
 /* El botó OBRIR COFRE per fer-lo més imponent */
 .btn-action {
     font-family: 'Pirata One', cursive !important;
-    background: var(--gold) !important;
-    color: #000 !important;
-    border: 2px solid #b8860b !important;
+    background: linear-gradient(to bottom, #ffcc00, #b8860b) !important;
+    color: #1a0f00 !important;
+    border: 2px solid #5c4300 !important;
     padding: 10px 25px !important;
     font-size: 1.3rem !important;
     cursor: pointer;
-    transition: transform 0.2s;
+    border-radius: 4px;
+    box-shadow: 0 6px 0 #5c4300, 0 10px 15px rgba(0,0,0,0.5) !important; /* Efecte de gruix */
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+}
+
+.btn-action:active {
+    transform: translateY(6px); /* El botó s'enfonsa */
+    box-shadow: 0 0px 0 #5c4300, 0 2px 5px rgba(0,0,0,0.5) !important; /* L'ombra es redueix */
 }
 
 .btn-action:hover {
@@ -293,6 +301,7 @@ h1, h2, h3, .mission-name, .terminal-title {
     border-radius: 5px;
     box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.2);
     padding: 20px;
+    margin-bottom:20px;
 }
 
 /* Cronòmetre al Header */
@@ -816,12 +825,22 @@ h1, h2, h3, .mission-name, .terminal-title {
     display: block;
 }
 
+@keyframes navegar {
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(2deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(3px) rotate(-2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
 #vaixell-progres img {
     width: 45px !important;   /* Ajusta aquest número al teu gust (45-50px sol anar bé) */
     height: auto !important;  /* Manté la proporció */
     display: block;
     margin: 0 auto;           /* Centra la imatge dins del seu div */
     bottom: 5px !important; /* Canvia aquest número per pujar-lo o baixar-lo */
+    animation: navegar 3s ease-in-out infinite;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5));
 }
 
 .illa-tresor {
@@ -1050,4 +1069,123 @@ body.joc-guanyat {
 .grid-cell.playable {
     /* Un color blau marí molt transparent per deixar veure el fons del mapa */
     background-color: rgba(0, 50, 100, 0.05); 
+}
+
+@keyframes batec-perill {
+    0% { transform: scale(1); text-shadow: 0 0 10px #ff4444; color: #ff4444; }
+    50% { transform: scale(1.1); text-shadow: 0 0 25px #ff0000; color: #ffaaaa; }
+    100% { transform: scale(1); text-shadow: 0 0 10px #ff4444; color: #ff4444; }
+}
+
+.danger-time {
+    animation: batec-perill 1s infinite !important;
+}
+
+@keyframes brillantor-or {
+    0%, 80% { filter: brightness(1) drop-shadow(0 0 0 transparent); transform: scale(1); }
+    90% { filter: brightness(1.5) drop-shadow(0 0 10px var(--gold)); transform: scale(1.2); }
+    100% { filter: brightness(1) drop-shadow(0 0 0 transparent); transform: scale(1); }
+}
+
+.heart-icon {
+    display: inline-block;
+    animation: brillantor-or 4s infinite;
+}
+
+/* =========================================
+   PANELL D'EINES (Substitueix antics botons)
+   ========================================= */
+.eines-pirata {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-eina {
+    flex: 1; /* Es reparteixen l'espai equitativament */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(40, 30, 10, 0.8);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 12px 5px;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(255, 204, 0, 0.1), 0 4px 6px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-eina:hover {
+    background: rgba(80, 60, 20, 0.9);
+    transform: translateY(-3px);
+    box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.3), 0 6px 12px rgba(0,0,0,0.6);
+    border-color: #ffea00;
+}
+
+.btn-eina:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.eina-icon {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8));
+    transition: transform 0.3s ease;
+}
+
+.btn-eina:hover .eina-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.eina-text {
+    font-family: 'Pirata One', cursive;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   ALERTES PIRATES (SweetAlert2 Custom)
+   ========================================= */
+.swal-pirata {
+    background-color: var(--wood-dark) !important;
+    border: 3px solid var(--gold) !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(255,204,0,0.2) !important;
+}
+
+.swal-title-pirata {
+    font-family: var(--font-titol) !important;
+    color: var(--gold) !important;
+    font-size: 2.5rem !important;
+    letter-spacing: 2px !important;
+}
+
+.swal-text-pirata {
+    font-family: var(--font-mapa) !important;
+    color: #e0d0b0 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Aprofitem l'estil dels teus botons per al SweetAlert */
+.swal-btn-pirata {
+    font-family: var(--font-titol) !important;
+    background: linear-gradient(to bottom, #ffcc00, #b8860b) !important;
+    color: #1a0f00 !important;
+    border: 2px solid #5c4300 !important;
+    padding: 10px 25px !important;
+    font-size: 1.5rem !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 0 #5c4300 !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+}
+
+.swal-btn-pirata:active {
+    transform: translateY(4px) !important;
+    box-shadow: 0 0px 0 #5c4300 !important;
 }

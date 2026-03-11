@@ -19,9 +19,9 @@
         <div class="login-box">
             <div class="logo-ritme">🏴‍☠️</div>
             <h2>PUJA A BORD, GRUMET!</h2>
-            <p class="login-subtitle">Introdueix el codi del mapa per començar:</p>
+            <p class="login-subtitle">Introdueix el codi del repte per començar:</p>
             
-            <input type="text" id="id-repte" placeholder="CODI DEL TRESOR..." autocomplete="off">
+            <input type="text" id="id-repte" placeholder="CODI DEL REPTE..." autocomplete="off">
             <button id="btnLogin" class="btn-action">COMENÇAR L'AVENTURA</button>
 
             <div class="instruccions-sql">
@@ -59,8 +59,6 @@
             </div>
         </header>
 
-
-
         <main class="game-layout">
             <section class="code-area">
                 <div class="terminal-header">
@@ -72,13 +70,31 @@
             </section>
 
             <section class="action-area">
-                <div id="obrirModal" class="card box-info">
-                    <div class="map-icon">🧭</div>
-                    <div class="map-text-container">
-                        <span class="map-title">Explorar Carta de Navegació</span>
-                        <span class="map-subtitle">Veure esquema relacional de la DB</span>
-                    </div>
+                
+                <div class="eines-pirata">
+                    <button id="obrirModal" class="btn-eina" title="Carta de Navegació (Relacional)">
+                        <span class="eina-icon">📜</span>
+                        <span class="eina-text">Esquema</span>
+                    </button>
+                    
+                    <button id="btn-mapa" class="btn-eina" title="Mapa del Tresor">
+                        <span class="eina-icon">🗺️</span>
+                        <span class="eina-text">Mapa</span>
+                    </button>
+
+                    <button id="btn-ranking" class="btn-eina" title="Llegenda de Capitans">
+                        <span class="eina-icon">🏆</span>
+                        <span class="eina-text">Rànquing</span>
+                    </button>
                 </div>
+
+                <div class="card box-solucio" style="flex-grow: 1; justify-content: center; display: flex; flex-direction: column;">
+                    <h2>COFRE DE RESPOSTES</h2>
+                    <p class="instruction">Escriu la clau del tresor:</p>
+                    <input type="text" id="resultat" placeholder="Resposta..." autocomplete="off">
+                    <button id="btnEnviar" class="btn-action">OBRIR COFRE</button>
+                </div>
+
                 <div id="modalEsquema" class="modal-pirata">
                     <div class="modal-contingut">
                         <span class="tancar-modal">&times;</span>
@@ -88,16 +104,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="card box-solucio">
-                    <h2>COFRE DE RESPOSTES</h2>
-                    <p class="instruction">Escriu la clau del tresor:</p>
-                    <input type="text" id="resultat" placeholder="Resposta..." autocomplete="off">
-                    <button id="btnEnviar" class="btn-action">OBRIR COFRE</button>
-                </div>
-
-                <button id="btn-mapa" class="btn-ranking" style="border-color: #ffcc00; color: #ffcc00;">🗺️ Veure Mapa del Tresor</button>
-
-                <button id="btn-ranking" class="btn-ranking">🏆 Rànquing</button>
 
                 <div id="modalRanking" class="modal-pirata">
                     <div class="modal-contingut pergami-especial">
@@ -107,20 +113,19 @@
                             </div>
                     </div>
                 </div>
-                <!-- Mapa de coordenades -->
+
                 <div id="modalMapa" class="modal-pirata">
                     <div class="modal-contingut pergami-especial" style="max-width: 650px;">
                         <span class="tancar-modal" id="btn-tancar-mapa">&times;</span>
                         <h2 class="titol-modal">🗺️ MAPA DE COORDENADES</h2>
                         <div class="modal-body">
-                            
                             <div class="zona-mapa">
                                 <div id="mapa-grid" class="mapa-grid"></div>
                             </div>
-
                         </div>
                     </div>
                 </div>
+
             </section>
         </main>
     </div>

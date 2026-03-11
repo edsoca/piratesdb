@@ -155,6 +155,25 @@
             100% { transform: translateY(0px); }
         }
 
+        /* --- ESTAT: GRUMET ADORMIT (Desconnectat) --- */
+        .crew-card.adormit {
+            opacity: 0.5;
+            filter: grayscale(0.8);
+            border-color: #555;
+            background: rgba(20, 20, 20, 0.8);
+            transition: all 0.5s ease;
+        }
+
+        .crew-card.adormit .crew-name {
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        .crew-card.adormit .progress-bar {
+            background: #555; /* Apaguem l'or de la barra */
+            box-shadow: none;
+        }
+
         .crew-header {
             display: flex;
             justify-content: space-between;
@@ -220,6 +239,38 @@
         /* Missatge d'error */
         #msg-error { color: var(--alert-red); font-family: 'Special Elite', cursive; }
 
+        /* --- ESTAT: VAIXELL ENFONSAT (Perdut) --- */
+        .crew-card.perdut {
+            border-color: var(--alert-red);
+            background: rgba(255, 0, 0, 0.15);
+            box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.3), 0 0 10px rgba(255, 0, 0, 0.5);
+            animation: tremolor 0.5s ease-in-out;
+        }
+
+        .crew-card.perdut .crew-name {
+            color: var(--alert-red);
+            text-decoration: line-through;
+        }
+
+        .crew-card.perdut .progress-bar {
+            background: var(--alert-red); /* La barra es torna vermella */
+            box-shadow: 0 0 10px var(--alert-red);
+        }
+
+        .crew-card.perdut .crew-status {
+            color: var(--alert-red);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @keyframes tremolor {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            50% { transform: translateX(5px) rotate(1deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+            100% { transform: translateX(0); }
+        }
+        
     </style>
 </head>
 <body>
@@ -253,7 +304,6 @@
 
     <script>
         // --- 1. CONFIGURACIÓ FIREBASE ---
-        // COPIA AQUÍ LA TEVA CONFIGURACIÓ EXACTA DEL FITXER webRepte.js
         const firebaseConfig = {
           apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
           authDomain: "pirates-d1292.firebaseapp.com",
@@ -270,37 +320,34 @@
         }
         const db = firebase.database();
         
-        // VARIABLES GLOBALS
+        // --- 2. VARIABLES GLOBALS ---
         let totalNivells = 0; 
         let idRepteActiu = null;
         let timestampLimit = 0; 
+        let tripulacioActiva = []; // Aquí guardarem l'estat actual per poder-lo refrescar
+        let intervalVigilant;
 
-        // --- 2. INICIALITZACIÓ ---
+        // --- 3. INICIALITZACIÓ ---
         const params = new URLSearchParams(window.location.search);
         const repteUrl = params.get('repte');
 
         if (repteUrl) {
             iniciarMonitor(repteUrl);
-        } else {
-            // Per facilitar proves, deixem un valor per defecte si vols
-            // document.getElementById('input-id-repte').value = "monkey-island";
         }
 
-        // --- 3. FUNCIONS PRINCIPALS ---
+        // --- 4. FUNCIONS PRINCIPALS ---
 
         function iniciarMonitorManual() {
             const inputVal = document.getElementById('input-id-repte').value.trim();
-            const horaVal = document.getElementById('input-hora-inici').value; // Agafem l'hora (Format "HH:mm")
+            const horaVal = document.getElementById('input-hora-inici').value; 
 
             if (horaVal) {
-                // Creem una data amb el dia d'avui i l'hora seleccionada
                 const dataAvui = new Date();
                 const partsHora = horaVal.split(':');
                 dataAvui.setHours(parseInt(partsHora[0]), parseInt(partsHora[1]), 0, 0);
-                
-                timestampLimit = dataAvui.getTime(); // Guardem el límit en mil·lisegons
+                timestampLimit = dataAvui.getTime(); 
             } else {
-                timestampLimit = 0; // Si ho deixes en blanc, es mostraran tots
+                timestampLimit = 0; 
             }
 
             if (inputVal) {
@@ -313,21 +360,17 @@
             const btn = document.getElementById('btn-iniciar');
             if(btn) btn.innerText = "BUSCANT MAPA...";
 
-            // 1. Busquem el repte per comptar els nivells
             db.ref(`reptes/${idRepteActiu}`).once('value', (snapshot) => {
                 const dadesRepte = snapshot.val();
                 
                 if (dadesRepte && dadesRepte.levels) {
-                    // Comptem nivells
                     totalNivells = Object.keys(dadesRepte.levels).length;
                     
-                    // Mostrem la interfície
                     document.getElementById('setup-screen').style.display = 'none';
                     document.getElementById('monitor-content').style.display = 'block';
                     document.getElementById('subtitol-monitor').innerHTML = 
                         `MAPA: <span style="color:var(--gold)">${idRepteActiu.toUpperCase()}</span> | ETAPES: ${totalNivells}`;
 
-                    // 2. Activem el listener en temps real
                     activarListenerTripulacio();
                 } else {
                     mostrarError("ARGH! No trobem aquest mapa als arxius!");
@@ -337,85 +380,126 @@
         }
 
         function activarListenerTripulacio() {
+            // Escolta canvis a la base de dades
             db.ref('usuaris').on('value', (snapshot) => {
-                const grid = document.getElementById('grid-crew');
                 const dadesUsuaris = snapshot.val();
+                tripulacioActiva = []; // Buidem per tornar a omplir
                 
-                grid.innerHTML = "";
-                let piratesTrobats = 0;
-                let llistaPirates = [];
+                if (!dadesUsuaris) {
+                    dibuixarTargetes();
+                    return;
+                }
 
-                if (!dadesUsuaris) return;
-
-                // Filtrar i preparar dades
                 for (let uid in dadesUsuaris) {
                     const usuari = dadesUsuaris[uid];
                     if (usuari.reptes_actius && usuari.reptes_actius[idRepteActiu]) {
                         const dadesPirata = usuari.reptes_actius[idRepteActiu];
-                        
-                        // --- FILTRE D'HORA ---
                         const ultimaVez = dadesPirata.ultima_connexio || 0;
                         
-                        // Si l'última connexió és MÉS GRAN o igual a l'hora límit, l'afegim
+                        // Només afegim els que es van connectar després de l'hora de classe
                         if (ultimaVez >= timestampLimit) {
-                            llistaPirates.push(dadesPirata);
+                            tripulacioActiva.push({
+                                nick: dadesPirata.nick || "Grumet Anònim",
+                                nivell: dadesPirata.level || 1,
+                                temps: dadesPirata.temps_segons || 0,
+                                vides: (typeof dadesPirata.vides !== 'undefined') ? dadesPirata.vides : 3,
+                                ultima_connexio: ultimaVez,
+                                completat: dadesPirata.completat
+                            });
                         }
                     }
                 }
 
-                // Ordenar: Primer els que tenen més nivell
-                llistaPirates.sort((a, b) => (b.level || 0) - (a.level || 0));
+                // Ordenem el rànquing
+                tripulacioActiva.sort((a, b) => {
+                    if(b.nivell !== a.nivell) return b.nivell - a.nivell;
+                    return b.temps - a.temps;
+                });
 
-                if (llistaPirates.length === 0) {
-                     grid.innerHTML = `<p style="text-align:center; width:100%; font-family:'Special Elite'">
-                        No s'albiren vaixells a l'horitzó...
-                    </p>`;
-                    return;
+                dibuixarTargetes();
+            });
+
+            // Activem el vigilant del temps perquè refresqui visualment cada 5 segons
+            if (!intervalVigilant) {
+                intervalVigilant = setInterval(dibuixarTargetes, 5000);
+            }
+        }
+
+        function dibuixarTargetes() {
+            const grid = document.getElementById('grid-crew');
+            if(!grid) return;
+            
+            grid.innerHTML = "";
+            const ara = Date.now();
+
+            if (tripulacioActiva.length === 0) {
+                 grid.innerHTML = `<p style="text-align:center; width:100%; font-family:'Special Elite'">
+                    No s'albiren vaixells a l'horitzó...
+                </p>`;
+                return;
+            }
+
+            tripulacioActiva.forEach(dades => {
+                const nick = dades.nick;
+                const nivell = dades.nivell;
+                const temps = dades.temps;
+                const vides = dades.vides;
+                const ultima_connexio = dades.ultima_connexio;
+
+                // Estats possibles
+                const haAcabat = (nivell > totalNivells) || (dades.completat === true);
+                const haPerdut = (vides <= 0) || (temps <= 0 && !haAcabat); // ⚠️ Si no queden vides o temps
+                
+                // Càlcul percentatge
+                let percentatge = 0;
+                if (haAcabat) percentatge = 100;
+                else percentatge = Math.min(((nivell - 1) / totalNivells) * 100, 100);
+
+                // ⚠️ DETECTOR D'INACTIVITAT (només si no han acabat i no han perdut)
+                const estaAdormit = !haAcabat && !haPerdut && (ara - ultima_connexio > 45000);
+                
+                // Assignació de classes CSS segons l'estat
+                let classeEstat = '';
+                if (haAcabat) classeEstat = 'legend';
+                else if (haPerdut) classeEstat = 'perdut';
+                else if (estaAdormit) classeEstat = 'adormit';
+
+                // Assignació d'icones i text
+                let iconaEstat = '⚔️';
+                let textEstat = 'Etapa ' + nivell;
+                
+                if (haAcabat) {
+                    iconaEstat = '🏆';
+                    textEstat = 'LLEGENDA';
+                } else if (haPerdut) {
+                    iconaEstat = '🔥';
+                    textEstat = 'VAIXELL ENFONSAT';
+                } else if (estaAdormit) {
+                    iconaEstat = '💤';
+                    textEstat = 'Fora de combat';
                 }
 
-                // Dibuixar les targetes
-                llistaPirates.forEach(dades => {
-                    piratesTrobats++;
-                    const nick = dades.nick || "Grumet Anònim";
-                    const nivell = dades.level || 1;
-                    const temps = dades.temps_segons || 0;
-                    const vides = (typeof dades.vides !== 'undefined') ? dades.vides : 3;
+                const card = document.createElement('div');
+                card.className = `crew-card ${classeEstat}`;
+                
+                let iconaVida = vides < 2 ? '💀' : '❤️'; 
 
-                    // Comprovació de victòria
-                    const haAcabat = (nivell > totalNivells) || (dades.completat === true);
+                card.innerHTML = `
+                    <div class="crew-header">
+                        <span class="crew-name">${iconaEstat} ${nick}</span>
+                        <span class="crew-status">${textEstat}</span>
+                    </div>
                     
-                    // Percentatge de la barra
-                    let percentatge = 0;
-                    if (haAcabat) percentatge = 100;
-                    else percentatge = Math.min(((nivell - 1) / totalNivells) * 100, 100);
-
-                    const card = document.createElement('div');
-                    card.className = `crew-card ${haAcabat ? 'legend' : ''}`;
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: ${percentatge}%"></div>
+                    </div>
                     
-                    // Icona de vides (Calaveres)
-                    let iconaVida = '❤️'; 
-                    // Si vols que siguin calaveres quan en queden poques:
-                    if(vides < 2) iconaVida = '💀';
-
-                    card.innerHTML = `
-                        <div class="crew-header">
-                            <span class="crew-name">${nick}</span>
-                            <span class="crew-status">
-                                ${haAcabat ? '🏆 LLEGENDA' : 'Etapa ' + nivell}
-                            </span>
-                        </div>
-                        
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: ${percentatge}%"></div>
-                        </div>
-                        
-                        <div class="crew-stats">
-                            <span>${iconaVida} Vides: ${vides}</span>
-                            <span><span class="icon-time">⏳</span> ${formatarTemps(temps)}</span>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
+                    <div class="crew-stats">
+                        <span>${iconaVida} Vides: ${vides}</span>
+                        <span><span class="icon-time">⏳</span> ${formatarTemps(temps)}</span>
+                    </div>
+                `;
+                grid.appendChild(card);
             });
         }
 

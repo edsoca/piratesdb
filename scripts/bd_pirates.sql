@@ -118,7 +118,18 @@ INSERT INTO islands (name, surface, numberOfBeaches, population) VALUES
 ('Mêlée Island', 45.0, 1, 500),
 ('Monkey Island', 100.0, 5, 8),
 ('Scabb Island', 35.5, 0, 200),
-('Blood Island', 60.2, 3, 45);
+('Blood Island', 60.2, 3, 45),
+('Illa de la Mitja Lluna', 150, 450.5,5),
+('Vall dels Diamants', 400.0, 1, 0),
+('Tartarus', 800.0, 0, 10),
+('Illa de la Balena', 250.0, 0, 0),
+('Florin', 850.0, 15, 12000),
+('Guilder', 780.0, 10, 10000),
+('Cliffs of Insanity', 50.0, 0, 5),
+('Fire Swamp', 120.0, 0, 0),
+('Bikini Bottom', 500.0, 10, 5000),
+('Goo Lagoon', 150.0, 1, 50),
+('Rock Bottom', 80.0, 0, 200);
 
 -- =======================================================
 -- 3. INSERTS DE TRESORS (Treasures)
@@ -161,7 +172,14 @@ INSERT INTO treasures (name, goldCoins, weight, idIsland) VALUES
 ('Captain Kidds Loot', 600, 40.0, (SELECT idIsland FROM islands WHERE name = 'Tortuga' LIMIT 1)),
 ('Big Whoop', 10000, 0.0, (SELECT idIsland FROM islands WHERE name = 'Monkey Island' LIMIT 1)),
 ('Rubber Chicken with Pulley', 5, 1.0, (SELECT idIsland FROM islands WHERE name = 'Mêlée Island' LIMIT 1)),
-('Cursed Diamond Ring', 5000, 0.2, (SELECT idIsland FROM islands WHERE name = 'Blood Island' LIMIT 1));
+('Cursed Diamond Ring', 5000, 0.2, (SELECT idIsland FROM islands WHERE name = 'Blood Island' LIMIT 1)),
+('El Penjoll de la Blanca', 2, 50, (SELECT idIsland FROM islands WHERE name = 'Illa de la Mitja Lluna' LIMIT 1)),
+('Llibre de la Pau', 0, 15.5,(SELECT idIsland FROM islands WHERE name = 'Tartarus' LIMIT 1)),
+('Ou de l\'Au Roc', 5000, 200.0,(SELECT idIsland FROM islands WHERE name = 'Vall dels Diamants' LIMIT 1)),
+('Joies Reials de Florin', 50000, 100.0, (SELECT idIsland FROM islands WHERE name = 'Florin' LIMIT 1)),
+('Formula Secreta', 1000000, 0.1, (SELECT idIsland FROM islands WHERE name = 'Bikini Bottom')),
+('Spatula Daurada', 500, 2.0, (SELECT idIsland FROM islands WHERE name = 'Bikini Bottom')),
+('Mitjons de l''Holandès', 10, 0.5, (SELECT idIsland FROM islands WHERE name = 'Rock Bottom'));
 
 -- =======================================================
 -- 4. INSERTS DE MAPES (OriginalMaps)
@@ -179,7 +197,9 @@ INSERT INTO originalMaps (scale, height, width, idIsland) VALUES
 ('1:10000', 100.0, 80.0, (SELECT idIsland FROM islands WHERE name = 'Skull Island' LIMIT 1)),
 ('1:2000', 30.0, 30.0, (SELECT idIsland FROM islands WHERE name = 'Rumrunner Isle' LIMIT 1)),
 ('1:100', 20.0, 20.0, (SELECT idIsland FROM islands WHERE name = 'Mêlée Island' LIMIT 1)),
-('1:50', 15.0, 15.0, (SELECT idIsland FROM islands WHERE name = 'Monkey Island' LIMIT 1));
+('1:50', 15.0, 15.0, (SELECT idIsland FROM islands WHERE name = 'Monkey Island' LIMIT 1)),
+('1:5000', 30.0, 40.0,(SELECT idIsland FROM islands WHERE name = 'Tartarus' LIMIT 1)),
+('1:5000', 50.0, 50.0, (SELECT idIsland FROM islands WHERE name = 'Florin' LIMIT 1));
 
 -- =======================================================
 -- 5. INSERTS DE VAIXELLS (Ships)
@@ -222,7 +242,15 @@ INSERT INTO ships (name, height, weight, numberOfCanons) VALUES
 ('Silent Mary', 55.0, 350.0, 50),
 ('The Sea Monkey', 15.0, 80.0, 2),
 ('LeChucks Demon Ship', 60.0, 500.0, 100),
-('The Dainty Lady', 20.0, 90.0, 4);
+('The Dainty Lady', 20.0, 90.0, 4),
+('Xabec Morisc', 12, 120,1),
+('Vaixell Reial Cristià', 30, 350,10),
+('El Quimera', 15.5, 80.0, 10),
+('Galió de Siracusa', 25.0, 150.0, 30),
+('Revenge', 25.0, 150.0, 24),
+('The Patty Wagon', 5.0, 20.0, 2),
+('The Flying Dutchman', 40.0, 300.0, 50),
+('Chum Bucket Mobile', 15.0, 100.0, 10);
 
 -- =======================================================
 -- 6. INSERTS DE PIRATES (Pirates)
@@ -271,7 +299,26 @@ INSERT INTO pirates (name, age, height, weight, numberOfScars, idShip) VALUES
 ('Elaine Marley', 22, 1.75, 60.0, 0, (SELECT idShip FROM ships WHERE name = 'The Sea Monkey' LIMIT 1)),
 ('Murray the Skull', 500, 0.20, 2.0, 0, (SELECT idShip FROM ships WHERE name = 'LeChucks Demon Ship' LIMIT 1)),
 ('Stan S. Stanman', 40, 1.85, 75.0, 0, (SELECT idShip FROM ships WHERE name = 'The Sea Monkey' LIMIT 1)),
-('Carla The Sword Master', 28, 1.78, 72.0, 3, (SELECT idShip FROM ships WHERE name = 'The Dainty Lady' LIMIT 1));
+('Carla The Sword Master', 28, 1.78, 72.0, 3, (SELECT idShip FROM ships WHERE name = 'The Dainty Lady' LIMIT 1)),
+('Saïd', 25, 5, 75,3, (SELECT idShip FROM ships WHERE name = 'Xabec Morisc' LIMIT 1)),
+('Blanca', 20, 0, 55,0, (SELECT idShip FROM ships WHERE name = 'Xabec Morisc' LIMIT 1)),     
+('Joanot', 45, 10, 85,1, (SELECT idShip FROM ships WHERE name = 'Xabec Morisc' LIMIT 1)),    
+('Hassèn', 62, 12, 70,3, (SELECT idShip FROM ships WHERE name = 'Xabec Morisc' LIMIT 1)),    
+('Don Carles', 55, 2, 80,2, (SELECT idShip FROM ships WHERE name = 'Vaixell Reial Cristià' LIMIT 1)),
+('Simbad', 30, 1.80, 75.0, 12, (SELECT idShip FROM ships WHERE name = 'El Quimera' LIMIT 1)),
+('Kale', 45, 1.95, 95.0, 25,(SELECT idShip FROM ships WHERE name = 'El Quimera' LIMIT 1)),
+('Eris', 99, 1.70, 50.0, 0,(SELECT idShip FROM ships WHERE name = 'Galio de Siracusa' LIMIT 1)),
+('Westley', 25, 1.83, 80.0, 5, (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1)),
+('Iñigo Montoya', 35, 1.80, 75.0, 2, (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1)),
+('Fezzik', 32, 2.15, 150.0, 0, (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1)),
+('Vizzini', 50, 1.50, 55.0, 0, (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1)),
+('Count Rugen', 45, 1.88, 85.0, 1, NULL),
+('SpongeBob SquarePants', 20, 1.0, 0.5, 0, (SELECT idShip FROM ships WHERE name = 'The Patty Wagon')),
+('Patrick Star', 20, 1.2, 1.5, 0, (SELECT idShip FROM ships WHERE name = 'The Patty Wagon')),
+('Squidward Tentacles', 30, 1.5, 0.8, 0, (SELECT idShip FROM ships WHERE name = 'The Patty Wagon')),
+('Mr. Krabs', 50, 1.2, 2.0, 5, (SELECT idShip FROM ships WHERE name = 'The Patty Wagon')),
+('Plankton', 45, 0.1, 0.01, 1, (SELECT idShip FROM ships WHERE name = 'Chum Bucket Mobile')),
+('The Flying Dutchman (Pirate)', 500, 2.5, 0.0, 100, (SELECT idShip FROM ships WHERE name = 'The Flying Dutchman')); 
 
 -- =======================================================
 -- 7. RELACIONS VAIXELLS-ILLES
@@ -291,7 +338,12 @@ INSERT INTO ships_islands (idIsland, idShip, days) VALUES
 ((SELECT idIsland FROM islands WHERE name = 'Tortuga' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'The Jolly Roger' LIMIT 1), 1),
 ((SELECT idIsland FROM islands WHERE name = 'Monkey Island' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'The Sea Monkey' LIMIT 1), 3650),
 ((SELECT idIsland FROM islands WHERE name = 'Mêlée Island' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'LeChucks Demon Ship' LIMIT 1), 50),
-((SELECT idIsland FROM islands WHERE name = 'Scabb Island' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'The Dainty Lady' LIMIT 1), 7);
+((SELECT idIsland FROM islands WHERE name = 'Scabb Island' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'The Dainty Lady' LIMIT 1), 7),
+((SELECT idIsland FROM islands WHERE name = 'Tartarus' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'El Quimera' LIMIT 1), 7),
+((SELECT idIsland FROM islands WHERE name = 'Vall dels Diamants' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'El Quimera' LIMIT 1), 2),
+((SELECT idIsland FROM islands WHERE name = 'Illa de la Balena' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'El Quimera' LIMIT 1), 1),
+((SELECT idIsland FROM islands WHERE name = 'Cliffs of Insanity' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1), 3),
+((SELECT idIsland FROM islands WHERE name = 'Florin' LIMIT 1), (SELECT idShip FROM ships WHERE name = 'Revenge' LIMIT 1), 1);
 
 -- =======================================================
 -- 8. LLUITES (Fights)
@@ -326,24 +378,7 @@ INSERT INTO copyMaps (idCopyMap, idOriginalMap, date, idPirate) VALUES
 (1,(SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Dressrosa' LIMIT 1) LIMIT 1), '1521-06-18', (SELECT idPirate FROM pirates WHERE name = 'Nico Robin' LIMIT 1)),
 (1,(SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Whole Cake Island' LIMIT 1) LIMIT 1), '1522-09-10', (SELECT idPirate FROM pirates WHERE name = 'Sanji' LIMIT 1)),
 (1,(SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Isla de Muerta' LIMIT 1) LIMIT 1), '1720-05-10', (SELECT idPirate FROM pirates WHERE name = 'Jack Sparrow' LIMIT 1)),
-(1,(SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Skull Island' LIMIT 1) LIMIT 1), '1721-01-01', (SELECT idPirate FROM pirates WHERE name = 'Will Turner' LIMIT 1));
+(1,(SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Skull Island' LIMIT 1) LIMIT 1), '1721-01-01', (SELECT idPirate FROM pirates WHERE name = 'Will Turner' LIMIT 1)),
+(1, (SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Florin') LIMIT 1), '2026-03-05', (SELECT idPirate FROM pirates WHERE name = 'Count Rugen' LIMIT 1)),
+(1, (SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Illa del Tresor Callat') LIMIT 1), '1753-08-20', (SELECT idPirate FROM pirates WHERE name = 'Ull Tèrbol' LIMIT 1));
 
--- 1. Afegim una nova Illa i els Vaixells de la història
-INSERT INTO islands (idIsland, name, population, surface) VALUES
-(96, 'Illa de la Mitja Lluna', 150, 450.5);
-
-INSERT INTO ships (idShip, name, numberOfCanons, weight) VALUES
-(96, 'Xabec Morisc', 12, 120),
-(97, 'Vaixell Reial Cristià', 30, 350);
-
--- 2. Afegim el Tresor (Relació 1:1 exacta amb l'Illa de la Mitja Lluna)
-INSERT INTO treasures (idTreasure, name, weight, goldCoins, idIsland) VALUES
-(96, 'El Penjoll de la Blanca', 2, 50, 96);
-
--- 3. Afegim els Personatges (a la taula general de 'pirates')
-INSERT INTO pirates (idPirate, name, age, numberOfScars, weight, idShip) VALUES
-(96, 'Saïd', 25, 5, 75, 96),
-(97, 'Blanca', 20, 0, 55, 96),     -- Navega al Xabec (retinguda)
-(98, 'Joanot', 45, 10, 85, 96),    -- El renegat cristià
-(99, 'Hassèn', 62, 12, 70, 96),    -- El vell savi
-(100, 'Don Carles', 55, 2, 80, 97); -- Persegueix el Xabec amb el vaixell reial

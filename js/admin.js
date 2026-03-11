@@ -69,11 +69,12 @@ window.eliminarPregunta = function(id) {
 };
 
 // 3. GUARDAR A FIREBASE
-window.guardarRepte = function() {
+// 3. GUARDAR A FIREBASE (Ara és ASYNC)
+window.guardarRepte = async function() {
     const idRepte = document.getElementById('admin-id-repte').value.trim().toLowerCase();
     const nomRepte = document.getElementById('admin-nom-repte').value.trim();
     const minuts = parseInt($('#temps-repte').val()) || 10;
-    const segonsTotals = minuts * 60; // Ho guardem sempre en segons per facilitar el cronòmetre
+    const segonsTotals = minuts * 60;
 
     if (!idRepte || !nomRepte) {
         Swal.fire('DADES INCOMPLETES', 'L\'ID i el Nom del repte són obligatoris.', 'warning');
@@ -84,23 +85,33 @@ window.guardarRepte = function() {
     const cards = document.querySelectorAll('.pregunta-card');
     let valid = true;
 
-    cards.forEach((card, index) => {
-        const i = index + 1;
+    // CANVI CRÍTIC: Utilitzem for...of per a poder usar await correctament
+    let index = 1;
+    for (const card of cards) {
         const titol = card.querySelector('.p-titol').value.trim();
         const contingut = card.querySelector('.p-desc').value.trim();
-        const solucio = card.querySelector('.p-sol').value.trim();
+        let solucio = card.querySelector('.p-sol').value.trim();
 
         if (!titol || !contingut || !solucio) {
             valid = false;
             card.classList.add('activa');
+            continue; // Salta a la següent iteració si falta informació
         }
 
-        levels[`level${i}`] = {
+        // Si la solució ja és un hash (té més de 50 caràcters), la deixem igual
+        // Si no, generem el nou hash
+
+        if (solucio.length < 50) {
+            solucio = await generarHash(solucio);
+        }
+
+        levels[`level${index}`] = {
             titol,
             contingut,
             solucio
         };
-    });
+        index++;
+    }
 
     if (!valid) {
         Swal.fire('ERROR', 'Falten dades en algunes missions.', 'error');
@@ -115,18 +126,15 @@ window.guardarRepte = function() {
         didOpen: () => { Swal.showLoading(); } 
     });
 
-// --- NOU CODI: PREPAREM TOTS ELS GUARDATS ---
-    
-    // 1. Recollim les dades de l'assoliment dels nous inputs
+    // 1. Recollim les dades de l'assoliment
     const assoNom = document.getElementById('admin-asso-nom').value.trim();
     const assoDesc = document.getElementById('admin-asso-desc').value.trim();
     const assoImg = document.getElementById('admin-asso-img').value.trim();
     const assoOrdre = parseInt(document.getElementById('admin-asso-ordre').value) || 1;
 
-    // Creem una llista d'accions (promeses) a enviar a Firebase
     const promesesGuardat = [];
 
-    // 2. Afegim l'acció de guardar el repte principal
+    // 2. Guardar el repte principal
     promesesGuardat.push(
         db.ref('reptes/' + idRepte).set({
             titol_repte: nomRepte,
@@ -135,7 +143,7 @@ window.guardarRepte = function() {
         })
     );
 
-    // 3. Afegim l'acció de guardar l'assoliment (NOMÉS si el capità ha posat un nom)
+    // 3. Guardar l'assoliment
     if (assoNom !== '') {
         promesesGuardat.push(
             db.ref('cataleg_assoliments/' + idRepte).set({
@@ -147,7 +155,7 @@ window.guardarRepte = function() {
         );
     }
 
-    // 4. Disparem tots els canons alhora!
+    // 4. Executar promeses
     Promise.all(promesesGuardat)
         .then(() => {
             Swal.fire('⚓ TRESOR ENTERRAT!', 'El repte i l\'assoliment s\'han guardat correctament.', 'success');
@@ -215,8 +223,8 @@ window.carregarRepteExistent = function() {
             // Omplim la última card creada
             const card = llista.lastElementChild;
             card.querySelector('.p-titol').value = level.titol;
-            card.querySelector('.p-contingut').value = level.contingut;
-            card.querySelector('.p-solucio').value = level.solucio;
+            card.querySelector('.p-desc').value = level.contingut;
+            card.querySelector('.p-sol').value = level.solucio;
         });
     }).catch(err => {
         Swal.close();
@@ -224,3 +232,24 @@ window.carregarRepteExistent = function() {
         Swal.fire('Error', 'No s\'ha pogut connectar amb la base de dades', 'error');
     });
 };  
+
+// ==========================================
+// FUNCIÓ PER XIFRAR LES RESPOSTES (SHA-256)
+// ==========================================
+async function generarHash(text) {
+    // Passem a minúscules i traiem els espais del principi i del final
+    const textNet = text.trim().toLowerCase();
+    
+    // Convertim el text a un format que l'algoritme pugui llegir (ArrayBuffer)
+    const encoder = new TextEncoder();
+    const data = encoder.encode(textNet);
+    
+    // Generem el hash màgic
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    
+    // Convertim el buffer a una cadena de text hexadecimal llegible
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return hashHex;
+}

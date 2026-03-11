@@ -18,10 +18,30 @@ window.tancarSessioJoc = function() {
     });
 };
 
+// ==========================================
+// FUNCIÓ PER XIFRAR LES RESPOSTES (SHA-256)
+// ==========================================
+async function generarHash(text) {
+    // Passem a minúscules i traiem els espais del principi i del final
+    const textNet = text.trim().toLowerCase();
+    
+    // Convertim el text a un format que l'algoritme pugui llegir
+    const encoder = new TextEncoder();
+    const data = encoder.encode(textNet);
+    
+    // Generem el hash màgic
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    
+    // Convertim el buffer a una cadena de text hexadecimal llegible
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return hashHex;
+}
+
 // =========================================
 // 2. INICIALITZACIÓ DE FIREBASE
 // =========================================
-// ASSEGURA'T QUE AQUESTA KEY ÉS LA DEL TEU PROJECTE NOU
 const firebaseConfig = {
   apiKey: "AIzaSyBr3oCZ9OdWGq7P4COiaWVWipRfJs3bpDw",
   authDomain: "pirates-d1292.firebaseapp.com",
@@ -66,31 +86,30 @@ $(document).ready(function() {
     dibuixarMapaAmbGrid(); // Dibuixa la graella només carregar
 
     $('#btn-mapa').on('click', function() {
-        $('.modal-pirata').hide(); // AMAGA QUALSEVOL ALTRE MODAL
+        $('.modal-pirata').hide(); 
         soPaper.play();
         $('#modalMapa').fadeIn(300);
     });
 
     // Gestió del Modal de l'Esquema ER
     $('#obrirModal').on('click', function() {
-        $('.modal-pirata').hide(); // AMAGA QUALSEVOL ALTRE MODAL
+        $('.modal-pirata').hide(); 
         soPaper.play();
         $('#modalEsquema img').attr('src', 'img/PiratesER.png'); 
         $('#modalEsquema').fadeIn(300);
     });
 
     $('#btn-ranking').on('click', function() {
-        $('.modal-pirata').hide(); // AMAGA QUALSEVOL ALTRE MODAL
+        $('.modal-pirata').hide(); 
         $('#modalRanking').fadeIn(300);
         carregarHallOfFame();
     });
 
     $('.btn-eject').on('click', function() {
-        tancarSessioJoc(); // La teva funció de sortida
+        tancarSessioJoc(); 
     });
 
     // --- TANCAR QUALSEVOL MODAL ---
-    // Aquesta és una forma elegant de tancar qualsevol modal amb una sola funció
     $('.tancar-modal').on('click', function() {
         $(this).closest('.modal-pirata').fadeOut(300);
         soPaper.play();
@@ -104,25 +123,24 @@ $(document).ready(function() {
         }
     });
 
-    // Clic al botó d'assoliments (creada dinàmicament a la victòria)
+    // Clic al botó d'assoliments
     $(document).on('click', '#btn-assoliments', function() {
         soPaper.play(); 
-        window.open('assoliments.html', '_blank'); // Obre l'àlbum en una pestanya nova
+        window.open('assoliments.html', '_blank'); 
     });
 
-    // Tancar si es clica fora de la caixa (al fons fosc)
+    // Tancar si es clica fora de la caixa
     $('.modal-pirata').on('click', function(e) {
         if (e.target === this) {
             $(this).fadeOut(300);
         }
     });
 
-
     // Login i inici de joc
     $('#btnLogin').on('click', function() {
         const idRepte = $('#id-repte').val().trim().toLowerCase();
         if (!idRepte) {
-            Swal.fire('¡ATENCIÓ!', 'Has d\'introduir el codi del mapa del tresor.', 'warning');
+            AlertaPirata.fire('¡ATENCIÓ!', 'Has d\'introduir el codi del repte.', 'warning');
             return;
         }
 
@@ -133,12 +151,12 @@ $(document).ready(function() {
             if (snapshot.exists()) {
                 iniciarAutenticacioGoogle();
             } else {
-                Swal.fire('MAPA NO TROBAT', 'Aquest codi no correspon a cap illa coneguda.', 'error');
+                AlertaPirata.fire('MAPA NO TROBAT', 'Aquest codi no correspon a cap illa coneguda.', 'error');
             }
         });
     });
 
-    // --- NOU: DETECCIÓ DE REPTE ACTIU PER URL ---
+    // DETECCIÓ DE REPTE ACTIU PER URL
     const urlParams = new URLSearchParams(window.location.search);
     const repteURL = urlParams.get('repte');
 
@@ -147,7 +165,7 @@ $(document).ready(function() {
         if (user && repteURL) {
             console.log("Sessió activa detectada per al repte:", repteURL);
             idRepteActiu = repteURL;
-            carregarDadesRepte(); // Salta directament al joc
+            carregarDadesRepte(); 
         }
     });
 
@@ -155,17 +173,15 @@ $(document).ready(function() {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then((result) => {
-                // --- NOU: AFEGIR PARÀMETRE A LA URL SENSE RECARREGAR ---
                 const novaURL = window.location.protocol + "//" + window.location.host + window.location.pathname + '?repte=' + idRepteActiu;
                 window.history.pushState({ path: novaURL }, '', novaURL);
-                // ------------------------------------------------------
                 const user = result.user;
                 console.log("Pirata identificat:", user.displayName);
                 carregarDadesRepte();
             })
             .catch((error) => {
                 console.error("Error d'abordatge:", error);
-                Swal.fire('ERROR DE LOGIN', 'No has pogut pujar a bord.', 'error');
+                AlertaPirata.fire('ERROR DE LOGIN', 'No has pogut pujar a bord.', 'error');
             });
     }
 
@@ -173,7 +189,6 @@ $(document).ready(function() {
         const user = firebase.auth().currentUser;
         if (!user) return;
 
-        // 1. Primer llegim la configuració general del repte (enigmes, temps inicial...)
         db.ref('reptes/' + idRepteActiu).once('value', (snapshot) => {
             const dadesRepte = snapshot.val();
             if (!dadesRepte) return;
@@ -183,31 +198,20 @@ $(document).ready(function() {
             $('#nom-missio').text(dadesRepte.titol_repte.toUpperCase());
             tempsInicialRepte = parseInt(dadesRepte.tempsFinal) || 600;
 
-            // 2. BUSQUEM EL PROGRÉS D'AQUEST USUARI ESPECÍFIC
-            // Ruta: usuaris/[UID]/reptes_actius/[idRepteActiu]
             db.ref(`usuaris/${user.uid}/reptes_actius/${idRepteActiu}`).once('value', (progresSnap) => {
                 if (progresSnap.exists()) {
                     const progres = progresSnap.val();
-                    
-                    // SINCRONITZEM VARIABLES AMB EL TEU JSON
                     nivellActual = progres.level || 1;
                     vides = (progres.vides !== undefined) ? progres.vides : 7;
-                    tempsRestant = parseInt(progres.temps_segons); // Directament en segons
-                    
+                    tempsRestant = parseInt(progres.temps_segons);
                     console.log(`Reprenent partida de ${progres.nick}: Nivell ${nivellActual}, Vides ${vides}, Segons ${tempsRestant}`);
                 } else {
-                    // Si és la primera vegada que juga aquest repte:
                     nivellActual = 1;
                     vides = 7;
-                    // Agafem el temps inicial de la definició del repte (convertit a segons si cal)
-                    // Si 'tempsFinal' a reptes ja són segons (600), no multipliquis per 60
                     tempsRestant = parseInt(dadesRepte.tempsFinal) || 600; 
-                    
-                    // Opcional: Crear l'entrada inicial a Firebase perquè ja existeixi
                     sincronitzarAmbFirebase();
                 }
 
-                // Actualitzem tota la interfície pirata
                 actualitzarVidesUI(vides);
                 actualitzarProgressio();
                 
@@ -216,13 +220,13 @@ $(document).ready(function() {
                 
                 jocActiu = true;
 
-                if(nivellActual>totalNivells){
+                if(nivellActual > totalNivells){
                     bloquejarJocGuanyat();
                 } else if (tempsRestant <= 0) {
                     tempsRestant = 0;
                     bloquejarJocPerdut();
                 } else {
-                    iniciarCronometre(); // Ja no farà números estranys perquè llegim segons directes
+                    iniciarCronometre(); 
                     mostrarNivell();
                 }
 
@@ -237,17 +241,15 @@ $(document).ready(function() {
                 level: nivellActual,
                 vides: vides,
                 temps_segons: tempsRestant,
-                nick: user.displayName, // Manté el nom actualitzat
+                nick: user.displayName, 
                 ultima_connexio: firebase.database.ServerValue.TIMESTAMP
             });
         }
     }
 
-
     // =========================================
     // 5. CRONÒMETRE I UI
     // =========================================
-
     function iniciarCronometre() {
         if (intervalCronometre) clearInterval(intervalCronometre);
         
@@ -257,7 +259,7 @@ $(document).ready(function() {
             const m = Math.floor(tempsRestant / 60);
             const s = tempsRestant % 60;
             $('#cronometre').text(`${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`);
-
+            if(tempsRestant < 60) $('#cronometre').addClass('danger-time');
             if (tempsRestant <= 0) perdrePartida("El temps s'ha esgotat!");
         }, 1000);
     }
@@ -269,7 +271,6 @@ $(document).ready(function() {
         const missio = dadesMissions[`level${nivellActual}`];
         if (missio) {
             $('#titol-nivell').html(`<span class="emoji-icon">🧭</span>ENIGMA ${nivellActual}: ${missio.titol}`);
-            // Canviem .text() per .html()
             $('#descripcio-nivell').html(missio.contingut); 
             $('#resultat').val('').focus();
         }
@@ -277,24 +278,27 @@ $(document).ready(function() {
 
     $('#btnEnviar').on('click', validarResposta);
 
-    function validarResposta() {
+    // ⚠️ ATENCIÓ AQUÍ: Hem afegit 'async' abans de function
+    async function validarResposta() {
         if (!jocActiu) return;
 
         const respostaUsuari = $('#resultat').val().trim().toLowerCase();
+        
+        // Ara la funció generarHash existirà i funcionarà
+        const hashAlumne = await generarHash(respostaUsuari);
         const solucioCorrecta = dadesMissions[`level${nivellActual}`].solucio.toLowerCase();
 
-        if (respostaUsuari === solucioCorrecta) {
+        if (hashAlumne === solucioCorrecta) {
             // --- CAS D'ÈXIT ---
             soExit.play();
             nivellActual++;
             
-            // Actualitzem Firebase perquè ja estem al següent nivell
             sincronitzarAmbFirebase();
 
             if (nivellActual > totalNivells) {
                 guanyarPartida();
             } else {
-                Swal.fire({
+                AlertaPirata.fire({
                     title: '¡BON COP, PIRATA!',
                     text: 'L\'enigma ha estat resolt.',
                     icon: 'success',
@@ -306,18 +310,16 @@ $(document).ready(function() {
             }
         } else {
             // --- CAS D'ERROR (PERD VIDA) ---
-            vides--; // Restem la vida localment
+            vides--; 
             soError.play();
             
-            // ACTUALITZEM A FIREBASE IMMEDIATAMENT
             sincronitzarAmbFirebase(); 
-            
             actualitzarVidesUI(vides);
             
             if (vides <= 0) {
                 perdrePartida("T'has quedat sense doblons i t'han llençat als taurons.");
             } else {
-                Swal.fire({
+                AlertaPirata.fire({
                     title: '¡A L\'AIGUA!',
                     text: `Aquesta no és la clau. Et queden ${vides} monedes.`,
                     icon: 'error',
@@ -344,25 +346,19 @@ $(document).ready(function() {
         jocActiu = false;
         clearInterval(intervalCronometre);
         
-        // Calculem quant temps ha trigat
         const segonsGastats = Math.max(0, tempsInicialRepte - tempsRestant);
-
         const pirataNom = firebase.auth().currentUser.displayName || "Pirata Anònim";
 
-        // Guardem a la base de dades
         db.ref(`hallOfFame/${idRepteActiu}`).push({
             nom: pirataNom,
             segons_gastats: segonsGastats,
             data: firebase.database.ServerValue.TIMESTAMP
         });
 
-        // ---> CANVI: Fem servir el nom del repte actiu! <---
         atorgarAssoliment(idRepteActiu);
-
-        // 3. BLOQUEJAR INTERFÍCIE
         bloquejarJocGuanyat();
 
-        Swal.fire({
+        AlertaPirata.fire({
             title: '¡BOTÍ RECUPERAT!',
             text: 'Ets una llegenda! Vols veure el rànquing?',
             icon: 'success',
@@ -381,18 +377,15 @@ $(document).ready(function() {
         clearInterval(intervalCronometre);
         soExplosio.play();
 
-        // 1. Mostrar el SweetAlert de derrota (Abordatge)
-        Swal.fire({
+        AlertaPirata.fire({
             title: '⚔️ ¡ABORDATGE! 🏴‍☠️',
             text: 'El temps s\'ha esgotat i els enemics han assaltat el teu vaixell.',
-            // Una imatge de vaixells pirates en flames o combat
             confirmButtonText: 'Acceptar el destí',
             confirmButtonColor: '#8b0000',
-            background: '#f4e4bc url("https://www.transparenttextures.com/patterns/papyrus.png")', // Textura de paper
-            backdrop: `rgba(139, 0, 0, 0.4)` // Un fons vermellós suau
+            background: '#f4e4bc url("https://www.transparenttextures.com/patterns/papyrus.png")',
+            backdrop: `rgba(139, 0, 0, 0.4)`
         });
 
-        // 2. Bloquejar la interfície
         bloquejarJocPerdut();
     }
 
@@ -406,7 +399,6 @@ $(document).ready(function() {
                 const segons = dada.segons_gastats % 60;
                 const tempsFormatat = `${minuts}:${segons.toString().padStart(2, '0')}`;
                 
-                // Afegim una icona segons la posició
                 let icona = posicio === 1 ? '🥇' : (posicio === 2 ? '🥈' : '🥉');
                 if (posicio > 3) icona = '💀';
 
@@ -424,31 +416,24 @@ $(document).ready(function() {
     function actualitzarVaixell(nivellActual, totalNivells) {
         if (!totalNivells || totalNivells === 0) return;
 
-        // Calculem el percentatge real
         let percentatge = ((nivellActual-1) / totalNivells) * 100;
-        
-        // Si estem al 0%, que estigui ben a l'esquerra. Si estem al 100%, sobre l'illa.
-        // Ajustem una mica els valors perquè visualment encaixi amb el padding:
-        let posicioCSS = (percentatge * 0.9) + 5; // Això manté el vaixell entre el 5% i el 95% del contenidor
+        let posicioCSS = (percentatge * 0.9) + 5; 
         soNavegar.play();
         $('#vaixell-progres').css('left', posicioCSS + '%');
 
-        // DISPAREM LES BOMBOLLES!
         crearBombolles();
     }
 
     function crearBombolles() {
         const $ocea = $('.ocea-progres-header');
-        const numBombolles = 15; // Més bombolles per a un efecte més dens
+        const numBombolles = 15; 
 
-        // Fem un interval curt perquè les bombolles s'emetin DURANT el moviment
         let comptador = 0;
         const intervalBombolles = setInterval(() => {
             const $vaixell = $('#vaixell-progres');
-            const posicio = $vaixell.position(); // Agafem la posició REAL en aquest mil·lisegon
+            const posicio = $vaixell.position(); 
 
             const mida = Math.random() * 6 + 2;
-            // Les bombolles surten una mica per darrere del vaixell (posicio.left)
             const $b = $('<div class="bombolla"></div>').css({
                 left: (posicio.left + 15) + 'px', 
                 top: (posicio.top + 28) + 'px',
@@ -458,15 +443,14 @@ $(document).ready(function() {
 
             $ocea.append($b);
 
-            // Neteja de la bombolla
             setTimeout(() => $b.remove(), 800);
 
             comptador++;
             if (comptador > numBombolles) clearInterval(intervalBombolles);
-        }, 50); // Emet una bombolla cada 50ms mentre el vaixell avança
+        }, 50); 
     }
 
-function bloquejarJocGuanyat() {
+    function bloquejarJocGuanyat() {
         $('body').addClass('joc-guanyat');
         actualitzarVaixell(totalNivells+1, totalNivells);
 
@@ -484,7 +468,6 @@ function bloquejarJocGuanyat() {
             </div>
         `);
 
-
         $('#resultat').prop('disabled', true).val("TRESOR TROBAT");
         $('#btnEnviar').prop('disabled', true).addClass('boto-desactivat').text("FINALITZAT");
         $('#cronometre').text("COMPLETAT");
@@ -493,7 +476,6 @@ function bloquejarJocGuanyat() {
     function bloquejarJocPerdut() {
         $('body').addClass('joc-perdut');
 
-        // Canviem els textos de l'enigma per missatges de derrota
         $('#titol-nivell').html('<span class="emoji-icon">🔥</span> VAIXELL ABORDAT');
         $('#descripcio-nivell').html(`
             <div style="text-align: center; color: #ff4444;">
@@ -504,7 +486,6 @@ function bloquejarJocGuanyat() {
             </div>
         `);
 
-        // Bloquegem l'entrada de text i el botó d'enviar
         $('#resultat').prop('disabled', true).val("TEMPS ESGOTAT");
         $('#btnEnviar').prop('disabled', true).addClass('boto-desactivat').text("DERROTA");
         $('#cronometre').text("00:00").css('color', 'red');
@@ -519,18 +500,16 @@ function atorgarAssoliment(idAssoliment) {
     if (user) {
         const uid = user.uid;
         
-        // Ho guardem a la base de dades del joc actual (db ja està definida a dalt)
         db.ref('usuaris/' + uid + '/assoliments/' + idAssoliment).set(true)
             .then(() => {
                 console.log("Tresor desbloquejat: " + idAssoliment);
                 
-                // Mostrem un petit avís a la pantalla sense interrompre el joc
                 Swal.fire({
                     title: '🏆 NOU ASSOLIMENT!',
                     text: 'Has desbloquejat una nova enganxina al teu passaport!',
                     icon: 'success',
                     toast: true,
-                    position: 'top-end', // A dalt a la dreta
+                    position: 'top-end', 
                     showConfirmButton: false,
                     timer: 4000
                 });
@@ -539,13 +518,9 @@ function atorgarAssoliment(idAssoliment) {
     }
 }
 
-
 // =========================================
 // GESTIÓ DEL MAPA INTERACTIU
 // =========================================
-
-// Funció per dibuixar el mapa amb lletres (A-H) a l'esquerra i números (1-8) a dalt
-// Funció per dibuixar el mapa amb lletres (A-H) a l'esquerra i números (1-8) a dalt
 function dibuixarMapaAmbGrid() {
     const gridContainer = document.getElementById('mapa-grid');
     if (!gridContainer) return;
@@ -554,7 +529,6 @@ function dibuixarMapaAmbGrid() {
 
     const lletres = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
-    // 1. FILA SUPERIOR: Crear cantonada buida + Números (1 al 8)
     const emptyCorner = document.createElement('div');
     emptyCorner.className = 'grid-header';
     gridContainer.appendChild(emptyCorner);
@@ -562,20 +536,16 @@ function dibuixarMapaAmbGrid() {
     for (let c = 1; c <= 8; c++) {
         const headerNum = document.createElement('div');
         headerNum.className = 'grid-header';
-        // Forcem que s'escrigui el número en format text dins del quadrat
         headerNum.innerHTML = String(c); 
         gridContainer.appendChild(headerNum);
     }
 
-    // 2. RESTA DEL MAPA: Files amb Lletra (A-H) + 8 cel·les
     for (let f = 0; f < 8; f++) {
-        // Capçalera de fila (La lletra A, B, C...)
         const rowHeader = document.createElement('div');
         rowHeader.className = 'grid-header';
         rowHeader.innerHTML = lletres[f];
         gridContainer.appendChild(rowHeader);
 
-        // Les 8 cel·les de joc on aniran les illes
         for (let c = 1; c <= 8; c++) {
             const cell = document.createElement('div');
             cell.className = 'grid-cell playable';
@@ -600,17 +570,29 @@ function dibuixarMapaAmbGrid() {
                     illaHTML = crearIllaHTML("❌", "Illa del Tresor Callat");
                     cell.style.backgroundColor = "rgba(255, 68, 68, 0.2)";
                 }
-
-                // -- Noves illes per omplir buits (reals de la DB) --
                 else if (lletres[f] === 'A' && c === 6) {
                     illaHTML = crearIllaHTML("🌩️", "Illa del Núvol Negre");
-                    cell.style.backgroundColor = "rgba(100, 100, 255, 0.1)"; // Un toc de tempesta
+                    cell.style.backgroundColor = "rgba(100, 100, 255, 0.1)"; 
                 }
                 else if (lletres[f] === 'B' && c === 4) {
                     illaHTML = crearIllaHTML("🐒", "Monkey Island");
                 }
-                else if (lletres[f] === 'D' && c === 1) {
-                    illaHTML = crearIllaHTML("🧭", "Illa del Far Antic");
+                else if (lletres[f] === 'D' && c === 2) {
+                    cell.addEventListener('click', () => {
+                        // Comprovem quin és el repte actiu just EN EL MOMENT de fer clic
+                        if (idRepteActiu === 'goonies') {
+                            $('#modalMapa').hide();
+                            soPaper.play(); 
+                            AlertaPirata.fire({
+                                title: '🧭 Illa del Far Antic!',
+                                html: '<p>Has trobat les restes del vell far.',
+                                icon: 'info',
+                                confirmButtonText: 'Els Goonies Mai Diuen Morir!'
+                            });
+                        } else {
+                            console.log("Només aigua salada...");
+                        }
+                    });
                 }
                 else if (lletres[f] === 'E' && c === 4) {
                     illaHTML = crearIllaHTML("🔥", "Illa del Foc Etern");
@@ -623,6 +605,17 @@ function dibuixarMapaAmbGrid() {
                 }
                 else if (lletres[f] === 'G' && c === 2) {
                     illaHTML = crearIllaHTML("🐙", "Kraken Rient");
+                } 
+                else if (lletres[f] === 'C' && c === 3) {
+                    illaHTML = crearIllaHTML("💎", "Vall dels Diamants");
+                }
+                else if (lletres[f] === 'A' && c === 7) {
+                    illaHTML = crearIllaHTML("🌋", "Tartarus");
+                    // Opcional: donar-li un toc vermellós al mar de Tartarus
+                    cell.style.backgroundColor = "rgba(255, 50, 50, 0.15)"; 
+                }
+                else if (lletres[f] === 'G' && c === 6) {
+                    illaHTML = crearIllaHTML("🐳", "Illa de la Balena");
                 }
 
                 if (illaHTML !== "") {
@@ -632,7 +625,6 @@ function dibuixarMapaAmbGrid() {
             gridContainer.appendChild(cell);
         }
 
-        // Funció auxiliar per no repetir codi (posa-la fora de dibuixarMapaAmbGrid o a dalt)
         function crearIllaHTML(icona, nom) {
             return `
                 <div class="illa-visual">
@@ -642,3 +634,16 @@ function dibuixarMapaAmbGrid() {
         }
     }
 }
+
+// Plantilla per les alertes pirates
+const AlertaPirata = Swal.mixin({
+    customClass: {
+        popup: 'swal-pirata',
+        title: 'swal-title-pirata',
+        htmlContainer: 'swal-text-pirata',
+        confirmButton: 'swal-btn-pirata'
+    },
+    buttonsStyling: false, // Desactivem els botons per defecte perquè agafi el nostre CSS
+    background: '#1a0f00',
+    color: '#ffcc00'
+});
