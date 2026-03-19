@@ -382,3 +382,91 @@ INSERT INTO copyMaps (idCopyMap, idOriginalMap, date, idPirate) VALUES
 (1, (SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Florin') LIMIT 1), '2026-03-05', (SELECT idPirate FROM pirates WHERE name = 'Count Rugen' LIMIT 1)),
 (1, (SELECT idOriginalMap FROM originalMaps WHERE idIsland = (SELECT idIsland FROM islands WHERE name = 'Illa del Tresor Callat') LIMIT 1), '1753-08-20', (SELECT idPirate FROM pirates WHERE name = 'Ull Tèrbol' LIMIT 1));
 
+-- =======================================================
+-- CREACIÓ DE LES TAULES D'ARMES
+-- =======================================================
+
+-- Creem el catàleg d'armes disponibles
+CREATE TABLE weapons (
+    idWeapon INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    type VARCHAR(30) NOT NULL, 
+    power INTEGER NOT NULL,    
+    scope INTEGER NOT NULL     
+);
+
+-- Creem la relació: Quines armes té cada pirata a l'inventari?
+CREATE TABLE pirates_weapons (
+    idPirate INTEGER NOT NULL,
+    idWeapon INTEGER NOT NULL,
+    amount INTEGER NOT NULL DEFAULT 1, 
+    PRIMARY KEY (idPirate, idWeapon),
+    FOREIGN KEY (idPirate) REFERENCES pirates(idPirate) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (idWeapon) REFERENCES weapons(idWeapon) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- =======================================================
+-- INSERTS DE LES ARMES (Weapons)
+-- =======================================================
+INSERT INTO weapons (idWeapon, name, type, power, scope) VALUES
+(1, 'Sabre d''Abordatge clàssic', 'Blanc', 60, 2),
+(2, 'Pistola de pedrenyal', 'Foc', 75, 15),
+(3, 'Daga rovellada', 'Blanc', 35, 1),
+(4, 'Canó portàtil', 'Artilleria', 95, 30),
+(5, 'Garfi d''acer', 'Blanc', 50, 1),
+(6, 'Punys de Goma (Haki)', 'Cos a cos', 100, 10),
+(7, 'Wado Ichimonji', 'Espasa', 90, 2),
+(8, 'Sandai Kitetsu', 'Espasa', 85, 2),
+(9, 'Clima-Tact', 'Màgia/Clima', 80, 25),
+(10, 'Cames de Foc (Diable Jambe)', 'Cos a cos', 95, 3),
+(11, 'Pistola amb una sola bala', 'Foc', 100, 15), -- La de Jack per Barbossa
+(12, 'Brúixola Màgica', 'Artefacte', 0, 100), -- No fa mal, però té abast infinit
+(13, 'Espasa de Tritó', 'Màgia', 90, 5), -- La de Barbanegra
+(14, 'Urpes de Cranc Gegant', 'Cos a cos', 85, 3), -- Davy Jones
+(15, 'Pollastre de Goma amb politja', 'Objecte', 5, 2),
+(16, 'Insults (Lluita d''Espases)', 'Psicològic', 100, 5),
+(17, 'Nina Vudú', 'Màgia', 95, 50),
+(18, 'Espasa del Pare', 'Espasa', 88, 2), -- Iñigo Montoya
+(19, 'Verí Iocà', 'Químic', 100, 1),
+(20, 'Espàtula Daurada', 'Eina', 40, 1),
+(21, 'Xarxa per caçar meduses', 'Eina', 20, 3),
+(22, 'Rayo Control Mental', 'Tecnologia', 70, 20);
+
+-- =======================================================
+-- INSERTS DE L'INVENTARI (pirates_weapons)
+-- =======================================================
+INSERT INTO pirates_weapons (idPirate, idWeapon, amount) VALUES
+
+((SELECT idPirate FROM pirates WHERE name = 'Monkey D. Luffy' LIMIT 1), 6, 2), -- Els seus dos punys
+((SELECT idPirate FROM pirates WHERE name = 'Roronoa Zoro' LIMIT 1), 7, 1), -- La Wado Ichimonji
+((SELECT idPirate FROM pirates WHERE name = 'Roronoa Zoro' LIMIT 1), 8, 1), -- La Kitetsu (i en porta 3 en total amb alguna altra)
+((SELECT idPirate FROM pirates WHERE name = 'Nami' LIMIT 1), 9, 1), -- Clima-Tact
+((SELECT idPirate FROM pirates WHERE name = 'Sanji' LIMIT 1), 10, 2), -- Les seves cames
+((SELECT idPirate FROM pirates WHERE name = 'Jack Sparrow' LIMIT 1), 1, 1), -- Sabre
+((SELECT idPirate FROM pirates WHERE name = 'Jack Sparrow' LIMIT 1), 11, 1), -- La pistola d'una bala
+((SELECT idPirate FROM pirates WHERE name = 'Jack Sparrow' LIMIT 1), 12, 1), -- La brúixola màgica
+((SELECT idPirate FROM pirates WHERE name = 'Hector Barbossa' LIMIT 1), 1, 1),
+((SELECT idPirate FROM pirates WHERE name = 'Hector Barbossa' LIMIT 1), 2, 1),
+((SELECT idPirate FROM pirates WHERE name = 'Will Turner' LIMIT 1), 1, 3), -- És ferrer, fa bones espases
+((SELECT idPirate FROM pirates WHERE name = 'Davy Jones' LIMIT 1), 14, 1),
+((SELECT idPirate FROM pirates WHERE name = 'Blackbeard' LIMIT 1), 13, 1), -- Espasa de Tritó
+((SELECT idPirate FROM pirates WHERE name = 'Blackbeard' LIMIT 1), 2, 6), -- Històricament portava 6 pistoles!
+((SELECT idPirate FROM pirates WHERE name = 'Guybrush Threepwood' LIMIT 1), 15, 1), -- El pollastre de goma!
+((SELECT idPirate FROM pirates WHERE name = 'Guybrush Threepwood' LIMIT 1), 16, 10), -- Mestre dels insults
+((SELECT idPirate FROM pirates WHERE name = 'Zombie LeChuck' LIMIT 1), 17, 1), -- Màgia Vudú
+((SELECT idPirate FROM pirates WHERE name = 'Zombie LeChuck' LIMIT 1), 1, 1),
+((SELECT idPirate FROM pirates WHERE name = 'Mr. Smee' LIMIT 1), 3, 1), -- Daga rovellada
+((SELECT idPirate FROM pirates WHERE name = 'Mr. Smee' LIMIT 1), 5, 1), -- Garfi de recanvi
+((SELECT idPirate FROM pirates WHERE name = 'Iñigo Montoya' LIMIT 1), 18, 1), -- Espasa del seu pare
+((SELECT idPirate FROM pirates WHERE name = 'Westley' LIMIT 1), 1, 1),
+((SELECT idPirate FROM pirates WHERE name = 'Vizzini' LIMIT 1), 19, 2), -- Verí Iocà
+((SELECT idPirate FROM pirates WHERE name = 'SpongeBob SquarePants' LIMIT 1), 20, 1), -- Espàtula
+((SELECT idPirate FROM pirates WHERE name = 'Patrick Star' LIMIT 1), 21, 1), -- Xarxa
+((SELECT idPirate FROM pirates WHERE name = 'Plankton' LIMIT 1), 22, 1); -- Control mental
+
+INSERT INTO pirates_weapons (idPirate, idWeapon, amount) VALUES
+(1, 1, 1), (1, 2, 1),
+(2, 4, 1),
+(3, 1, 2),
+(4, 3, 5),
+(5, 5, 1), (5, 2, 1);

@@ -564,32 +564,32 @@
     "repte_onepiece": {
       "levels": {
         "level1": {
-          "contingut": "<h3>La tripulació del Barret de Palla ha arribat a l'arxipèlag Sabaody, però la Marina ha enviat un Almirall i els té acorralats! Necessiten la teva ajuda com a navegant i estrateg per revisar l'estat de la tripulació, comprovar les especificacions del vaixell i traçar una ruta d'escapada utilitzant el teu coneixement de dades i el mapa marítim. El Log Pose s'està carregant... prepara't per salpar!</h3>\n<hr>\nEls marines estan actualitzant els cartells de cerca i captura (Wanted) per posar un preu astronòmic al cap del nostre capità. Per hackejar el seu sistema i esborrar-lo, necessitem la seva edat exacta. La pots aconseguir?",
+          "contingut": "<p>La tripulació del <b>Barret de Palla</b> ha arribat a l'arxipèlag <b>Sabaody</b>, però la Marina ha enviat un Almirall i els té acorralats! <br><br>Els marines estan actualitzant els cartells de cerca i captura (<i>Wanted</i>) per posar un preu astronòmic al cap del nostre capità. Per hackejar el seu sistema i esborrar-lo, necessitem la seva edat exacta. <br><br><b>Missió:</b> Quina és l'edat (<code>age</code>) d'en <b>'Monkey D. Luffy'</b>?</p>",
           "solucio": "9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767",
           "titol": "El Cartell de Recompensa"
         },
         "level2": {
-          "contingut": "Hem d'escapar pel fons del mar! El nostre nou vaixell és una meravella tecnològica construïda per en Franky amb fusta d'Adam. És molt resistent però aquest model registrat no consta com a vaixell de guerra. Troba quin pes (<b>weight</b>) té el vaixell a la taula <b>ships</b> que el seu nom comença per la lletra <b>'T'</b> i que té exactament <b>0 canons</b>.",
+          "contingut": "<p>Hem d'escapar pel fons del mar! El nostre nou vaixell és una meravella tecnològica construïda per en <b>Franky</b> amb fusta d'Adam. És molt resistent, però aquest model no consta als arxius de la Marina com a vaixell de guerra perquè no té canons.<br><br><b>Missió:</b> Troba quin pes (<code>weight</code>) té el vaixell a la taula <code>ships</code> que el seu nom comença per la lletra <b>'T'</b> i que té exactament <b>0 canons</b>.</p>",
           "solucio": "88820462180e5c893eff2ed73f4ec33e205d1cd5acc4d17fa7b2bca2495d3448",
           "titol": "El Somni d'en Franky"
         },
         "level3": {
-          "contingut": "La Marina intenta bloquejar-nos amb immenses naus de transport de presoners. D'entre tots els vaixells del món que no tenen canons (0 canons), quin és el més massís? Fes una consulta a <b>ships</b> per buscar els vaixells sense canons, ordena'ls pel seu pes (<b>weight</b>) de gran a petit (descendent), i queda't només amb el nom (<b>name</b>) del primer de la llista usant <code>LIMIT</code>.",
+          "contingut": "<p>La Marina intenta bloquejar-nos amb immenses naus de transport de presoners. Per poder envestir-les amb el <i>Coup de Burst</i>, hem de saber si el nostre vaixell és prou massís en comparació amb altres naus civils.<br><br><b>Missió:</b> D'entre tots els vaixells que tenen 0 canons, quin és el més massís? Mostra només el <b>nom</b> del primer de la llista ordenant pel seu pes de gran a petit.</p>",
           "solucio": "3182086311158ffdb897bdacff6d89cc3772e3dd7806534b77b7e461ed73c03b",
           "titol": "El Colós del Mar Pacífic"
         },
         "level4": {
-          "contingut": "En Rayleigh, el Rei Fosc, recorda que la joventut i la determinació són claus per conquerir el Grand Line. Està buscant la nau d'aquesta nova generació. Agrupa tots els pirates de la taula <b>pirates</b> segons l'ID del seu vaixell (<b>idShip</b>). Quin és l'ID del vaixell on la mitjana d'edat (<code>AVG(age)</code>) de la seva tripulació és exactament de 21 anys?",
+          "contingut": "<p>En <b>Rayleigh</b>, el Rei Fosc, recorda que la joventut i la determinació són claus per conquerir el <b>Grand Line</b>. Està buscant la nau d'aquesta nova generació que heretarà la voluntat de Roger. <br><br><b>Missió:</b> Agrupa els pirates segons l'ID del seu vaixell. Quin és l'<b>ID del vaixell</b> (<code>idShip</code>) on la mitjana d'edat de la seva tripulació és exactament de <b>21 anys</b>?</p>",
           "solucio": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
           "titol": "La Tripulació Promesa"
         },
         "level5": {
-          "contingut": "Al Nou Món, les cicatrius són medalles de supervivència. En Zoro vol mesurar el nivell dels enemics analitzant les marques de guerra de la base de dades. Agrupa els pirates a la taula <b>pirates</b> segons el seu nombre de cicatrius (<b>numberOfScars</b>). Quin és el nombre exacte de cicatrius que tenen en comú JUSTAMENT 5 pirates? (Pista: usa <code>HAVING COUNT(*) = 5</code>).",
+          "contingut": "<p>Al Nou Món, les cicatrius són medalles de supervivència. En <b>Zoro</b> vol mesurar el nivell dels enemics analitzant les marques de guerra de la base de dades per decidir qui mereix un duel.<br><br><b>Missió:</b> Agrupa els pirates pel seu nombre de cicatrius. Quin és el número exacte de cicatrius que tenen en comú <b>exactament 3 pirates</b>?</p>",
           "solucio": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
           "titol": "Marques de Batalla"
         },
         "level6": {
-          "contingut": "Ho hem aconseguit! Però en Sanji ha interceptat un missatge de la Marina xifrat: tenen presoner en Portgas D. Ace. No ens diu el nom de l'illa, però ens dona aquestes coordenades amagades per buscar a la taula <b>islands</b>:<br><br>Filtra les illes que tenen una superfície superior a 500 i una població de més de 5000 habitants (fes servir <code>WHERE</code> amb <code>AND</code>). Ordena-les pel seu nombre de platges de gran a petit (<code>ORDER BY numberOfBeaches DESC</code>) i queda't només amb el nom de la primera de la llista (fes servir <code>LIMIT 1</code>). <br><br> Quina és la coordenada exacta (Lletra i Número) d'aquesta illa per traçar el rumb de rescat?",
+          "contingut": "<p>En <b>Sanji</b> ha interceptat un missatge xifrat: la Marina té presoner en <b>Portgas D. Ace</b>! El <i>Log Pose</i> s'ha de carregar amb les coordenades de l'illa de rescat.<br><br><b>Missió:</b> Filtra les illes amb superfície > 500 i població > 5000. Ordena-les per nombre de platges (descendent) i queda't amb el nom de la primera. <br><br><i>\"Quines són les coordenades (Lletra i Número) d'aquesta illa de destinació?\"</i></p>",
           "solucio": "449777124b1466a8ed667d0dd4c0620993f59e20fb27b3fa8894e957f8762353",
           "titol": "El Rumb del Log Pose"
         }

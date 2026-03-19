@@ -41,7 +41,7 @@
     border: 2px solid #ffd700; /* Un marc d'or per a tota la barra */
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); /* Una resplendor daurada suau (opcional) */
     overflow: visible !important; /* Molt important perquè les icones i tooltips puguin sortir de la barra */
-    margin-bottom: 40px; /* Donem una mica de marge a sota per si de cas */
+    margin-bottom: 15px; /* Donem una mica de marge a sota per si de cas */
 }
 .progress-bar-fill { 
     height: 100%; 
@@ -421,8 +421,7 @@
     padding: 10px 20px;
     border-radius: 8px;
     border: 1px solid #553a1f; /* Vora fosca tipus fusta */
-    width: max-content; /* S'ajusta a la mida del text */
-    max-width: 100%;
+    max-width: 75%;
 }
 
 /* El text "Rang Actual:" */
@@ -449,7 +448,7 @@
    ========================================= */
 .foto-passaport {
     position: absolute;
-    top: 35px;
+    top: 15px;
     right: 40px;
     width: 90px;
     height: 90px;
@@ -481,7 +480,7 @@
 }
 
 /* Adaptació per a tauletes i mòbils */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .foto-passaport {
         position: static; 
         display: block;
