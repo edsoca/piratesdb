@@ -83,11 +83,11 @@ Tota la informació de les aventures està emmagatzemada a **Firebase Realtime D
 
 | nivell | consulta SQL | solució |
 | --- | --- | --- |
-| Nivell 1 | `SELECT numberOfScars FROM pirates WHERE name = 'Carla The Sword Master';` | *[num_cicatrius]* |
-| Nivell 2 | `SELECT weight FROM ships WHERE name = 'The Sea Monkey';` | *[pes_vaixell]* |
-| Nivell 3 | `SELECT numberOfCanons FROM ships WHERE name = 'LeChucks Demon Ship';` | *[num_canons]* |
+| Nivell 1 | `SELECT numberOfScars FROM pirates WHERE name = 'Carla The Sword Master';` | 3 |
+| Nivell 2 | `SELECT weight FROM ships WHERE name = 'The Sea Monkey';` | 80 |
+| Nivell 3 | `SELECT numberOfCanons FROM ships WHERE name = 'LeChucks Demon Ship';` | 100 |
 | Nivell 4 | `SELECT pw.amount FROM pirates p JOIN pirates_weapons pw ON p.idPirate = pw.idPirate WHERE p.name = 'Guybrush Threepwood' AND pw.idWeapon = 16;` | 10 |
-| Nivell 5 | `SELECT weight FROM pirates WHERE name = 'Murray the Skull';` | *[pes_murray]* |
+| Nivell 5 | `SELECT weight FROM pirates WHERE name = 'Murray the Skull';` | 2.0 |
 | Nivell 6 | `SELECT w.scope FROM pirates p JOIN pirates_weapons pw ON p.idPirate = pw.idPirate JOIN weapons w ON pw.idWeapon = w.idWeapon WHERE p.name = 'Zombie LeChuck' AND w.type = 'Màgia';` | 50 |
 | Nivell 7 | `SELECT CONCAT((SELECT SUBSTRING(name, 1, 1) FROM treasures WHERE goldCoins = 10000), (SELECT numberOfBeaches FROM islands WHERE name = 'Tortuga'));` | B4 |
 
