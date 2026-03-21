@@ -489,3 +489,64 @@
         height: 100px;
     }
 }
+
+/* =========================================
+   BOTÓ DE LOGOUT (SEGELL DE CERA)
+   ========================================= */
+.btn-logout-pirata {
+    position: absolute;
+    top: -20px;  /* Sobrepassa la cantonada per dalt */
+    left: -25px; /* Sobrepassa la cantonada per l'esquerra */
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999; /* Blindat perquè quedi per sobre de la fusta del passaport */
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.btn-logout-pirata:hover {
+    transform: scale(1.05); /* Efecte de batec en passar-hi el ratolí */
+}
+
+/* El segell de cera rodó */
+.btn-logout-pirata .lacre {
+    width: 55px;
+    height: 55px;
+    background: radial-gradient(circle, #8b0000 30%, #4a0000 100%); /* Efecte de cera fosca */
+    border-radius: 50%;
+    color: #ffd700;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.8), inset 2px 2px 5px rgba(255,255,255,0.2);
+    border: 2px solid #3a0000;
+}
+
+/* =========================================
+   TEXT DE SORTIDA AMAGAT PER DEFECTE
+   ========================================= */
+.btn-logout-pirata .text-sortida {
+    font-family: 'Pirata One', cursive;
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-left: 15px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+    letter-spacing: 1px;
+    
+    /* MÀGIA AQUÍ: Ho amaguem per defecte */
+    opacity: 0;
+    max-width: 0; /* Ocupa 0 espai */
+    overflow: hidden;
+    white-space: nowrap; /* Evita que el text salti de línia */
+    transition: all 0.4s ease; /* Efecte de lliscament suau */
+}
+
+/* QUAN PASSEM EL RATOLÍ PER SOBRE DEL BOTÓ SENCER */
+.btn-logout-pirata:hover .text-sortida {
+    opacity: 1;
+    max-width: 300px; /* Donem espai perquè es desplegui */
+}

@@ -24,11 +24,20 @@ const db = firebase.database(); // Inicialitzem db globalment
 // =========================================
 firebase.auth().onAuthStateChanged((user) => {
     const contenidor = document.getElementById('modalAssoliments');
+    const btnLogout = document.getElementById('btn-logout'); // ⬅️ Busquem el botó
     
     if (user) {
+        // Mostrem el botó si està loguejat
+        if (btnLogout) btnLogout.style.display = 'flex';
+
+        // Aquí continua el teu codi normal...
+        console.log("Grumet detectat:", user.uid);
         // --- TENIM USUARI: Dibuixem el passaport amb les seves dades ---
         dibuixarPassaport(user);
     } else {
+        if (btnLogout) btnLogout.style.display = 'none';
+
+        console.log("Cap pirata loguejat. Mostrant avís...");
         // --- NO HI HA USUARI: Mostrem missatge per iniciar sessió ---
         contenidor.innerHTML = `
             <h2>ATUREU-VOS, GRUMET!</h2>
@@ -209,3 +218,20 @@ async function dibuixarPassaport(user) {
         document.getElementById('modalAssoliments').innerHTML = `<p style="color:red; text-align:center;">Un pop gegant ha destruït el teu passaport.</p>`;
     }
 }
+
+// =========================================
+// ACCIÓ DEL BOTÓ LOGOUT
+// =========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const btnLogout = document.getElementById('btn-logout');
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            // Tanca la sessió a Firebase i torna a la pantalla principal
+            firebase.auth().signOut().then(() => {
+                window.location.href = 'assoliments.html'; 
+            }).catch((error) => {
+                console.error("Error al desembarcar:", error);
+            });
+        });
+    }
+});
