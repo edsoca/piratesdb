@@ -89,7 +89,7 @@ Tota la informació de les aventures està emmagatzemada a **Firebase Realtime D
 | Nivell 4 | `SELECT power FROM weapons WHERE name = 'Insults (Lluita d''Espases)';` | 100 |
 | Nivell 5 | `SELECT weight FROM pirates WHERE name = 'Murray the Skull';` | 2.0 |
 | Nivell 6 | `SELECT scope FROM weapons WHERE type = 'Màgia' AND power > 90;` | 50 |
-| Nivell 7 | `SELECT CONCAT((SELECT SUBSTRING(name, 1, 1) FROM treasures WHERE goldCoins = 10000), (SELECT numberOfBeaches FROM islands WHERE name = 'Tortuga'));` | B4 |
+| Nivell 7 | `SELECT CONCAT((SELECT SUBSTRING(name, 1, 1) FROM treasures WHERE goldCoins = 10000), (SELECT numberOfBeaches FROM islands WHERE name = 'Tortuga'));` | Monkey Island |
 
 **🏴‍☠️ 2. La Maledicció de la Perla Negra (`malediccio-perla-negra`)**
 
