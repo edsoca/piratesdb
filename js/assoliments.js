@@ -87,7 +87,7 @@ async function dibuixarPassaport(user) {
         const total = llistaAssoliments.length;
 
         llistaAssoliments.forEach(assoliment => {
-            if (assolimentsUsuari[assoliment.id] === true) {
+            if (assolimentsUsuari[assoliment.id] === true || assolimentsUsuari[assoliment.id] === "true") {
                 aconseguits++;
             }
         });

@@ -79,6 +79,15 @@
       "ordre": 6
     }
   },
+  "hallOfFame": {
+    "illa-del-mico": {
+      "-OoH870mYDc1iN8seyoM": {
+        "data": 1774125875348,
+        "nom": "EDUARD SORITA CALATAYUD",
+        "segons_gastats": 519
+      }
+    }
+  },
   "reptes": {
     "diari_sang": {
       "levels": {
@@ -190,8 +199,8 @@
           "titol": "La Màgia de LeChuck"
         },
         "level7": {
-          "contingut": "Ja gairebé hi som! Però aquest últim enigma és més complicat, ja que necessites per un costat la primera lletra del tresor que té exactament 10000 monedes d'or i per un altre costat el número de platges de l'illa <b>'Tortuga'</b>. Amb aquestes dades, quina és la coordenada de l'illa que podem extreure al nostre mapa?",
-          "solucio": "486bacc5c2d8a71a73d51bf8e522deaa264ec2628dca2955da1e9b8e00f21943",
+          "contingut": "Ja gairebé hi som! Però aquest últim enigma és més complicat, ja que necessites per un costat la primera lletra del tresor que té exactament 10000 monedes d'or i per un altre costat el número de platges de l'illa <b>'Tortuga'</b>. Amb aquestes dades, quina és l'illa que té aquestes coordenades?",
+          "solucio": "9e3022d8da2bea9b9d23e3c9d5cd12b01f3c249e0069e0ed8bead0e9b3fd3f03",
           "titol": "La Gran X"
         }
       },
@@ -517,6 +526,22 @@
       },
       "tempsFinal": 1200,
       "titol_repte": "Simbad i el Llibre de la Pau"
+    }
+  },
+  "usuaris": {
+    "hwOnio8mCjOYUzQCX3oEAuEEJXI2": {
+      "assoliments": {
+        "illa-del-mico": true
+      },
+      "reptes_actius": {
+        "illa-del-mico": {
+          "level": 8,
+          "nick": "EDUARD SORITA CALATAYUD",
+          "temps_segons": 1281,
+          "ultima_connexio": 1774125875347,
+          "vides": 7
+        }
+      }
     }
   }
 }
