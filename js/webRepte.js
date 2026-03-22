@@ -15,6 +15,7 @@ window.tancarSessioJoc = function() {
     firebase.auth().signOut().then(() => {
         // Redirigim a la pàgina neta sense el ?repte=...
         window.location.href = window.location.pathname;
+        carregantDades  = false; // Reiniciem la variable per permetre carregar un altre repte si es vol
     });
 };
 
@@ -70,6 +71,7 @@ let jocActiu = false;
 let vides = 7;
 let idRepteActiu = "";
 let tempsInicialRepte = 0;
+let carregantDades = false;
 
 $(document).ready(function() {
 
@@ -186,9 +188,11 @@ $(document).ready(function() {
     }
 
     function carregarDadesRepte() {
-        const user = firebase.auth().currentUser;
-        if (!user) return;
+        // 🔒 CADENAT: Si ja estàvem carregant o el joc ja està actiu, no facis res!
+        if (carregantDades || jocActiu) return; 
+        carregantDades = true; // Tanquem la porta
 
+        const user = firebase.auth().currentUser;
         db.ref('reptes/' + idRepteActiu).once('value', (snapshot) => {
             const dadesRepte = snapshot.val();
             if (!dadesRepte) return;
@@ -205,10 +209,19 @@ $(document).ready(function() {
                     vides = (progres.vides !== undefined) ? progres.vides : 7;
                     tempsRestant = parseInt(progres.temps_segons);
                     console.log(`Reprenent partida de ${progres.nick}: Nivell ${nivellActual}, Vides ${vides}, Segons ${tempsRestant}`);
+                    
+                    // SEGURETAT: Recuperem el nom si es va perdre per algun error antic
+                    if (!progres.nick && user.displayName) {
+                        jocActiu = true;
+                        sincronitzarAmbFirebase();
+                    }
                 } else {
                     nivellActual = 1;
                     vides = 7;
                     tempsRestant = parseInt(dadesRepte.tempsFinal) || 600; 
+                    
+                    // ⚓ MÀGIA AQUÍ: Activem el joc ABANS de sincronitzar
+                    jocActiu = true; 
                     sincronitzarAmbFirebase();
                 }
 
@@ -218,6 +231,7 @@ $(document).ready(function() {
                 $('#pantalla-login').fadeOut();
                 $('#joc').removeClass('ocult');
                 
+                // Ens assegurem que el joc estigui actiu per a tothom
                 jocActiu = true;
 
                 if(nivellActual > totalNivells){
@@ -241,7 +255,7 @@ $(document).ready(function() {
                 level: nivellActual,
                 vides: vides,
                 temps_segons: tempsRestant,
-                nick: user.displayName, 
+                nick: user.displayName || "Grumet Desconegut",
                 ultima_connexio: firebase.database.ServerValue.TIMESTAMP
             });
         }
